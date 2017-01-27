@@ -1,0 +1,188 @@
+/* --------- import ---------- */
+/* ------- Variables --------- */
+/* ---------- Colors ---------- */
+/* ---------- Fonts ----------- */
+/* -------- widths and heights --------- */
+/* -------- Hamburger menu ---------- */
+/* ---------- mixins ---------- */
+/* --------- Header ----------- */
+header {
+  position: relative;
+  background: #433A3A;
+  color: #fff;
+  min-height: 63px;
+  z-index: 50;
+  text-align: center; }
+  header h1 {
+    font-size: 2.7em;
+    width: 180px;
+    left: 50%;
+    margin-left: -90px;
+    position: relative; }
+  header nav {
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+    /* ------- Hamburger Menu ------- */ }
+    header nav #hamburger {
+      display: none; }
+      header nav #hamburger:checked ~ #menu {
+        height: auto; }
+      header nav #hamburger:checked ~ .menuicon span {
+        background-color: transparent; }
+        header nav #hamburger:checked ~ .menuicon span::before, header nav #hamburger:checked ~ .menuicon span::after {
+          margin-top: 0px;
+          -webkit-transition-delay: 0, 0.1s;
+          -moz-transition-delay: 0, 0.1s;
+          -ms-transition-delay: 0, 0.1s;
+          -o-transition-delay: 0, 0.1s;
+          transition-delay: 0, 0.1s; }
+        header nav #hamburger:checked ~ .menuicon span::before {
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          transform: rotate(45deg); }
+        header nav #hamburger:checked ~ .menuicon span::after {
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
+    header nav #menu {
+      padding-left: 0;
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      background-color: #433A3A;
+      height: 0;
+      position: absolute;
+      -webkit-transition-duration: 0.1s;
+      -moz-transition-duration: 0.1s;
+      -ms-transition-duration: 0.1s;
+      -o-transition-duration: 0.1s;
+      transition-duration: 0.1s;
+      -webkit-transition-delay: 0.1s;
+      -moz-transition-delay: 0.1s;
+      -ms-transition-delay: 0.1s;
+      -o-transition-delay: 0.1s;
+      transition-delay: 0.1s; }
+      header nav #menu #username {
+        background: #F0EFE9; }
+      header nav #menu #accordion input {
+        display: none; }
+        header nav #menu #accordion input:checked + label {
+          background: #665454;
+          color: white; }
+        header nav #menu #accordion input:checked ~ label::before {
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          transform: rotate(90deg); }
+        header nav #menu #accordion input:checked ~ article {
+          background: #352E2E;
+          height: auto;
+          margin-bottom: .125em; }
+      header nav #menu #accordion label {
+        display: block;
+        z-index: 20;
+        -webkit-transition-duration: 0.2s;
+        -moz-transition-duration: 0.2s;
+        -ms-transition-duration: 0.2s;
+        -o-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        -webkit-transition-delay: 0;
+        -moz-transition-delay: 0;
+        -ms-transition-delay: 0;
+        -o-transition-delay: 0;
+        transition-delay: 0; }
+        header nav #menu #accordion label::before {
+          content: "\25B7";
+          position: absolute;
+          display: inline-block;
+          margin-left: -25px; }
+      header nav #menu #accordion article {
+        background: #fff;
+        height: 0px;
+        overflow: hidden;
+        z-index: 10; }
+        header nav #menu #accordion article ul {
+          padding: 1em; }
+          header nav #menu #accordion article ul li {
+            list-style: decimal; }
+    header nav .menuicon {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      display: block;
+      cursor: pointer;
+      height: 21px;
+      width: 25px;
+      z-index: 100; }
+      header nav .menuicon span {
+        display: block;
+        top: 8px;
+        width: 25px;
+        height: 5px;
+        background-color: #fff;
+        position: relative;
+        -webkit-transition-duration: 0.1s;
+        -moz-transition-duration: 0.1s;
+        -ms-transition-duration: 0.1s;
+        -o-transition-duration: 0.1s;
+        transition-duration: 0.1s;
+        -webkit-transition-delay: 0s;
+        -moz-transition-delay: 0s;
+        -ms-transition-delay: 0s;
+        -o-transition-delay: 0s;
+        transition-delay: 0s; }
+        header nav .menuicon span::before, header nav .menuicon span::after {
+          display: block;
+          content: "";
+          position: absolute;
+          width: 25px;
+          height: 5px;
+          background-color: #fff;
+          -webkit-transition-property: margin, -webkit-transform;
+          -webkit-transition-duration: 0.1s;
+          -moz-transition-duration: 0.1s;
+          -ms-transition-duration: 0.1s;
+          -o-transition-duration: 0.1s;
+          transition-duration: 0.1s;
+          -webkit-transition-delay: 0.1s, 0;
+          -moz-transition-delay: 0.1s, 0;
+          -ms-transition-delay: 0.1s, 0;
+          -o-transition-delay: 0.1s, 0;
+          transition-delay: 0.1s, 0; }
+        header nav .menuicon span::before {
+          margin-top: -8px; }
+        header nav .menuicon span::after {
+          margin-top: 8px; }
+
+nav a li, section label {
+  margin: 3px 0 1px 0;
+  background-color: #534545;
+  padding: 10px;
+  color: #FFF; }
+
+.search {
+  position: absolute;
+  width: 150px;
+  height: 25px;
+  padding: 3px 20px 3px 10px;
+  right: 70px;
+  font-size: 1.1em;
+  border: none;
+  top: 15px;
+  color: #000; }
+
+#submit {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  height: 25px;
+  padding: 3px 10px;
+  border-radius: 0;
+  border: none; }

@@ -1,0 +1,52 @@
+/* ------- Variables --------- */
+/* ---------- Colors ---------- */
+	$secondary-color: #433A3A;
+	$sec-comp-color: #352E2E;
+	$sec-highlight: #665454;
+	$primary-color: #F0EFE9;
+	$third-color: #D1481B;
+
+	/* ---------- Fonts ----------- */
+	$font-stack: Avenir, Helvetica, sans-serif;
+	$font-weight: lighter;
+
+	/* -------- widths and heights --------- */
+	$full-page-width: 100%;
+	$nearly-full-width: 80%; 
+	$img-size-width: 100px;
+	$img-size-height: 133px;
+
+	/* -------- Hamburger menu ---------- */
+	$lineWidth: 5px;
+	$lineLength: 25px;
+	$baseMargin: 8px;
+	$animationLong: .3s;
+	$animationShort: .1s;
+	$animationNone: 0s;
+
+	
+	/* ---------- mixins ---------- */
+
+	@mixin transDur($time) {
+		-webkit-transition-duration: $time;
+		-moz-transition-duration: $time;
+		-ms-transition-duration: $time;
+		-o-transition-duration:$time;
+		transition-duration: $time;
+	}
+
+	@mixin transDel($time...){
+		-webkit-transition-delay: $time;
+		-moz-transition-delay: $time;
+		-ms-transition-delay: $time;
+		-o-transition-delay: $time;
+		transition-delay: $time;
+	}
+
+	@mixin transfrm($deg) {
+		-webkit-transform: rotate($deg);
+		-moz-transform: rotate($deg);
+		-ms-transform: rotate($deg);
+		-o-transform: rotate($deg);
+		transform: rotate($deg);
+	}

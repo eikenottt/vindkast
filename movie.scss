@@ -1,0 +1,25 @@
+/* Scss Document */
+@import "variables";
+
+	#information {
+		span {
+			color: $third-color;
+		}
+	}
+
+#pictures {
+		background: transparent;
+		#frame {
+			width: 125.5%;
+			position: relative;
+			left: -13%;
+			top: -20px;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
+		}
+	}
+.extra {
+	display: block;
+}

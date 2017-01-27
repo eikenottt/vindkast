@@ -1,0 +1,23 @@
+/* Scss Document */
+/* ------- Variables --------- */
+/* ---------- Colors ---------- */
+/* ---------- Fonts ----------- */
+/* -------- widths and heights --------- */
+/* -------- Hamburger menu ---------- */
+/* ---------- mixins ---------- */
+#information span {
+  color: #D1481B; }
+
+#pictures {
+  background: transparent; }
+  #pictures #frame {
+    width: 125.5%;
+    position: relative;
+    left: -13%;
+    top: -20px;
+    overflow: hidden; }
+    #pictures #frame img {
+      width: 100%; }
+
+.extra {
+  display: block; }
