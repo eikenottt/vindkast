@@ -7,7 +7,6 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="header.css">
 		<link rel="stylesheet" type="text/css" href="movie.css">
-		<link rel="stylesheet" type="text/css" href="media.css">
 		
 	</head>
 
@@ -32,38 +31,30 @@
 			</label>
 			<ul id="menu">
 
-				<a href="#" class="menuItem" id="username"><li>Brukernavn</li></a>
-				<a href="index.html" class="menuItem"><li>Forside</li></a>
+				<a href="#" class="menuItem" id="username">Velkommen rei008</a>
+				<a href="index.html" class="menuItem">Forside</a>
 
 				<!-- Åpne og lukke meny (accordion) -->
-				<section id="accordion" >
-					<!-- Lånte filmer -->
-					<div class="menuItem">
+				<li class="accordion menuItem" >
 						<input type="checkbox" id="check-1" />
 						<label for="check-1">Mine Filmer</label>
 						<article>
-							<ul>
-								<a href="theintouchables.html"><li>The Intouchables</li></a>
-								<a href="lunch.html"><li>The Lunchbox</li></a>
-							</ul>
+								<a href="theintouchables.html">The Intouchables</a>
+								<a href="lunch.html">The Lunchbox</a>
 						</article>
-					</div>
-
+				</li>
+				<li class="accordion menuItem">
 					<!-- Ønskede filmer -->
-					<div class="menuItem">
 						<input type="checkbox" id="check-2" />
 						<label for="check-2">Ønskeliste</label>
 						<article>
-							<ul>
-								<a href="theintouchables.html"><li>The Intouchables</li></a>
-								<a href="lunch.html"><li>The Lunchbox</li></a>
-							</ul>
+								<a href="theintouchables.html">The Intouchables</a>
+								<a href="lunch.html">The Lunchbox</a>
 						</article>
-					</div>
-				</section> <!-- Slutt på accordion -->
+				</li> <!-- Slutt på accordion -->
 
 				<!-- Logg ut -->
-				<a href="#" class="menuItem"><li>Logg ut</li></a>
+				<a href="#" class="menuItem">Logg ut</a>
 			</ul> <!-- Slutt på Hamburger menyen -->
 		</nav>
 	</header>
@@ -73,28 +64,32 @@
 			<section id="rutine">
 				<label for="sidebox" class="sidebox-label">Rutiner</label>
 				<h2>Rutine for lån</h2>
-				<p>Bla Bla Bla</p>
+				<p>Husk lånekort</p>
 			</section>
 			<section id="information">
-				<h1>The Intouchables</h1>
-				<h3>Norsk tittel: Urørlige, De</h3>
-				<p>Genre: drama, biografi, komedie</p>
-				<p>FRA 2011 (112 minutter)</p>
-				<p><span>Regissører: </span>Olivier Nakache / Eric Toledano</p>
-				<p><span>Hovedpersoner: </span>Alba Gaïa Kraghede Bellugi, Anne Le Ny, Audrey Fleurot, Clotilde Mollet, Francois Cluzet, Omar Sy</p>
-				<span>Ekstramateriale:</span>
-				<ul class="extra">
-					<li>Making Of</li>
-					<li>Deleted Scenes</li>
-				</ul>
+				<div class="text-wrap">
+					<h1>The Intouchables</h1>
+					<h3>Norsk tittel: Urørlige, De</h3>
+					<p>Genre: drama, biografi, komedie</p>
+					<p>FRA 2011 (112 minutter)</p>
+					<p><span>Regissører: </span>Olivier Nakache / Eric Toledano</p>
+					<p><span>Hovedpersoner: </span>Alba Gaïa Kraghede Bellugi, Anne Le Ny, Audrey Fleurot, Clotilde Mollet, Francois Cluzet, Omar Sy</p>
+					<span>Ekstramateriale:</span>
+					<ul class="extra">
+						<li>Making Of</li>
+						<li>Deleted Scenes</li>
+					</ul>
+				</div>
+				<div class="video-container">
+					<iframe class="trailer" src="https://www.youtube-nocookie.com/embed/34WIbmXkewU" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</section>
 			
 			<section id="pictures">
 				<div id="frame">
-					<img src="Cover/Film1/The_Intouchables_1.jpg" alt="The Intouchables">
-					<img src="Cover/Film1/The_Intouchables_2.jpg" alt="The Intouchables">
-					<img src="Cover/Film1/The_intouchables_4.jpg" alt="The Intouchables">
-					<img src="Cover/Film1/The_Intouchables_5.jpg" alt="The Intouchables">
+					<img id="theIntouchablesPicture1" src="Cover/Film1/The_Intouchables_1.jpg" alt="The Intouchables">
+					<img id="theIntouchablesPicture2" src="Cover/Film1/The_intouchables_4.jpg" alt="The Intouchables">
+					<img id="theIntouchablesPicture3" src="Cover/Film1/The_Intouchables_5.jpg" alt="The Intouchables">
 				</div>
 			</section>
 			
@@ -146,4 +141,5 @@
 		</footer>
 		
 	</body>
+	<link rel="stylesheet" type="text/css" href="media.css">
 </html>

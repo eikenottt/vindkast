@@ -52,22 +52,28 @@ header {
 		#menu {
 			padding-left: 0;
 			width: 100%;
-			display: block;
+			@include flexbox();
 			overflow:hidden;
 			background-color: $secondary-color;
 			height: 0;
 			position: absolute;
+			flex-flow: column nowrap;
 			#username {
-				background: $primary-color;
+				background: $secondary-color;
+				color: #fff;
 			}
-			#accordion {
-				
+			.menuItem {
+				background-color: #534545;
+				padding: 10px;
+				color: #FFF;
+				&:hover {
+					background: $primary-color;
+					color: $secondary-color;
+				}
+			}
+			.accordion {
 				input {
 					display: none;
-					&:checked + label {
-						background: $sec-highlight;
-						color: white;
-					}
 					&:checked {	
 						~ label::before {
 							@include transfrm(90deg);
@@ -75,15 +81,19 @@ header {
 						~ article {
 							background: $sec-comp-color;
 							height: auto;
-							margin-bottom: .125em; 
+							margin-bottom: .125em;
+							@include flexbox();
+							a:hover {
+								background: $primary-color;
+								color: $secondary-color;
+							}
 						}
 					}
 				}
 				label {
+					cursor: pointer;
 					display: block;
 					z-index: 20;
-					@include transDur(0.2s);
-					@include transDel(0);
 					&::before {
 						content:"\25B7";
 						position: absolute;
@@ -93,19 +103,16 @@ header {
 				}
 				article {
 					background: #fff;
-					height: 0;
+					display: none;
 					overflow: hidden;
 					z-index: 10;
-					ul {
-						padding: 1em;
-						li {
-							list-style: decimal;
-						}
+					flex-flow: column;
+					padding: 10px;
+					a {
+						padding: 10px;
 					}
 				}
 			}
-			@include transDur($animationShort);
-			@include transDel($animationShort);
 		}
 		.menuicon {
 			position: absolute;
@@ -147,13 +154,6 @@ header {
 	}
 }
 
-nav a li, section label {
-	margin: 3px 0 1px 0;
-	background-color: #534545;
-	padding: 10px;
-	color: #FFF;
-}
-
 .search {
 	position: absolute;
 	width: 150px;
@@ -175,3 +175,5 @@ nav a li, section label {
 	border-radius: 0;
 	border: none;
 }
+
+//@import "media";

@@ -1,21 +1,68 @@
 /* Scss Document */
 
-@media only screen and (max-width:650px) {
-	.search {
-		position: relative ;
-		width: 87%;
-		text-align: center;
-		display: inline-block ;
-		top: 0 ;
-		right: 0;
-		padding: 0;
+@media screen {
+	@media (max-width:650px) {
+		.search {
+			position: relative;
+			width: 87%;
+			text-align: center;
+			display: inline-block ;
+			top: 0 ;
+			right: 0;
+			padding: 0;
+		}
+		#submit {
+			position: relative;
+			top: -3px;
+			display: inline-block;
+			right: 0;
+			width: 10%;
+			padding: 0;
+		}
 	}
-	#submit {
-		position: relative;
-		top: -3px;
-		display: inline-block;
-		right: 0;
-		width: 10%;
-		padding: 0;
+	@media (min-width: 1160px) {
+		.menuicon {
+			display: none !important;
+		}
+		#menu {
+			height: auto !important;
+			position: relative !important;
+			overflow: visible !important;
+			width: 600px !important;
+			flex-flow: row nowrap !important;
+			margin: auto;
+			#username {
+				order: 5;
+			}
+			.menuItem {
+				display: inline-block;
+			}
+			.accordion {
+				padding: 0 !important;
+				position: relative !important;
+				margin:0 !important;
+				min-width: 150px !important;
+				max-width: 150px !important;
+				label {
+					padding: 10px 8px 10px 33px;
+				}
+				article {
+					height:0;
+					display: none;
+					position: absolute !important;
+					flex-flow: column !important;
+					padding: 10px !important;
+					min-width: 130px;
+					max-width: 130px;
+					top: 40px;
+					left: 0;
+					a {
+						margin-bottom: 20px;
+					}
+				}
+
+			}
+		}
 	}
 }
+

@@ -32,7 +32,7 @@ header {
       header nav #hamburger:checked ~ .menuicon span {
         background-color: transparent; }
         header nav #hamburger:checked ~ .menuicon span::before, header nav #hamburger:checked ~ .menuicon span::after {
-          margin-top: 0px;
+          margin-top: 0;
           -webkit-transition-delay: 0, 0.1s;
           -moz-transition-delay: 0, 0.1s;
           -ms-transition-delay: 0, 0.1s;
@@ -53,65 +53,60 @@ header {
     header nav #menu {
       padding-left: 0;
       width: 100%;
-      display: block;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
       overflow: hidden;
       background-color: #433A3A;
       height: 0;
       position: absolute;
-      -webkit-transition-duration: 0.1s;
-      -moz-transition-duration: 0.1s;
-      -ms-transition-duration: 0.1s;
-      -o-transition-duration: 0.1s;
-      transition-duration: 0.1s;
-      -webkit-transition-delay: 0.1s;
-      -moz-transition-delay: 0.1s;
-      -ms-transition-delay: 0.1s;
-      -o-transition-delay: 0.1s;
-      transition-delay: 0.1s; }
+      flex-flow: column nowrap; }
       header nav #menu #username {
-        background: #F0EFE9; }
-      header nav #menu #accordion input {
+        background: #433A3A;
+        color: #fff; }
+      header nav #menu .menuItem {
+        background-color: #534545;
+        padding: 10px;
+        color: #FFF; }
+        header nav #menu .menuItem:hover {
+          background: #F0EFE9;
+          color: #433A3A; }
+      header nav #menu .accordion input {
         display: none; }
-        header nav #menu #accordion input:checked + label {
-          background: #665454;
-          color: white; }
-        header nav #menu #accordion input:checked ~ label::before {
+        header nav #menu .accordion input:checked ~ label::before {
           -webkit-transform: rotate(90deg);
           -moz-transform: rotate(90deg);
           -ms-transform: rotate(90deg);
           -o-transform: rotate(90deg);
           transform: rotate(90deg); }
-        header nav #menu #accordion input:checked ~ article {
+        header nav #menu .accordion input:checked ~ article {
           background: #352E2E;
           height: auto;
-          margin-bottom: .125em; }
-      header nav #menu #accordion label {
+          margin-bottom: .125em;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex; }
+          header nav #menu .accordion input:checked ~ article a:hover {
+            background: #F0EFE9;
+            color: #433A3A; }
+      header nav #menu .accordion label {
+        cursor: pointer;
         display: block;
-        z-index: 20;
-        -webkit-transition-duration: 0.2s;
-        -moz-transition-duration: 0.2s;
-        -ms-transition-duration: 0.2s;
-        -o-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-        -webkit-transition-delay: 0;
-        -moz-transition-delay: 0;
-        -ms-transition-delay: 0;
-        -o-transition-delay: 0;
-        transition-delay: 0; }
-        header nav #menu #accordion label::before {
+        z-index: 20; }
+        header nav #menu .accordion label::before {
           content: "\25B7";
           position: absolute;
           display: inline-block;
           margin-left: -25px; }
-      header nav #menu #accordion article {
+      header nav #menu .accordion article {
         background: #fff;
-        height: 0px;
+        display: none;
         overflow: hidden;
-        z-index: 10; }
-        header nav #menu #accordion article ul {
-          padding: 1em; }
-          header nav #menu #accordion article ul li {
-            list-style: decimal; }
+        z-index: 10;
+        flex-flow: column;
+        padding: 10px; }
+        header nav #menu .accordion article a {
+          padding: 10px; }
     header nav .menuicon {
       position: absolute;
       top: 20px;
@@ -161,12 +156,6 @@ header {
         header nav .menuicon span::after {
           margin-top: 8px; }
 
-nav a li, section label {
-  margin: 3px 0 1px 0;
-  background-color: #534545;
-  padding: 10px;
-  color: #FFF; }
-
 .search {
   position: absolute;
   width: 150px;
@@ -186,3 +175,5 @@ nav a li, section label {
   padding: 3px 10px;
   border-radius: 0;
   border: none; }
+
+/*# sourceMappingURL=header.css.map */

@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/> 
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
-	<link rel="stylesheet" type="text/css" href="media.css">
 </head>
 <body>
 	<header>
@@ -28,45 +27,38 @@
 			</label>
 			<ul id="menu">
 
-				<a href="#" class="menuItem" id="username">Brukernavn</a>
-				<a href="index.html" class="menuItem">Forside</a>
+				<a href="#" class="menuItem" id="username"><li>Brukernavn</li></a>
+				<a href="index.html" class="menuItem"><li>Forside</li></a>
 
 				<!-- Åpne og lukke meny (accordion) -->
 				<section id="accordion" >
 					<!-- Lånte filmer -->
 					<div class="menuItem">
-						<input type="checkbox" id="check-1"/>
+						<input type="checkbox" id="check-1" />
 						<label for="check-1">Mine Filmer</label>
 						<article>
 							<ul>
-								<a href="theintouchables.html">
-									The Intouchables
-								</a>
-								<a href="lunch.html">
-									The Lunchbox
-								</a>
-							</ul>
-						</article>
-
-						<input type="checkbox" id="check-2"/>
-						<label for="check-2">Ønskeliste</label>
-						<article>
-							<ul>
-								<a href="theintouchables.html">
-									>The Intouchables
-								</a>
-								<a href="lunch.html">
-									The Lunchbox
-								</a>
+								<a href="theintouchables.html"><li>The Intouchables</li></a>
+								<a href="lunch.html"><li>The Lunchbox</li></a>
 							</ul>
 						</article>
 					</div>
 
-
+					<!-- Ønskede filmer -->
+					<div class="menuItem">
+						<input type="checkbox" id="check-2" />
+						<label for="check-2">Ønskeliste</label>
+						<article>
+							<ul>
+								<a href="theintouchables.html"><li>The Intouchables</li></a>
+								<a href="lunch.html"><li>The Lunchbox</li></a>
+							</ul>
+						</article>
+					</div>
 				</section> <!-- Slutt på accordion -->
 
 				<!-- Logg ut -->
-				<a href="#" class="menuItem">Logg ut</a>
+				<a href="#" class="menuItem"><li>Logg ut</li></a>
 			</ul> <!-- Slutt på Hamburger menyen -->
 		</nav>
 	</header>
@@ -81,10 +73,10 @@
 		<aside>
 			<h2>Nyeste Filmer</h2>
 			<ul>
-				<a href="theintouchables.html">
+				<a href="theintouchables.html"><li>
 					<img src="Cover/The_Intouchables_3.jpg">
 					<span>The Intouchables</span>
-
+					</li>
 					<div class="info">
 						<form action="#">
 							<input type="checkbox" id="info">
@@ -93,10 +85,10 @@
 					</div>
 				</a>
 				<a href="lunch.html">
-
+					<li>
 						<img src="Cover/The_Lunchbox_1.jpg">
 						<span>The Lunchbox</span>
-
+					</li>
 				</a>
 			</ul>
 		</aside>
@@ -104,31 +96,31 @@
 			<h2>Nylig Lånte Filmer</h2>
 			<ul>
 				<a href="lunch.html">
-
+					<li>
 						<img src="Cover/The_Lunchbox_1.jpg">
 						<span>The Lunchbox</span>
-
+					</li>
 				</a>
-				<a href="theintouchables.html">
+				<a href="theintouchables.html"><li>
 					<img src="Cover/The_Intouchables_3.jpg">
 					<span>The Intouchables</span>
-
+					</li>
 				</a>
 			</ul>
 		</section>
 				<section>
 			<h2>Anbefalte Filmer</h2>
 			<ul>
-				<a href="theintouchables.html">
+				<a href="theintouchables.html"><li>
 					<img src="Cover/The_Intouchables_3.jpg">
 					<span>The Intouchables</span>
-
+					</li>
 				</a>
 				<a href="lunch.html">
-
+					<li>
 						<img src="Cover/The_Lunchbox_1.jpg">
 						<span>The Lunchbox</span>
-
+					</li>
 				</a>
 			</ul>
 		</section>
@@ -138,4 +130,5 @@
 		<div>Footer</div>
 	</footer>
 </body>
+<link rel="stylesheet" type="text/css" href="media.css">
 </html>
