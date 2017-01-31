@@ -1,5 +1,5 @@
 /* Scss Document */
-@media only screen and (max-width: 650px) {
+@media screen and (max-width: 650px) {
   .search {
     position: relative;
     width: 87%;
@@ -16,3 +16,40 @@
     right: 0;
     width: 10%;
     padding: 0; } }
+@media screen and (min-width: 1160px) {
+  .menuicon {
+    display: none !important; }
+
+  #menu {
+    height: auto !important;
+    position: relative !important;
+    overflow: visible !important;
+    width: 600px !important;
+    flex-flow: row nowrap !important;
+    margin: auto; }
+    #menu #username {
+      order: 5; }
+    #menu .menuItem {
+      display: inline-block; }
+    #menu .accordion {
+      padding: 0 !important;
+      position: relative !important;
+      margin: 0 !important;
+      min-width: 150px !important;
+      max-width: 150px !important; }
+      #menu .accordion label {
+        padding: 10px 8px 10px 33px; }
+      #menu .accordion article {
+        height: 0;
+        display: none;
+        position: absolute !important;
+        flex-flow: column !important;
+        padding: 10px !important;
+        min-width: 130px;
+        max-width: 130px;
+        top: 40px;
+        left: 0; }
+        #menu .accordion article a {
+          margin-bottom: 20px; } }
+
+/*# sourceMappingURL=media.css.map */

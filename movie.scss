@@ -2,24 +2,78 @@
 @import "variables";
 
 	#information {
+		@include flexbox();
 		span {
 			color: $third-color;
 		}
+		.text-wrap {
+			flex: 2;
+		}
 	}
 
-#pictures {
-		background: transparent;
-		#frame {
-			width: 125.5%;
-			position: relative;
-			left: -13%;
-			top: -20px;
-			overflow: hidden;
-			img {
-				width: 100%;
+	#pictures {
+			background: transparent;
+			#frame {
+				width: $picture-width;
+				position: relative;
+				left: -13%;
+				top: -20px;
+				overflow: hidden;
+				img {
+					width: 100%;
+				}
+			}
+		}
+	.extra {
+		display: block;
+	}
+
+	.video-container {
+		position: relative;
+		width: 100%;
+		max-width: 520px;
+		flex: 1;
+		.trailer {
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+
+
+@media screen {
+	@media (max-width: 1160px) {
+		#information {
+			display: block;
+		}
+
+		.video-container {
+			margin-top: 30px;
+			max-width: none;
+			height: 400px;
+			.trailer {
+				position: relative;
 			}
 		}
 	}
-.extra {
-	display: block;
+
+	@media (min-width: 980px) {
+		#pictures {
+			#frame {
+				@include flexbox();
+				#theIntouchablesPicture1 {
+					flex: 2;
+				}
+				#theIntouchablesPicture2 {
+					flex: 1;
+				}
+				#theIntouchablesPicture3 {
+					flex: 2;
+				}
+			}
+		}
+	}
 }
