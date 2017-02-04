@@ -4,7 +4,10 @@ $secondary-color: #433A3A;
 $sec-comp-color: #352E2E;
 $sec-highlight: #665454;
 $primary-color: #F0EFE9;
-$third-color: #D1481B;
+$third-color: #fff4f3;
+$link-color: #3999AE;
+$link-hover: #D1481B;
+$section-color: #fff;
 
 /* ---------- Fonts ----------- */
 $font-stack: Avenir, Helvetica, sans-serif;
@@ -53,8 +56,23 @@ $animationNone: 0s;
 	transform: rotate($deg);
 }
 
-@mixin flexbox() {
+@mixin displayFlexbox() {
+	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+}
+
+@mixin flex($amount) {
+	-webkit-box-flex: $amount;
+	-webkit-flex: $amount;
+	-ms-flex: $amount;
+	flex: $amount;
+}
+
+@mixin justifyContent() {
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
 }

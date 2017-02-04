@@ -1,15 +1,26 @@
 /* Scss Document */
 @import "variables";
+@import "rating";
 
 	#information {
-		@include flexbox();
+		@include displayFlexbox();
 		span {
-			color: $third-color;
+			color: $link-hover;
 		}
 		.text-wrap {
 			flex: 2;
+			padding: 0.4rem;
+		}
+		a {
+			color: $link-color;
+			width: auto;
+			height: auto;
+			&:hover {
+				color: $link-hover;
+			}
 		}
 	}
+
 
 	#pictures {
 			background: transparent;
@@ -19,8 +30,18 @@
 				left: -13%;
 				top: -20px;
 				overflow: hidden;
+				@include displayFlexbox();
 				img {
 					width: 100%;
+				}
+				#theIntouchablesPicture1 {
+					@include flex(2);
+				}
+				#theIntouchablesPicture2 {
+					@include flex(1);
+				}
+				#theIntouchablesPicture3 {
+					@include flex(2);
 				}
 			}
 		}
@@ -32,7 +53,7 @@
 		position: relative;
 		width: 100%;
 		max-width: 520px;
-		flex: 1;
+		@include flex(1);
 		.trailer {
 			position: absolute;
 			right: 0;
@@ -45,35 +66,5 @@
 
 
 @media screen {
-	@media (max-width: 1160px) {
-		#information {
-			display: block;
-		}
 
-		.video-container {
-			margin-top: 30px;
-			max-width: none;
-			height: 400px;
-			.trailer {
-				position: relative;
-			}
-		}
-	}
-
-	@media (min-width: 980px) {
-		#pictures {
-			#frame {
-				@include flexbox();
-				#theIntouchablesPicture1 {
-					flex: 2;
-				}
-				#theIntouchablesPicture2 {
-					flex: 1;
-				}
-				#theIntouchablesPicture3 {
-					flex: 2;
-				}
-			}
-		}
-	}
 }

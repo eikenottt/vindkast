@@ -5,14 +5,51 @@
 /* -------- widths and heights --------- */
 /* -------- Hamburger menu ---------- */
 /* ---------- mixins ---------- */
+.rating {
+  overflow: hidden;
+  display: inline-block;
+  position: relative; }
+
+.rating-input {
+  display: none;
+  float: right;
+  width: 14px;
+  height: 46px;
+  padding: 0;
+  margin: 0 0 0 0;
+  opacity: 0; }
+
+.rating .rating-star, .rating:hover .rating-star {
+  position: relative;
+  float: right;
+  display: block;
+  width: 14px;
+  height: 46px;
+  background: url("Cover/rating/Asset 3.svg") -42px 0;
+  background-size: 28px; }
+  .rating .rating-star:hover, .rating:hover .rating-star:hover {
+    background-position: 0 0; }
+    .rating .rating-star:hover ~ .rating-star, .rating:hover .rating-star:hover ~ .rating-star {
+      background-position: 0 0; }
+.rating .rating-input:checked ~ .rating-star {
+  background-position: 0 0; }
+
 #information {
+  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
   #information span {
     color: #D1481B; }
   #information .text-wrap {
-    flex: 2; }
+    flex: 2;
+    padding: 0.4rem; }
+  #information a {
+    color: #3999AE;
+    width: auto;
+    height: auto; }
+    #information a:hover {
+      color: #D1481B; }
 
 #pictures {
   background: transparent; }
@@ -21,9 +58,28 @@
     position: relative;
     left: -13%;
     top: -20px;
-    overflow: hidden; }
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
     #pictures #frame img {
       width: 100%; }
+    #pictures #frame #theIntouchablesPicture1 {
+      -webkit-box-flex: 2;
+      -webkit-flex: 2;
+      -ms-flex: 2;
+      flex: 2; }
+    #pictures #frame #theIntouchablesPicture2 {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+    #pictures #frame #theIntouchablesPicture3 {
+      -webkit-box-flex: 2;
+      -webkit-flex: 2;
+      -ms-flex: 2;
+      flex: 2; }
 
 .extra {
   display: block; }
@@ -32,6 +88,9 @@
   position: relative;
   width: 100%;
   max-width: 520px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
   flex: 1; }
   .video-container .trailer {
     position: absolute;
@@ -39,27 +98,5 @@
     top: 0;
     width: 100%;
     height: 100%; }
-
-@media screen and (max-width: 1160px) {
-  #information {
-    display: block; }
-
-  .video-container {
-    margin-top: 30px;
-    max-width: none;
-    height: 400px; }
-    .video-container .trailer {
-      position: relative; } }
-@media screen and (min-width: 980px) {
-  #pictures #frame {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-    #pictures #frame #theIntouchablesPicture1 {
-      flex: 2; }
-    #pictures #frame #theIntouchablesPicture2 {
-      flex: 1; }
-    #pictures #frame #theIntouchablesPicture3 {
-      flex: 2; } }
 
 /*# sourceMappingURL=movie.css.map */

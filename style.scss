@@ -12,6 +12,7 @@
 body {
 	background: $primary-color;
 	width: $full-page-width;
+	min-width: 320px;
 }
 
 h1 {
@@ -20,12 +21,15 @@ h1 {
 }
 
 a {
-	color: #fff;
+	color: $link-color;
 	text-decoration: none;
+	&:hover {
+		color: $link-hover;
+	}
 }
 
 a:visited {
-	color: #fff;
+	color: $link-color;
 }
 
 p {
@@ -48,23 +52,25 @@ main {
 	margin: auto;
 	#sidebox {
 		display: none;
-		&:checked ~ #rutine {
+		&:checked ~ #routine {
 			right: 0;
 			> .sidebox-label {
-				color: #000;
-				background: #fff;
+				color: $link-hover;
+				background: $section-color;
 				&:hover {
-					background: $sec-highlight;
-					color: #fff;
+					background: $third-color;
+					color: $link-hover;
+					cursor: pointer;
 				}
 			}
 		}
 	}
-	#rutine {
+	#routine {
 		position: fixed;
 		width: 220px;
 		right: -270px;
-		z-index: 3;
+		top:10px;
+		z-index: 50;
 		border: 1px solid #433a3a;
 		border-bottom: 2px solid #433a3a;
 		background: $primary-color;
@@ -75,15 +81,17 @@ main {
 			right: 112px;
 			width: 40px;
 			text-align: center;
-			background: $secondary-color;
-			color: white;
+			background: $section-color;
+			color: $link-color;
 			padding: 20px;
 			border: 1px solid #433a3a;
 			border-bottom: 2px solid #433a3a;
 			box-shadow: 2px 5px 4px #ccc;
 			@include transDur($animationShort);
 			&:hover {
-				background: $sec-highlight;
+				background: $third-color;
+				color: $link-hover;
+				cursor: pointer;
 			}
 		}
 		.sidebox-x {
@@ -91,17 +99,17 @@ main {
 			position: absolute;
 			top: 0;
 			background: transparent;
-			color: #000;
+			color: $link-color;
 			z-index: 4;
 			cursor: pointer;
+			padding: 8px;
 			&:hover {
-				background: $sec-highlight;
-				color: #fff;
+				color: $link-hover;
 			}
 		}
 	}
 	section, aside {
-		background: #fff;
+		background: $section-color;
 		width: $full-page-width;
 		margin-bottom: 30px; 
 		padding: 20px;
@@ -111,9 +119,8 @@ main {
 			flex-direction: row;
 			justify-content: flex-start;
 			flex-wrap: nowrap;
-			overflow-x: auto;
-			overflow-y: hidden;
 			position: relative;
+			z-index: 1;
 			a {
 				margin-right: $img-size-width/3;
 			}
@@ -123,39 +130,65 @@ main {
 			margin-bottom: 30px;
 		}
 	}
-	a {
-		width: $img-size-width;
-		height: $img-size-height*1.4;
-		display: inline-block;
-		position: relative;
-		&:nth-child(2n+2){
-			margin: 0;
-		}
-		&::after {
-			content:"";
-			background: rgba(255,255,255,0.35);
+
+	.movies {
+
+		.movie-info {
 			width: $img-size-width;
-			height: $img-size-height;
+			height: $img-size-height*1.4;
+			display: inline-block;
+			position: relative;
+			&:nth-child(2n+2){
+				margin: 0;
+			}
+			&-a::after {
+				content:"";
+				background: rgba(255,255,255,0.35);
+				width: $img-size-width;
+				height: $img-size-height;
+				position: absolute;
+				top: 0;
+				opacity: 1;
+				@include transDur($animationShort);
+				@include transDel($animationNone);
+			}
+			&-a:hover:after {
+				opacity: 0;
+			}
+			&-a:hover ~ details {
+				opacity: 1;
+			}
+			.info {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 35%;
+				left: 50%;
+				margin-left: -10px;
+				text-align: center;
+				border: 2px solid $link-hover;
+				border-radius: 50%;
+
+			}
+
+		}
+		details {
 			position: absolute;
-			top: 0;
-			opacity: 1;
-			@include transDur($animationShort);
-			@include transDel($animationNone);
+			top:0;
+			z-index: 0;
+			&[open=""] {
+				z-index: -1;
+			}
+			p {
+				position: relative;
+				z-index: 3;
+				background: $section-color;
+				padding: 30px;
+				box-shadow: 0 0 3px $link-hover;
+			}
 		}
-		&:hover:after {
-			opacity: 0;
-		}
-		&:hover + .info {
-			display: block;
-		}
-		.info {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			display: none;
-			top: 0;
-			left: 0;
-			
+		p {
+			color: $secondary-color !important;
 		}
 		img {
 			width: $img-size-width;
@@ -165,7 +198,9 @@ main {
 			display: block;
 			color: #000;
 		}
+
 	}
+
 	
 	/* ---------- Pictures -------- */
 	
@@ -174,10 +209,11 @@ main {
 /* ----------- Footer ----------- */
 
 footer {
-	background: $secondary-color;
+	background: $link-color;
 	height: 100px;
 	width: 100%;
 	position: relative;
 	bottom: 0;
 	color: #fff;
 }
+

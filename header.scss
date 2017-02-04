@@ -4,24 +4,71 @@
 /* --------- Header ----------- */
 header {
 	position: relative;
-	background: $secondary-color;
+	background: url("Cover/header.jpg") no-repeat top center;
+	background-size: cover;
 	color: #fff;
-	min-height: 63px;
+	min-height: 360px;
 	z-index: 50;
 	text-align: center;
 	h1 {
-		font-size: 2.7em;
-		width: 180px;
-		left: 50%;
-		margin-left: -90px;
-		position: relative;
+		font-size: 4.7rem;
+		width: 290px;
+		left: 40%;
+		margin-left: -145px;
+		position: absolute;
+		bottom: 0;
+		a{
+			color: $section-color !important;
+			text-shadow: 0 0 7px #000;
+		}
+		&::before {
+			content: "";
+			background: url("Cover/wind.png");
+			background-size: contain;
+			width: 58px;
+			height: 58px;
+			position: absolute;
+			transform: scale(-1,1);
+			filter: invert(100%) drop-shadow(0 0 1px #000);
+			left: -60px;
+			bottom: 22px;
+
+		}
 	}
 	nav {
 		left: 0;
-		top: 0;
+		bottom: 60px;
 		width: 100%;
 		z-index: 4;
-		
+		position: absolute;
+
+
+		#search-form {
+			.search {
+				position: absolute;
+				width: 180px;
+				height: 25px;
+				padding: 3px 20px 3px 10px;
+				right: 70px;
+				font-size: 1.1em;
+				border: none;
+				top: 15px;
+				color: #000;
+			}
+
+			#submit {
+				position: absolute;
+				right: 10px;
+				top: 15px;
+				height: 25px;
+				padding: 3px 10px;
+				border-radius: 0;
+				border: none;
+				cursor: pointer;
+			}
+		}
+
+
 		/* ------- Hamburger Menu ------- */
 		#hamburger {
 			display: none;
@@ -30,6 +77,7 @@ header {
 					height: auto;
 				}
 				~ .menuicon {
+					top: 20px;
 					span {
 						background-color: rgba(0,0,0,0);
 						&::before, &::after {
@@ -52,23 +100,31 @@ header {
 		#menu {
 			padding-left: 0;
 			width: 100%;
-			@include flexbox();
+			@include displayFlexbox();
 			overflow:hidden;
-			background-color: $secondary-color;
+			background-color: $link-color;
 			height: 0;
 			position: absolute;
 			flex-flow: column nowrap;
+			top: 58px;
 			#username {
-				background: $secondary-color;
+				background: $link-color;
 				color: #fff;
 			}
 			.menuItem {
-				background-color: #534545;
+				background-color: $link-color;
 				padding: 10px;
 				color: #FFF;
 				&:hover {
 					background: $primary-color;
-					color: $secondary-color;
+					color: $link-hover !important;
+				}
+				a {
+					display: block;
+					color: #fff;
+					&:hover {
+						color: $link-hover;
+					}
 				}
 			}
 			.accordion {
@@ -78,15 +134,19 @@ header {
 						~ label::before {
 							@include transfrm(90deg);
 						}
-						~ article {
-							background: $sec-comp-color;
+						~ .accordion-menu {
+							background: $link-color/2;
 							height: auto;
 							margin-bottom: .125em;
-							@include flexbox();
+							@include displayFlexbox();
 							a:hover {
 								background: $primary-color;
-								color: $secondary-color;
+								color: $link-hover;
 							}
+						}
+						~ label {
+							background: $primary-color;
+							color: $link-hover;
 						}
 					}
 				}
@@ -101,7 +161,7 @@ header {
 						margin-left: -25px;
 					}
 				}
-				article {
+				.accordion-menu {
 					background: #fff;
 					display: none;
 					overflow: hidden;
@@ -154,26 +214,9 @@ header {
 	}
 }
 
-.search {
-	position: absolute;
-	width: 150px;
-	height: 25px;
-	padding: 3px 20px 3px 10px;
-	right: 70px;
-	font-size: 1.1em;
-	border: none;
-	top: 15px;
-	color: #000;
-}
-
-#submit {
-	position: absolute;
-	right: 10px;
-	top: 15px;
-	height: 25px;
-	padding: 3px 10px;
-	border-radius: 0;
-	border: none;
-}
 
 //@import "media";
+
+@media screen {
+
+}

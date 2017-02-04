@@ -14,18 +14,21 @@
 
 body {
   background: #F0EFE9;
-  width: 100%; }
+  width: 100%;
+  min-width: 320px; }
 
 h1 {
   font-weight: bold;
   font-size: 2em; }
 
 a {
-  color: #fff;
+  color: #3999AE;
   text-decoration: none; }
+  a:hover {
+    color: #D1481B; }
 
 a:visited {
-  color: #fff; }
+  color: #3999AE; }
 
 p {
   margin-bottom: 20px; }
@@ -42,19 +45,21 @@ main {
   /* ---------- Pictures -------- */ }
   main #sidebox {
     display: none; }
-    main #sidebox:checked ~ #rutine {
+    main #sidebox:checked ~ #routine {
       right: 0; }
-      main #sidebox:checked ~ #rutine > .sidebox-label {
-        color: #000;
+      main #sidebox:checked ~ #routine > .sidebox-label {
+        color: #D1481B;
         background: #fff; }
-        main #sidebox:checked ~ #rutine > .sidebox-label:hover {
-          background: #665454;
-          color: #fff; }
-  main #rutine {
+        main #sidebox:checked ~ #routine > .sidebox-label:hover {
+          background: #fff4f3;
+          color: #D1481B;
+          cursor: pointer; }
+  main #routine {
     position: fixed;
     width: 220px;
     right: -270px;
-    z-index: 3;
+    top: 10px;
+    z-index: 50;
     border: 1px solid #433a3a;
     border-bottom: 2px solid #433a3a;
     background: #F0EFE9;
@@ -68,13 +73,13 @@ main {
     -ms-transition-delay: 0.1s;
     -o-transition-delay: 0.1s;
     transition-delay: 0.1s; }
-    main #rutine .sidebox-label {
+    main #routine .sidebox-label {
       position: relative;
       right: 112px;
       width: 40px;
       text-align: center;
-      background: #433A3A;
-      color: white;
+      background: #fff;
+      color: #3999AE;
       padding: 20px;
       border: 1px solid #433a3a;
       border-bottom: 2px solid #433a3a;
@@ -84,19 +89,21 @@ main {
       -ms-transition-duration: 0.1s;
       -o-transition-duration: 0.1s;
       transition-duration: 0.1s; }
-      main #rutine .sidebox-label:hover {
-        background: #665454; }
-    main #rutine .sidebox-x {
+      main #routine .sidebox-label:hover {
+        background: #fff4f3;
+        color: #D1481B;
+        cursor: pointer; }
+    main #routine .sidebox-x {
       right: 5px;
       position: absolute;
       top: 0;
       background: transparent;
-      color: #000;
+      color: #3999AE;
       z-index: 4;
-      cursor: pointer; }
-      main #rutine .sidebox-x:hover {
-        background: #665454;
-        color: #fff; }
+      cursor: pointer;
+      padding: 8px; }
+      main #routine .sidebox-x:hover {
+        color: #D1481B; }
   main section, main aside {
     background: #fff;
     width: 100%;
@@ -108,22 +115,21 @@ main {
       flex-direction: row;
       justify-content: flex-start;
       flex-wrap: nowrap;
-      overflow-x: auto;
-      overflow-y: hidden;
-      position: relative; }
+      position: relative;
+      z-index: 1; }
       main section ul a, main aside ul a {
         margin-right: 33.33333px; }
     main section h2, main aside h2 {
       text-align: center;
       margin-bottom: 30px; }
-  main a {
+  main .movies .movie-info {
     width: 100px;
     height: 186.2px;
     display: inline-block;
     position: relative; }
-    main a:nth-child(2n+2) {
+    main .movies .movie-info:nth-child(2n+2) {
       margin: 0; }
-    main a::after {
+    main .movies .movie-info-a::after {
       content: "";
       background: rgba(255, 255, 255, 0.35);
       width: 100px;
@@ -141,27 +147,44 @@ main {
       -ms-transition-delay: 0s;
       -o-transition-delay: 0s;
       transition-delay: 0s; }
-    main a:hover:after {
+    main .movies .movie-info-a:hover:after {
       opacity: 0; }
-    main a:hover + .info {
-      display: block; }
-    main a .info {
+    main .movies .movie-info-a:hover ~ details {
+      opacity: 1; }
+    main .movies .movie-info .info {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      display: none;
-      top: 0;
-      left: 0; }
-    main a img {
-      width: 100px;
-      height: 133px; }
-    main a span {
-      display: block;
-      color: #000; }
+      width: 20px;
+      height: 20px;
+      top: 35%;
+      left: 50%;
+      margin-left: -10px;
+      text-align: center;
+      border: 2px solid #D1481B;
+      border-radius: 50%; }
+  main .movies details {
+    position: absolute;
+    top: 0;
+    z-index: 0; }
+    main .movies details[open=""] {
+      z-index: -1; }
+    main .movies details p {
+      position: relative;
+      z-index: 3;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 0 3px #D1481B; }
+  main .movies p {
+    color: #433A3A !important; }
+  main .movies img {
+    width: 100px;
+    height: 133px; }
+  main .movies span {
+    display: block;
+    color: #000; }
 
 /* ----------- Footer ----------- */
 footer {
-  background: #433A3A;
+  background: #3999AE;
   height: 100px;
   width: 100%;
   position: relative;

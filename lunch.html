@@ -1,75 +1,66 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/> 
-<title>The Lunchbox</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="header.css">
-<link rel="stylesheet" type="text/css" href="movie.css">
-<link rel="stylesheet" type="text/css" href="media.css">
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>The Lunchbox</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="header.css">
+		<link rel="stylesheet" type="text/css" href="movie.css">
+		<link rel="stylesheet" type="text/css" href="media.css">
+	</head>
 
 <body>
 
 	<header>
-		<!-- Overskrift -->
-		<h1><a href="index.html" title="Vindkast">Vindkast</a></h1>
+	<!-- Overskrift -->
+	<h1><a href="index.html" title="Vindkast">Vindkast</a></h1>
 
 
-		<nav>
+	<nav>
 
-			<!-- Hamburger meny -->
-			<form action="sokeresultat.html">
-				<input type="search" placeholder="Søk" class="search" />
-				<input type="submit" value="Søk" id="submit">
-			</form>
-			
-			<input type="checkbox" id="hamburger"/>
-			<label class="menuicon" for="hamburger">
-				<span></span>
-			</label>
-			<ul id="menu">
+		<!-- Hamburger meny -->
+		<input type="checkbox" id="hamburger"/>
+		<form id="search-form" action="sokeresultat.html">
+			<input type="search" placeholder="Søk" class="search" />
+			<input type="submit" value="Søk" id="submit">
+		</form>
+		<label class="menuicon" for="hamburger">
+			<span></span>
+		</label>
+		<ul id="menu">
 
-				<a href="#" class="menuItem" id="username"><li>Brukernavn</li></a>
-				<a href="index.html" class="menuItem"><li>Forside</li></a>
+			<li class="menuItem"><a href="#" id="username">Velkommen rei008</a></li>
+			<li class="menuItem search-space"><a href="index.html">Forside</a></li>
 
-				<!-- Åpne og lukke meny (accordion) -->
-				<section id="accordion" >
-					<!-- Lånte filmer -->
-					<div class="menuItem">
-						<input type="checkbox" id="check-1" />
-						<label for="check-1">Mine Filmer</label>
-						<article>
-							<ul>
-								<a href="theintouchables.html"><li>The Intouchables</li></a>
-								<a href="lunch.html"><li>The Lunchbox</li></a>
-							</ul>
-						</article>
-					</div>
+			<!-- Åpne og lukke meny (accordion) -->
+			<li class="accordion menuItem" >
+				<input type="checkbox" id="check-1" />
+				<label for="check-1">Mine Filmer</label>
+				<div class="accordion-menu">
+					<a href="theintouchables.html">The Intouchables</a>
+					<a href="lunch.html">The Lunchbox</a>
+				</div>
+			</li>
+			<li class="accordion menuItem">
+				<!-- Ønskede filmer -->
+				<input type="checkbox" id="check-2" />
+				<label for="check-2">Ønskeliste</label>
+				<div class="accordion-menu">
+					<a href="theintouchables.html">The Intouchables</a>
+					<a href="lunch.html">The Lunchbox</a>
+				</div>
+			</li> <!-- Slutt på accordion -->
 
-					<!-- Ønskede filmer -->
-					<div class="menuItem">
-						<input type="checkbox" id="check-2" />
-						<label for="check-2">Ønskeliste</label>
-						<article>
-							<ul>
-								<a href="theintouchables.html"><li>The Intouchables</li></a>
-								<a href="lunch.html"><li>The Lunchbox</li></a>
-							</ul>
-						</article>
-					</div>
-				</section> <!-- Slutt på accordion -->
+			<!-- Logg ut -->
+			<li class="menuItem"><a href="#">Logg ut</a></li>
+		</ul> <!-- Slutt på Hamburger menyen -->
+	</nav>
+</header>
 
-				<!-- Logg ut -->
-				<a href="#" class="menuItem"><li>Logg ut</li></a>
-			</ul> <!-- Slutt på Hamburger menyen -->
-		</nav>
-	</header>
-	
 	<main>
 	<input type="checkbox" id="sidebox">
-		<section id="rutine">
+		<section id="routine">
 			<label for="sidebox" class="sidebox-label">Rutiner</label>
 			<h2>Rutine for lån</h2>
 			<p>Bla Bla Bla</p>
@@ -81,7 +72,13 @@
 				<p>Genre: romanse, komedie</p>
 				<p>IND 2013 (105 minutter)</p>
 				<p><span>Regissør: </span>Ritesh Batra</p>
-				<p><span>Hovedpersoner: </span>Irrfan Khan, Lillete Dubey, Nawazuddin Siddiqui, Nimrat Kaur</p>
+				<p><span>Hovedpersoner: </span><a href="http://www.imdb.com/name/nm0451234/">Irrfan Khan</a>, <a
+						href="http://www.imdb.com/name/nm0239267/?ref_=fn_al_nm_1">Lillete Dubey</a>, <a
+						href="http://www.imdb.com/name/nm1596350/?ref_=fn_al_nm_1">Nawazuddin Siddiqui</a>, <a
+						href="http://www.imdb.com/name/nm1909661/?ref_=fn_al_nm_1">Nimrat Kaur</a></p>
+			</div>
+			<div class="video-container">
+				<iframe src="https://www.youtube-nocookie.com/embed/xwYN-XS92yY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="100%" height="100%"></iframe>
 			</div>
 		</section>
 		
@@ -105,7 +102,7 @@
 		</aside>
 		<section>
 			<h2>Nylig Lånte Filmer</h2>
-			<ul>
+			<ul class="movies">
 				<a href="lunch.html">
 					<li>
 						<img src="Cover/The_Lunchbox_1.jpg">
@@ -121,7 +118,7 @@
 		</section>
 				<section>
 			<h2>Anbefalte Filmer</h2>
-			<ul>
+			<ul class="movies">
 				<a href="theintouchables.html"><li>
 					<img src="Cover/The_Intouchables_3.jpg">
 					<span>The Intouchables</span>
