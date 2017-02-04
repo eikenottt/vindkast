@@ -75,6 +75,8 @@
         header nav #search-form .search {
           width: 269px;
           right: auto; }
+      header nav #username-holder {
+        order: 5; }
       header nav .menuicon {
         display: none !important; }
       header nav #menu {
