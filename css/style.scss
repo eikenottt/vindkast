@@ -1,18 +1,24 @@
 /* --------- VARIABLES -------- */
 @import "variables";
+@import "header";
 /* -------- Main configuration --------- */
 
 * {
 	margin: 0;
 	font-family: $font-stack;
 	font-weight: $font-weight;
-	list-style: none;
 }
+
+html {
+	height:100%;
+}
+
 
 body {
 	background: $primary-color;
 	width: $full-page-width;
 	min-width: 320px;
+	height: 100%;
 }
 
 h1 {
@@ -27,6 +33,9 @@ a {
 		color: $link-hover;
 	}
 }
+ul li {
+	list-style: none;
+}
 
 a:visited {
 	color: $link-color;
@@ -34,6 +43,23 @@ a:visited {
 
 p {
 	margin-bottom: 20px;
+}
+
+input{
+	&:checked ~ .whitebox-l {
+		display: block;
+	}
+}
+
+.whitebox-l {
+	display: none;
+	top: 0;
+	left:0;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	z-index: 50;
+	background: rgba(255,255,255,0.3);
 }
 
 
@@ -67,10 +93,10 @@ main {
 	}
 	#routine {
 		position: fixed;
-		width: 220px;
-		right: -270px;
+		width: $routine-width;
+		right: -$routine-width - ($routine-width/10);
 		top:10px;
-		z-index: 50;
+		z-index: 60;
 		border: 1px solid #433a3a;
 		border-bottom: 2px solid #433a3a;
 		background: $primary-color;
@@ -108,7 +134,7 @@ main {
 			}
 		}
 	}
-	section, aside {
+	section {
 		background: $section-color;
 		width: $full-page-width;
 		margin-bottom: 30px; 
@@ -123,6 +149,11 @@ main {
 			z-index: 1;
 			a {
 				margin-right: $img-size-width/3;
+			}
+			.liste {
+				display:none;
+				position: absolute;
+				top:0;
 			}
 		}
 		h2 {
@@ -158,6 +189,10 @@ main {
 			&-a:hover ~ details {
 				opacity: 1;
 			}
+			&-a:hover ~ .liste {
+				display: block;
+				z-index: 100;
+			}
 			.info {
 				position: absolute;
 				width: 20px;
@@ -171,21 +206,6 @@ main {
 
 			}
 
-		}
-		details {
-			position: absolute;
-			top:0;
-			z-index: 0;
-			&[open=""] {
-				z-index: -1;
-			}
-			p {
-				position: relative;
-				z-index: 3;
-				background: $section-color;
-				padding: 30px;
-				box-shadow: 0 0 3px $link-hover;
-			}
 		}
 		p {
 			color: $secondary-color !important;
@@ -201,19 +221,12 @@ main {
 
 	}
 
-	
-	/* ---------- Pictures -------- */
+
+	.flex-right {
+		background: transparent;
+		padding-top: 0;
+	}
 	
 }
 
-/* ----------- Footer ----------- */
-
-footer {
-	background: $link-color;
-	height: 100px;
-	width: 100%;
-	position: relative;
-	bottom: 0;
-	color: #fff;
-}
-
+@import "media";

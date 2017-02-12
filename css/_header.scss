@@ -1,0 +1,227 @@
+/* --------- import ---------- */
+@import "variables";
+
+/* --------- Header ----------- */
+header {
+	position: relative;
+	background: url("../img/header.jpg") no-repeat top center; // Photo: Greatchops
+	background-size: cover;
+	color: #fff;
+	min-height: 360px;
+	z-index: 50;
+	text-align: center;
+	box-shadow: inset 0 -42px 0 $link-color;
+	h1 {
+		font-size: 4.7rem;
+		width: 290px;
+		left: 40%;
+		margin-left: -145px;
+		position: absolute;
+		bottom: 0;
+		a{
+			color: $section-color !important;
+			text-shadow: 0 0 7px #000;
+		}
+		&::before {
+			content: "";
+			background: url("../img/wind.png");
+			background-size: contain;
+			width: 58px;
+			height: 58px;
+			position: absolute;
+			transform: scale(-1,1);
+			filter: invert(100%) drop-shadow(0 0 1px #000);
+			left: -60px;
+			bottom: 22px;
+
+		}
+	}
+	nav {
+		left: 0;
+		bottom: 60px;
+		width: 100%;
+		z-index: 4;
+		position: absolute;
+
+
+		#search-form {
+			position: relative;
+			bottom: -11px;
+			z-index: 65;
+			.search {
+				position: absolute;
+				width: 180px;
+				height: 25px;
+				padding: 3px 20px 3px 10px;
+				right: 70px;
+				font-size: 1.1em;
+				border: none;
+				top: 15px;
+				color: #000;
+				border-radius: 0;
+			}
+
+			#submit {
+				position: absolute;
+				right: 10px;
+				top: 15px;
+				height: 25px;
+				padding: 3px 10px;
+				border-radius: 0;
+				border: none;
+				cursor: pointer;
+			}
+		}
+
+
+		/* ------- Hamburger Menu ------- */
+		#hamburger {
+			display: none;
+			&:checked {
+				~ #menu {
+					height: auto;
+				}
+				~ .menuicon {
+					top: 27px;
+					span {
+						background-color: rgba(0,0,0,0);
+						&::before, &::after {
+							margin-top: 0;
+							@include transDel(0, $animationShort);
+						}
+						&::before {
+							@include transfrm(45deg);
+						}
+						&::after {
+							@include transfrm(-45deg);
+						}
+					}
+				}
+			}
+		}
+		
+		
+		
+		#menu {
+			padding-left: 0;
+			width: 100%;
+			@include displayFlexbox();
+			overflow:hidden;
+			background-color: $link-color;
+			height: 0;
+			position: absolute;
+			flex-flow: column nowrap;
+			top: 58px;
+			z-index: 60;
+			#username {
+				color: #fff;
+			}
+			.menuItem {
+				background-color: $link-color/1.3;
+				padding: 10px;
+				color: #FFF;
+				&:hover {
+					background: $primary-color;
+					color: $link-hover !important;
+				}
+				a {
+					display: block;
+					color: #fff;
+					&:hover {
+						color: $link-hover;
+					}
+				}
+			}
+			.accordion {
+				input {
+					display: none;
+					&:checked {	
+						~ label::before {
+							@include transfrm(90deg);
+						}
+						~ .accordion-menu {
+							background: $link-color/2;
+							height: auto;
+							margin-bottom: .125em;
+							@include displayFlexbox();
+							a:hover {
+								background: $primary-color;
+								color: $link-hover;
+							}
+						}
+						~ label {
+							background: $primary-color;
+							color: $link-hover;
+						}
+					}
+				}
+				label {
+					cursor: pointer;
+					display: block;
+					z-index: 20;
+					&::before {
+						content:"\25B7";
+						position: absolute;
+						display: inline-block;
+						margin-left: -25px;
+					}
+				}
+				.accordion-menu {
+					background: #fff;
+					display: none;
+					overflow: hidden;
+					z-index: 10;
+					flex-flow: column;
+					padding: 10px;
+					a {
+						padding: 10px;
+					}
+				}
+			}
+		}
+		.menuicon {
+			position: absolute;
+			top: 27px;
+			left: 10px;
+			display: block;
+			cursor: pointer;
+			height: $baseMargin*2 + $lineWidth;
+			width: $lineLength;
+			z-index: 100;
+			span {
+				display: block;
+				top: $baseMargin;
+				width: $lineLength;
+				height: $lineWidth;
+				background-color: #fff;
+				position: relative;
+				@include transDur($animationShort);
+				@include transDel($animationNone);
+				&::before, &::after {
+					display: block;
+					content: "";
+					position: absolute;
+					width: $lineLength;
+					height: $lineWidth;
+					background-color: #fff;
+					-webkit-transition-property: margin, -webkit-transform;
+					@include transDur($animationShort);
+					@include transDel($animationShort, 0);
+				}
+				&::before {
+					margin-top: -$baseMargin;
+				}
+				&::after {
+					margin-top: $baseMargin;
+				}
+			}
+		}
+	}
+}
+
+
+//@import "media";
+
+@media screen {
+
+}

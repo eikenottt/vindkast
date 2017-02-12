@@ -2,6 +2,10 @@
 @import "variables";
 @import "rating";
 
+main {
+	display: block !important;
+}
+
 	#information {
 		@include displayFlexbox();
 		span {
@@ -30,19 +34,15 @@
 				left: -13%;
 				top: -20px;
 				overflow: hidden;
+				height: 20rem;
 				@include displayFlexbox();
-				img {
+				.image {
 					width: 100%;
+					background-size: cover;
+					background-position: center;
+					height: 100%;
 				}
-				#theIntouchablesPicture1 {
-					@include flex(2);
-				}
-				#theIntouchablesPicture2 {
-					@include flex(1);
-				}
-				#theIntouchablesPicture3 {
-					@include flex(2);
-				}
+				@import "lunchboximages";
 			}
 		}
 	.extra {
@@ -53,9 +53,11 @@
 		position: relative;
 		width: 100%;
 		max-width: 520px;
+		max-height: 350px;
 		@include flex(1);
 		.trailer {
 			position: absolute;
+			border:none;
 			right: 0;
 			top: 0;
 			width: 100%;
@@ -64,7 +66,4 @@
 	}
 
 
-
-@media screen {
-
-}
+@import "media";
