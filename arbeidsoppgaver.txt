@@ -1,5 +1,5 @@
 Rune:
-    - Fikse scss til css
+    - Fikse scss til css //DONE
 
 Malin:
     - Implentere search.js til vindkast filen
