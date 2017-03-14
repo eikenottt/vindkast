@@ -1,81 +1,104 @@
-/* Scss Document */
-/* ------- Variables --------- */
-/* ---------- Colors ---------- */
-/* ---------- Fonts ----------- */
-/* -------- widths and heights --------- */
-/* -------- Hamburger menu ---------- */
-/* ---------- mixins ---------- */
+
 .rating {
-  overflow: hidden;
-  display: inline-block;
-  position: relative;
-  padding: 10px;
-  box-shadow: inset 0 0 3px 0 #f6b823; }
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    box-shadow: inset 0 0 3px 0 #f6b823;
+}
 
 .rating-input {
-  display: none;
-  float: right;
-  width: 14px;
-  height: 46px;
-  padding: 0;
-  margin: 0;
-  opacity: 0; }
+    display: none;
+    float: right;
+    width: 14px;
+    height: 46px;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+}
 
 .rating .rating-star, .rating:hover .rating-star {
-  position: relative;
-  float: right;
-  display: block;
-  width: 14px;
-  height: 46px;
-  background: url("../img/rating/Asset 1.svg") -42px 0;
-  background-size: 28px; }
-  .rating .rating-star:hover, .rating:hover .rating-star:hover {
-    background-position: 0 0; }
-    .rating .rating-star:hover ~ .rating-star, .rating:hover .rating-star:hover ~ .rating-star {
-      background-position: 0 0; }
+    position: relative;
+    float: right;
+    display: block;
+    width: 14px;
+    height: 46px;
+    background: url("../img/rating/Asset 1.svg") -42px 0;
+    background-size: 28px;
+}
+
+.rating .rating-star:hover, .rating:hover .rating-star:hover {
+    background-position: 0 0;
+}
+
+.rating .rating-star:hover ~ .rating-star, .rating:hover .rating-star:hover ~ .rating-star {
+    background-position: 0 0;
+}
+
 .rating .rating-input:checked ~ .rating-star {
-  background-position: 0 0; }
+    background-position: 0 0;
+}
 
 main {
-  display: block !important; }
+    display: block !important;
+}
 
 #information {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  #information span {
-    color: #D1481B; }
-  #information .text-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#information span {
+    color: #D1481B;
+}
+
+#information .text-wrap {
     flex: 2;
     padding: 0.4rem;
-    position: relative; }
-    #information .text-wrap img {
-      width: 100px;
-      height: auto;
-      position: absolute;
-      right: 30px; }
-  #information a {
+    position: relative;
+}
+
+#information .text-wrap img {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    right: 30px;
+}
+
+#information a {
     color: #3999AE;
     width: auto;
-    height: auto; }
-    #information a:hover {
-      color: #D1481B; }
-  #information .buttons {
+    height: auto;
+}
+
+#information a:hover {
+    color: #D1481B;
+}
+
+#information .buttons {
     position: absolute;
-    top: 10px; }
-    #information .buttons button {
-      border: none;
-      cursor: pointer;
-      padding: 5px 20px;
-      background-color: #ddd; }
-      #information .buttons button:hover {
-        background-color: white;
-        box-shadow: inset 0 0 0 2px #ddd; }
+    top: 10px;
+}
+
+#information .buttons button {
+    border: none;
+    cursor: pointer;
+    padding: 5px 20px;
+    background-color: #ddd;
+}
+
+#information .buttons button:hover {
+    background-color: white;
+    box-shadow: inset 0 0 0 2px #ddd;
+}
 
 #pictures {
-  background: transparent; }
-  #pictures #frame {
+    background: transparent;
+}
+
+#pictures #frame {
     width: 125.5%;
     position: relative;
     left: -13%;
@@ -85,50 +108,71 @@ main {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex; }
-    #pictures #frame .image {
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      height: 100%; }
-    #pictures #frame #limage1 {
-      background-image: url("../img/Film2/The_Lunchbox_2.jpg"); }
-    #pictures #frame #limage2 {
-      background-image: url("../img/Film2/The_Lunchbox_3.jpg"); }
-    #pictures #frame #limage3 {
-      background-image: url("../img/Film2/The_Lunchbox_4.jpg"); }
-    #pictures #frame #limage4 {
-      background-image: url("../img/Film2/The_Lunchbox_5.jpg");
-      background-position: left; }
-    #pictures #frame #inimage1 {
-      background-image: url("../img/Film1/The_Intouchables_1.jpg");
-      background-position: 30% 10%; }
-    #pictures #frame #inimage2 {
-      background-image: url("../img/Film1/The_intouchables_4.jpg");
-      background-position: 45% 10%; }
-    #pictures #frame #inimage3 {
-      background-image: url("../img/Film1/The_Intouchables_5.jpg");
-      background-position: 30% 60%; }
+    display: flex;
+}
+
+#pictures #frame .image {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+#pictures #frame #limage1 {
+    background-image: url("../img/Film2/The_Lunchbox_2.jpg");
+}
+
+#pictures #frame #limage2 {
+    background-image: url("../img/Film2/The_Lunchbox_3.jpg");
+}
+
+#pictures #frame #limage3 {
+    background-image: url("../img/Film2/The_Lunchbox_4.jpg");
+}
+
+#pictures #frame #limage4 {
+    background-image: url("../img/Film2/The_Lunchbox_5.jpg");
+    background-position: left;
+}
+
+#pictures #frame #inimage1 {
+    background-image: url("../img/Film1/The_Intouchables_1.jpg");
+    background-position: 30% 10%;
+}
+
+#pictures #frame #inimage2 {
+    background-image: url("../img/Film1/The_intouchables_4.jpg");
+    background-position: 45% 10%;
+}
+
+#pictures #frame #inimage3 {
+    background-image: url("../img/Film1/The_Intouchables_5.jpg");
+    background-position: 30% 60%;
+}
 
 .extra {
-  display: block; }
+    display: block;
+}
 
 .video-container {
-  position: relative;
-  width: 100%;
-  max-width: 520px;
-  max-height: 350px;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1; }
-  .video-container .trailer {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    max-height: 350px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.video-container .trailer {
     position: absolute;
     border: none;
     right: 0;
     top: 0;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+}
 
 /* Scss Document */
 /* ------- Variables --------- */
@@ -138,145 +182,205 @@ main {
 /* -------- Hamburger menu ---------- */
 /* ---------- mixins ---------- */
 @media screen and (max-width: 650px) {
-  header h1 {
-    left: 0;
-    margin: 0;
-    bottom: 100px; }
-  header nav .search-space {
-    margin-top: 30px; }
-  header nav #search-form {
-    display: none; }
-    header nav #search-form .search {
-      position: absolute;
-      width: 100%;
-      height: 30px;
-      text-align: center;
-      display: inline-block;
-      top: 0;
-      right: 0;
-      padding: 0; }
-    header nav #search-form #submit {
-      position: relative;
-      display: inline-block;
-      right: 0;
-      top: 0;
-      width: 10%;
-      padding: 0;
-      height: 30px; }
-  header nav #hamburger:checked ~ #search-form {
-    width: 100%;
-    position: absolute;
-    top: 100px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between; }
-
-  #information .text-wrap img {
-    display: none; }
-  #information .text-wrap .buttons {
-    position: relative;
-    top: -10px; }
-
-  #routine {
-    width: 200px; }
-
-  .routine {
-    width: 320px; } }
-@media screen and (min-width: 1160px) {
-  header {
-    height: 600px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    align-items: flex-end; }
     header h1 {
-      left: 0;
-      margin: 0;
-      font-size: 7rem;
-      width: 420px;
-      position: relative; }
-      header h1::before {
+        left: 0;
+        margin: 0;
+        bottom: 100px;
+    }
+
+    header nav .search-space {
+        margin-top: 30px;
+    }
+
+    header nav #search-form {
+        display: none;
+    }
+
+    header nav #search-form .search {
+        position: absolute;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        display: inline-block;
+        top: 0;
+        right: 0;
+        padding: 0;
+    }
+
+    header nav #search-form #submit {
+        position: relative;
+        display: inline-block;
+        right: 0;
+        top: 0;
+        width: 10%;
+        padding: 0;
+        height: 30px;
+    }
+
+    header nav #hamburger:checked ~ #search-form {
+        width: 100%;
+        position: absolute;
+        top: 100px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+    #information .text-wrap img {
+        display: none;
+    }
+
+    #information .text-wrap .buttons {
+        position: relative;
+        top: -10px;
+    }
+
+    #routine {
+        width: 200px;
+    }
+
+    .routine {
+        width: 320px;
+    }
+}
+
+@media screen and (min-width: 1160px) {
+    header {
+        height: 600px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    header h1 {
+        left: 0;
+        margin: 0;
+        font-size: 7rem;
+        width: 420px;
+        position: relative;
+    }
+
+    header h1::before {
         right: -70px;
         left: auto;
         transform: inherit;
-        bottom: 25px; }
+        bottom: 25px;
+    }
+
     header nav {
-      width: 80%;
-      float: right;
-      top: 0;
-      position: relative; }
-      header nav #search-form {
+        width: 80%;
+        float: right;
+        top: 0;
+        position: relative;
+    }
+
+    header nav #search-form {
         clear: both;
         position: absolute;
         left: -360px;
-        top: -7px; }
-        header nav #search-form .search {
-          width: 269px;
-          right: auto; }
-      header nav #username-holder {
-        order: 5; }
-      header nav .menuicon {
-        display: none !important; }
-      header nav #menu {
+        top: -7px;
+    }
+
+    header nav #search-form .search {
+        width: 269px;
+        right: auto;
+    }
+
+    header nav #username-holder {
+        order: 5;
+    }
+
+    header nav .menuicon {
+        display: none !important;
+    }
+
+    header nav #menu {
         height: auto !important;
         position: relative !important;
         overflow: visible !important;
         width: 610px !important;
         flex-flow: row nowrap !important;
         margin: auto;
-        top: 0; }
-        header nav #menu .flex1 {
-          order: 5; }
-        header nav #menu .menuItem {
-          background-color: #3999AE;
-          display: inline-block; }
-        header nav #menu .accordion {
-          padding: 0 !important;
-          position: relative !important;
-          margin: 0 !important;
-          min-width: 150px !important;
-          max-width: 150px !important; }
-          header nav #menu .accordion input:checked ~ .accordion-menu {
-            position: absolute; }
-          header nav #menu .accordion label {
-            padding: 10px 8px 10px 33px; }
-          header nav #menu .accordion .accordion-menu {
-            height: 0;
-            display: none;
-            position: absolute !important;
-            flex-flow: column !important;
-            padding: 10px !important;
-            min-width: 130px;
-            max-width: 130px;
-            top: 40px;
-            left: 0; }
-            header nav #menu .accordion .accordion-menu a {
-              margin-bottom: 20px; }
+        top: 0;
+    }
 
-  main {
-    width: 90%; }
+    header nav #menu .flex1 {
+        order: 5;
+    }
+
+    header nav #menu .menuItem {
+        background-color: #3999AE;
+        display: inline-block;
+    }
+
+    header nav #menu .accordion {
+        padding: 0 !important;
+        position: relative !important;
+        margin: 0 !important;
+        min-width: 150px !important;
+        max-width: 150px !important;
+    }
+
+    header nav #menu .accordion input:checked ~ .accordion-menu {
+        position: absolute;
+    }
+
+    header nav #menu .accordion label {
+        padding: 10px 8px 10px 33px;
+    }
+
+    header nav #menu .accordion .accordion-menu {
+        height: 0;
+        display: none;
+        position: absolute !important;
+        flex-flow: column !important;
+        padding: 10px !important;
+        min-width: 130px;
+        max-width: 130px;
+        top: 40px;
+        left: 0;
+    }
+
+    header nav #menu .accordion .accordion-menu a {
+        margin-bottom: 20px;
+    }
+
+    main {
+        width: 90%;
+    }
+
     main #pictures {
-      width: 88.6%;
-      left: 5.9%;
-      position: relative; } }
+        width: 88.6%;
+        left: 5.9%;
+        position: relative;
+    }
+}
+
 @media screen and (max-width: 1160px) {
-  #information {
-    display: block; }
+    #information {
+        display: block;
+    }
 
-  .video-container {
-    margin-top: 30px;
-    max-width: none;
-    height: 400px !important; }
+    .video-container {
+        margin-top: 30px;
+        max-width: none;
+        height: 400px !important;
+    }
+
     .video-container .trailer {
-      position: relative; } }
-@media screen and (min-width: 534px) {
-  #routine {
-    width: 100px; } }
+        position: relative;
+    }
+}
 
-/*# sourceMappingURL=movie.css.map */
+@media screen and (min-width: 534px) {
+    #routine {
+        width: 100px;
+    }
+}
