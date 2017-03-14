@@ -15,16 +15,15 @@
     <!-- Overskrift -->
     <h1><a href="index.html" title="Vindkast">Vindkast</a></h1>
 
-
     <nav>
-
         <!-- Hamburger meny -->
         <input type="checkbox" id="hamburger"/>
         <label for="hamburger" class="whitebox-l">
         </label>
-        <form id="search-form" action="sokeresultat.html">
-            <input type="search" placeholder="Søk" class="search"/>
-            <input type="submit" value="Søk" id="submit">
+        <!-- Søkeskjema gir mulighet for å søke etter film tittel. -->
+        <form id="search-form" action="search_results.html" method="get">
+                <input id="film_title" name="film_title" type="text" placeholder="e.g. King Kong" class="search" >
+                <input type="submit" id="submit_search" value="Søk">
         </form>
         <label class="menuicon" for="hamburger">
             <span></span>

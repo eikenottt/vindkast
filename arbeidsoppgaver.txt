@@ -13,3 +13,5 @@ søkeresultat siden skal genereres med javascript
 
 seksjonene på fremsiden "nyeste filmer" osv genereres med js
 
+
+//TODO Endre ID i CSS fra submit til submit_search
