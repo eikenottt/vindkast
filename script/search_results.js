@@ -15,7 +15,7 @@ window.onload = function() {
 	
 	if (query_params.film_title) {
         film_title = document.getElementById("film_title");
-		//Her kan dere for eksempel kalle en søkefunksjon som søker for tittel.
+        movies_object.forEach(movie => film_title.innerHTML += `<li> ${movie.otitle.includes(query_params.film_title)} </li>`);
     }
 	
 	if (query_params.actor) {
