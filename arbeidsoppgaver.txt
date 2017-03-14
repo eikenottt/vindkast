@@ -1,11 +1,12 @@
 Rune:
     - Fikse scss til css //DONEs
+    - //TODO Hente bilder til filmene
 
 Malin:
-    - Implentere search.js til vindkast filen
+    - Implentere search til vindkast filen
 
 Aasmund:
-    - Implentere advanced_search.js til vindkast filen
+    - Implentere advanced_search.html til vindkast filen
 
 
 show movie siden skal genereres med javascript
