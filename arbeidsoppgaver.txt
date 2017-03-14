@@ -1,0 +1,15 @@
+Rune:
+    - Fikse scss til css
+
+Malin:
+    - Implentere search.js til vindkast filen
+
+Aasmund:
+    - Implentere advanced_search.js til vindkast filen
+
+
+show movie siden skal genereres med javascript
+søkeresultat siden skal genereres med javascript
+
+seksjonene på fremsiden "nyeste filmer" osv genereres med js
+
