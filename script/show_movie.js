@@ -35,8 +35,6 @@ window.onload = function() {
     // get the review info (if it exists)
     review_object = reviews_object[query_params.id];
 
-    image_object = `https://nelson.uib.no/o/${query_params.id[0]}/${query_params.id}.jpg`;
-
     img = document.createElement("img");
     img.setAttribute(`src=${image_object}`);
     div = document.querySelector("#som");

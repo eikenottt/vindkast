@@ -60,14 +60,12 @@ window.onload = function() {
             movie_id = search_result[i].id;
             ol.innerHTML += `<li>
                                 <a href="show_movie.html?id=${movie_id}" class="movie-info movie-info-a">
-                                    <img src="https://nelson.uib.no/o/${(String(movie_id).length === 4) ? String(movie_id).substring(0,1) : 0}/${movie_id}.jpg" 
-                                         alt="${search_result[i].otitle}">
+                                    <img id="img${movie_id}" src="https://nelson.uib.no/o/${(String(movie_id).length === 4) ? String(movie_id).substring(0,1) : 0}/${movie_id}.jpg" 
+                                         alt="${search_result[i].otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">
                                     <span>${search_result[i].otitle}</span>
                                 </a>
                             </li>`;
         }
 
     }
-
-
 }
