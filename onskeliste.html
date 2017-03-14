@@ -1,13 +1,12 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <title>Ønskeliste</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" type="image/png" href="img/wind.png">
-    <title>Søkeresultat</title>
 </head>
-
 <body>
 <header>
     <!-- Overskrift -->
@@ -81,35 +80,15 @@
             <li>Film skal leveres tilbake i posthyllen merket <em>retur av film</em></li>
         </ol>
     </section>
-    <section>
-        <h2>Ditt Resultat</h2>
-        <p>Ditt søk: <span class="result">The Lunchbox</span></p>
-        <ul class="movies">
-            <li>
-                <a href="lunch.html" class="movie-info movie-info-a">
-                    <img src="img/The_Lunchbox_1.jpg" alt="The Lunchbox">
-                    <span>The Lunchbox</span>
-                </a>
-                <!-- <details>
-                    <summary class="movie-info">
-                        <div class="info">i
-                        </div>
-                    </summary>
-                    <p>Indiske The Lunchbox er en sjelden filmperle som har begeistret et stort internasjonalt publikum med sin originalitet og...</p>
-                </details> -->
-
-            </li>
-        </ul>
-    </section>
-    <section>
-        <h2>Anbefalte filmer basert på ditt søk</h2>
+    <section class="flex-left">
+        <h2>Mine Filmer</h2>
         <ul class="movies">
             <li>
                 <a href="theintouchables.html" class="movie-info movie-info-a">
                     <img src="img/The_Intouchables_3.jpg" alt="The Intouchables">
                     <span>The Intouchables</span>
                 </a>
-            </li>
+            <li>
             <li>
                 <a href="lunch.html" class="movie-info movie-info-a">
                     <img src="img/The_Lunchbox_1.jpg" alt="The Lunchbox">
@@ -117,6 +96,42 @@
                 </a>
             </li>
         </ul>
+    </section>
+    <section class="flex-right">
+        <section>
+            <h2>Ønskeliste</h2>
+            <ul class="movies">
+                <li>
+                    <a href="lunch.html" class="movie-info movie-info-a">
+                        <img src="img/The_Lunchbox_1.jpg" alt="The Lunchbox">
+                        <span>The Lunchbox</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="theintouchables.html" class="movie-info movie-info-a">
+                        <img src="img/The_Intouchables_3.jpg" alt="The Intouchables">
+                        <span>The Intouchables</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Anbefalte Filmer</h2>
+            <ul class="movies">
+                <li>
+                    <a href="theintouchables.html" class="movie-info movie-info-a">
+                        <img src="img/The_Intouchables_3.jpg" alt="The Intouchables">
+                        <span>The Intouchables</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="lunch.html" class="movie-info movie-info-a">
+                        <img src="img/The_Lunchbox_1.jpg" alt="The Lunchbox">
+                        <span>The Lunchbox</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
     </section>
 </main>
 </body>
