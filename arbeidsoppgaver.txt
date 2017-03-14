@@ -19,5 +19,8 @@ søkeresultat siden skal genereres med javascript
 
 seksjonene på fremsiden "nyeste filmer" osv genereres med js
 
-
 //TODO Endre ID i CSS fra submit til submit_search  //DONE 
+
+
+Kanskje vi kan ha en seksjon over søkeresultatene der det feks står: 
+"Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende. Så putter vi inn de feltene der (i search results)? Jeg tror det kan se ryddig ut og er en logisk plassering for avansert søk. 
