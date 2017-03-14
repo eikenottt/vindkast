@@ -1,12 +1,17 @@
 Rune:
     - Fikse scss til css //DONEs
-    - //TODO Hente bilder til filmene
+    - //TODO Hente bilder til filmene //Done
+    - Få "Lånte filmer" og "Ønskeliste" til å fungere
+    - Ordne layout på "show_movie"
 
 Malin:
-    - Implentere search til vindkast filen
+    - Implentere search til vindkast filen //Done
+    - Replassere "Rutiner" på liten skjerm til meny
+    - Endre menyinnhold til å vise noe mer likt Malin sin meny
 
 Aasmund:
     - Implentere advanced_search.html til vindkast filen
+    - Legge inn rating fra "review" filen til filmene
 
 
 show movie siden skal genereres med javascript
