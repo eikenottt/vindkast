@@ -1,5 +1,0 @@
-TODO Det må være mulig å klikke på en skuespiller av cast, og dermed vise alle filmene som han/hun har  deltatt  i.
-
-TODO gi mulighet til å vurdere filmen
-
-TODO legge filmen i "min liste"/ønskelisten

@@ -9,9 +9,8 @@
   overflow: hidden;
   display: inline-block;
   position: relative;
-  background-color: #fff;
   padding: 10px;
-  box-shadow: inset 0 1px 3px #D1481B; }
+  box-shadow: inset 0 0 3px 0 #f6b823; }
 
 .rating-input {
   display: none;
@@ -19,7 +18,7 @@
   width: 14px;
   height: 46px;
   padding: 0;
-  margin: 0 0 0 0;
+  margin: 0;
   opacity: 0; }
 
 .rating .rating-star, .rating:hover .rating-star {
@@ -28,7 +27,7 @@
   display: block;
   width: 14px;
   height: 46px;
-  background: url("img/rating/Asset 1.svg") -42px 0;
+  background: url("../img/rating/Asset 1.svg") -42px 0;
   background-size: 28px; }
   .rating .rating-star:hover, .rating:hover .rating-star:hover {
     background-position: 0 0; }
@@ -49,13 +48,30 @@ main {
     color: #D1481B; }
   #information .text-wrap {
     flex: 2;
-    padding: 0.4rem; }
+    padding: 0.4rem;
+    position: relative; }
+    #information .text-wrap img {
+      width: 100px;
+      height: auto;
+      position: absolute;
+      right: 30px; }
   #information a {
     color: #3999AE;
     width: auto;
     height: auto; }
     #information a:hover {
       color: #D1481B; }
+  #information .buttons {
+    position: absolute;
+    top: 10px; }
+    #information .buttons button {
+      border: none;
+      cursor: pointer;
+      padding: 5px 20px;
+      background-color: #ddd; }
+      #information .buttons button:hover {
+        background-color: white;
+        box-shadow: inset 0 0 0 2px #ddd; }
 
 #pictures {
   background: transparent; }
@@ -76,22 +92,22 @@ main {
       background-position: center;
       height: 100%; }
     #pictures #frame #limage1 {
-      background-image: url("img/Film2/The_Lunchbox_2.jpg"); }
+      background-image: url("../img/Film2/The_Lunchbox_2.jpg"); }
     #pictures #frame #limage2 {
-      background-image: url("img/Film2/The_Lunchbox_3.jpg"); }
+      background-image: url("../img/Film2/The_Lunchbox_3.jpg"); }
     #pictures #frame #limage3 {
-      background-image: url("img/Film2/The_Lunchbox_4.jpg"); }
+      background-image: url("../img/Film2/The_Lunchbox_4.jpg"); }
     #pictures #frame #limage4 {
-      background-image: url("img/Film2/The_Lunchbox_5.jpg");
+      background-image: url("../img/Film2/The_Lunchbox_5.jpg");
       background-position: left; }
     #pictures #frame #inimage1 {
-      background-image: url("img/Film1/The_Intouchables_1.jpg");
+      background-image: url("../img/Film1/The_Intouchables_1.jpg");
       background-position: 30% 10%; }
     #pictures #frame #inimage2 {
-      background-image: url("img/Film1/The_Intouchables_4.jpg");
+      background-image: url("../img/Film1/The_intouchables_4.jpg");
       background-position: 45% 10%; }
     #pictures #frame #inimage3 {
-      background-image: url("img/Film1/The_Intouchables_5.jpg");
+      background-image: url("../img/Film1/The_Intouchables_5.jpg");
       background-position: 30% 60%; }
 
 .extra {
@@ -126,6 +142,8 @@ main {
     left: 0;
     margin: 0;
     bottom: 100px; }
+  header nav .search-space {
+    margin-top: 30px; }
   header nav #search-form {
     display: none; }
     header nav #search-form .search {
@@ -149,7 +167,6 @@ main {
     width: 100%;
     position: absolute;
     top: 100px;
-    z-index: 2;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -159,11 +176,14 @@ main {
     -ms-flex-pack: justify;
     justify-content: space-between; }
 
+  #information .text-wrap img {
+    display: none; }
+  #information .text-wrap .buttons {
+    position: relative;
+    top: -10px; }
+
   #routine {
     width: 200px; }
-
-  .search-space {
-    margin-top: 30px; }
 
   .routine {
     width: 320px; } }
@@ -207,7 +227,7 @@ main {
         height: auto !important;
         position: relative !important;
         overflow: visible !important;
-        width: 600px !important;
+        width: 610px !important;
         flex-flow: row nowrap !important;
         margin: auto;
         top: 0; }
@@ -237,7 +257,14 @@ main {
             top: 40px;
             left: 0; }
             header nav #menu .accordion .accordion-menu a {
-              margin-bottom: 20px; } }
+              margin-bottom: 20px; }
+
+  main {
+    width: 90%; }
+    main #pictures {
+      width: 88.6%;
+      left: 5.9%;
+      position: relative; } }
 @media screen and (max-width: 1160px) {
   #information {
     display: block; }
@@ -248,5 +275,8 @@ main {
     height: 400px !important; }
     .video-container .trailer {
       position: relative; } }
+@media screen and (min-width: 534px) {
+  #routine {
+    width: 100px; } }
 
 /*# sourceMappingURL=movie.css.map */

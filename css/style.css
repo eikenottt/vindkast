@@ -15,7 +15,7 @@
 /* --------- Header ----------- */
 header {
   position: relative;
-  background: url("img/header.jpg") no-repeat top center;
+  background: url("../img/header.jpg") no-repeat top center;
   background-size: cover;
   color: #fff;
   min-height: 360px;
@@ -34,7 +34,7 @@ header {
       text-shadow: 0 0 7px #000; }
     header h1::before {
       content: "";
-      background: url("img/wind.png");
+      background: url("../img/wind.png");
       background-size: contain;
       width: 58px;
       height: 58px;
@@ -52,7 +52,8 @@ header {
     /* ------- Hamburger Menu ------- */ }
     header nav #search-form {
       position: relative;
-      bottom: -11px; }
+      bottom: -11px;
+      z-index: 65; }
       header nav #search-form .search {
         position: absolute;
         width: 180px;
@@ -122,10 +123,10 @@ header {
         color: #FFF; }
         header nav #menu .menuItem:hover {
           background: #F0EFE9;
-          color: #D1481B !important; }
+          color: #D1481B; }
         header nav #menu .menuItem a {
           display: block;
-          color: #fff; }
+          color: inherit; }
           header nav #menu .menuItem a:hover {
             color: #D1481B; }
       header nav #menu .accordion input {
@@ -422,6 +423,8 @@ main {
     left: 0;
     margin: 0;
     bottom: 100px; }
+  header nav .search-space {
+    margin-top: 30px; }
   header nav #search-form {
     display: none; }
     header nav #search-form .search {
@@ -445,7 +448,6 @@ main {
     width: 100%;
     position: absolute;
     top: 100px;
-    z-index: 2;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -455,11 +457,14 @@ main {
     -ms-flex-pack: justify;
     justify-content: space-between; }
 
+  #information .text-wrap img {
+    display: none; }
+  #information .text-wrap .buttons {
+    position: relative;
+    top: -10px; }
+
   #routine {
     width: 200px; }
-
-  .search-space {
-    margin-top: 30px; }
 
   .routine {
     width: 320px; } }
@@ -503,7 +508,7 @@ main {
         height: auto !important;
         position: relative !important;
         overflow: visible !important;
-        width: 600px !important;
+        width: 610px !important;
         flex-flow: row nowrap !important;
         margin: auto;
         top: 0; }
@@ -533,7 +538,14 @@ main {
             top: 40px;
             left: 0; }
             header nav #menu .accordion .accordion-menu a {
-              margin-bottom: 20px; } }
+              margin-bottom: 20px; }
+
+  main {
+    width: 90%; }
+    main #pictures {
+      width: 88.6%;
+      left: 5.9%;
+      position: relative; } }
 @media screen and (max-width: 1160px) {
   #information {
     display: block; }
@@ -544,5 +556,8 @@ main {
     height: 400px !important; }
     .video-container .trailer {
       position: relative; } }
+@media screen and (min-width: 534px) {
+  #routine {
+    width: 100px; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -122,11 +122,11 @@ header {
 				color: #FFF;
 				&:hover {
 					background: $primary-color;
-					color: $link-hover !important;
+					color: $link-hover;
 				}
 				a {
 					display: block;
-					color: #fff;
+					color: inherit;
 					&:hover {
 						color: $link-hover;
 					}

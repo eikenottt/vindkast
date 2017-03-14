@@ -14,6 +14,13 @@ main {
 		.text-wrap {
 			flex: 2;
 			padding: 0.4rem;
+			position: relative;
+			img {
+				width:100px;
+				height:auto;
+				position: absolute;
+				right:30px;
+			}
 		}
 		a {
 			color: $link-color;
@@ -21,6 +28,20 @@ main {
 			height: auto;
 			&:hover {
 				color: $link-hover;
+			}
+		}
+		.buttons {
+			position: absolute;
+			top:10px;
+			button {
+				border: none;
+				cursor: pointer;
+				padding:5px 20px;
+				background-color: $button-color;
+				&:hover {
+					background-color: $button-color-hover;
+					box-shadow: inset 0 0 0 2px $button-color;
+				}
 			}
 		}
 	}
@@ -42,7 +63,7 @@ main {
 					background-position: center;
 					height: 100%;
 				}
-				@import "lunchboximages";
+				@import "movieimg";
 			}
 		}
 	.extra {
