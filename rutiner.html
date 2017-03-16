@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Vindkast - Filmregister</title>
+    <title>Ønskeliste</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -14,16 +14,15 @@
 
 
     <nav>
-
         <!-- Hamburger meny -->
         <input type="checkbox" id="hamburger"/>
         <label for="hamburger" class="whitebox-l">
         </label>
-        <!-- Søkeskjema gir mulighet for å søke etter film tittel. -->
-        <form id="search-form" action="search_results.html" method="get">
-            <input id="film_title" name="film_title" type="text" placeholder="e.g. King Kong" class="search" minlength="3">
-            <input type="submit" id="submit_search" value="Søk">
-        </form>
+             <!-- Søkeskjema gir mulighet for å søke etter film tittel. -->
+            <form id="search-form" action="search_results.html" method="get">
+                <input id="film_title" name="film_title" type="text" placeholder="e.g. King Kong" class="search" >
+                <input type="submit" id="submit_search" value="Søk">
+            </form>
         <label class="menuicon" for="hamburger">
             <span></span>
         </label>
@@ -31,7 +30,7 @@
 
             <li class="menuItem" id="username-holder"><a href="#" id="username">Velkommen rei008</a></li>
             <li class="menuItem"><a href="onskeliste.html">Min side</a></li>
-            <li class="menuItem" id="rutine-side"><a href="rutiner.html">Rutiner</a></li>
+
             <!-- Åpne og lukke meny (accordion) -->
             <li class="accordion menuItem">
                 <input type="checkbox" id="check-1"/>
@@ -61,9 +60,8 @@
     <label for="sidebox" class="whitebox-l">
         <span class="whitebox"></span>
     </label>
-    <section id="routine">
-        <label for="sidebox" class="sidebox-x">X</label>
-        <label for="sidebox" class="sidebox-label">Rutiner</label>
+        
+    <section class="flex-left">
         <h2>Rutine for lån</h2>
         <ol>
             <li>Følgende kan låne: staben ved Institutt for informasjons- og medievitenskap, studenter ved instituttet,
@@ -80,59 +78,6 @@
             </li>
             <li>Film skal leveres tilbake i posthyllen merket <em>retur av film</em></li>
         </ol>
-    </section>
-    <section class="flex-left">
-        <h2>Nyeste Filmer</h2>
-        <ul class="movies">
-            <li>
-                <a href="theintouchables.html" class="movie-info movie-info-a">
-                    <img src="img/The_Intouchables_3.jpg" alt="The Intouchables">
-                    <span>The Intouchables</span>
-                </a>
-            <li>
-            <li>
-                <a href="lunch.html" class="movie-info movie-info-a">
-                    <img src="img/The_Lunchbox_1.jpg" alt="The Lunchbox">
-                    <span>The Lunchbox</span>
-                </a>
-            </li>
-        </ul>
-    </section>
-    <section class="flex-right">
-        <section>
-            <h2>Nylig Lånte Filmer</h2>
-            <ul class="movies">
-                <li>
-                    <a href="lunch.html" class="movie-info movie-info-a">
-                        <img src="img/The_Lunchbox_1.jpg" alt="The Lunchbox">
-                        <span>The Lunchbox</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="theintouchables.html" class="movie-info movie-info-a">
-                        <img src="img/The_Intouchables_3.jpg" alt="The Intouchables">
-                        <span>The Intouchables</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <h2>Anbefalte Filmer</h2>
-            <ul class="movies">
-                <li>
-                    <a href="theintouchables.html" class="movie-info movie-info-a">
-                        <img src="img/The_Intouchables_3.jpg" alt="The Intouchables">
-                        <span>The Intouchables</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="lunch.html" class="movie-info movie-info-a">
-                        <img src="img/The_Lunchbox_1.jpg" alt="The Lunchbox">
-                        <span>The Lunchbox</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
     </section>
 </main>
 </body>
