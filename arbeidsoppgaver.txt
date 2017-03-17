@@ -10,10 +10,12 @@ Malin:
     (tenker vi bare lager en ekstra side som vi linker til i menyen, det ser ryddigst ut)
     - Endre menyinnhold til å vise noe mer likt Malin sin meny
     (tenker å endre slik at menyen istdenfor viser "innhold" og "mine sider (brukernavn)", + en logg ut knapp)
+    - endre til "mine lån" istedenfor "mine filmer"
 
 Aasmund:
     - Implentere advanced_search.html til vindkast filen
     - Legge inn rating fra "review" filen til filmene
+    - gjøre det som står i *{} nede på siden
 
 
 show movie siden skal genereres med javascript
@@ -24,8 +26,9 @@ seksjonene på fremsiden "nyeste filmer" osv genereres med js
 //TODO Endre ID i CSS fra submit til submit_search  //DONE 
 
 
-Kanskje vi kan ha en seksjon over søkeresultatene der det feks står: 
-"Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende. Så putter vi inn de feltene der (i search results)? Jeg tror det kan se ryddig ut og er en logisk plassering for avansert søk. 
+* { Kanskje vi kan ha en seksjon over søkeresultatene der det feks står:
+        "Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende. Så putter vi inn de feltene der (i search results)? Jeg tror det kan se ryddig ut og er en logisk plassering for avansert søk.
+}
+ja
 
-
-Skal vi endre til "mine lån" istedenfor "mine filmer"? 
+Skal vi endre til "mine lån" istedenfor "mine filmer"? ja
