@@ -18,6 +18,7 @@ window.onload = function() {
         //Her kan dere for eksempel kalle en søkefunksjon som søker for tittel.
         for(movie in movies_object) {
             if(movies_object[movie].otitle.toLowerCase().includes(String(query_params.film_title).toLowerCase())) {
+                if(!(search_result.includes(movies_object[movie])))
                 search_result.push(movies_object[movie]);
             }
 
@@ -54,7 +55,9 @@ window.onload = function() {
     //Her kan dere for eksempel kalle en (display) funksjon som viser søkeresultater
     display();
     function display() {
-        film_title.innerHTML = `Antall søkeresultat: ${search_result.length}`;
+        count = document.querySelector("#count");
+        count.style.marginBottom = "10";
+        count.innerHTML = `Antall: ${search_result.length}`;
         ol = document.querySelector("#res_list");
         for(i = 0; i < search_result.length; i++){
             movie_id = search_result[i].id;
@@ -68,4 +71,4 @@ window.onload = function() {
         }
 
     }
-}
+};
