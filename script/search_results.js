@@ -26,22 +26,18 @@ window.onload = function() {
 
     }
 
-
+// Sjanger - Genre.js
+// Tittel, Actor, Director, Country - Object.js
     if (query_params.actor) {
         actor = document.getElementById("actor");
-        for(movie in movies_object) {
-            if(movies_object[movie].folk != null && movies_object[movie].folk.includes(query_params.actor)) {
-                search_result.push(movies_object[movie]);
-            }
-
-        }
+        actor.innerHTML = query_params.actor;
     }
 
     if (query_params.director) {
         director = document.getElementById("director");
         director.innerHTML = query_params.director;
     }
-
+// 
     if (query_params.genre) {
         genre = document.getElementById("genre");
         genre.innerHTML = query_params.genre;
