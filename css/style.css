@@ -171,11 +171,6 @@ header nav #menu #username {
     color: #fff;
 }
 
-/* Skjuler rutineknappen på stor skjerm */
-header nav #menu #rutine-side {
-    display: none; 
-}
-
 header nav #menu .menuItem {
     background-color: #2c7686;
     padding: 10px;
@@ -634,14 +629,6 @@ main .flex-right {
         top: -10px;
     }
 
-    /* Skjuler rutinecheckboks på liten skjerm*/
-    #routine {
-        display: none; 
-    }
-    /* Viser rutiner i meny på liten skjerm*/
-    header nav #menu #rutine-side {
-    display: inline-block; 
-}
 }
 
 @media screen and (min-width: 1160px) {
@@ -704,6 +691,11 @@ main .flex-right {
         flex-flow: row nowrap !important;
         margin: auto;
         top: 0;
+    }
+
+    /* Skjuler rutineknappen på stor skjerm */
+    header nav #menu #rutine-side {
+        display: none;
     }
 
     header nav #menu .flex1 {
@@ -771,6 +763,14 @@ main .flex-right {
 
     .video-container .trailer {
         position: relative;
+    }
+    /* Skjuler rutinecheckboks på liten skjerm*/
+    #routine {
+        display: none;
+    }
+    /* Viser rutiner i meny på liten skjerm*/
+    header nav #menu #rutine-side {
+        display: inline-block;
     }
 }
 
