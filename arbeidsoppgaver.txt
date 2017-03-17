@@ -10,6 +10,7 @@ Malin:
     (tenker vi bare lager en ekstra side som vi linker til i menyen, det ser ryddigst ut)
     - Endre menyinnhold til å vise noe mer likt Malin sin meny
     (tenker å endre slik at menyen istdenfor viser "innhold" og "mine sider (brukernavn)", + en logg ut knapp)
+    -legge til ikoner i meny 
     - endre til "mine lån" istedenfor "mine filmer"
 
 Aasmund:
