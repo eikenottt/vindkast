@@ -628,6 +628,8 @@ main .flex-right {
 
 }
 
+
+/* For store skjermer */
 @media screen and (min-width: 1160px) {
     header {
         background: url("../img/header.jpg") no-repeat center 57px;
@@ -795,6 +797,8 @@ main .flex-right {
     }
 }
 
+/* For Nettbrett og mobiler */
+
 @media screen and (max-width: 1160px) {
     #information {
         display: block;
@@ -816,12 +820,6 @@ main .flex-right {
     /* Viser rutiner i meny på liten skjerm*/
     header nav #menu #rutine-side {
         display: inline-block;
-    }
-}
-
-@media screen and (min-width: 534px) {
-    #routine {
-        width: var(--img-size-width);
     }
 }
 

@@ -44,24 +44,30 @@ window.onload = function() {
 
     if (movie_object["youtube trailer id"] == "") {
         video_trailer.remove();
+        cover_image.firstChild.classList.add("big_cover");
     } else {
         video_trailer.innerHTML = `<iframe class="trailer" src="https://www.youtube-nocookie.com/embed/${movie_object["youtube trailer id"]}?rel=0&amp;showinfo=0" allowfullscreen></iframe>`;
     }
 
+    genreCount = 0;
+    folkCount = 0;
     counter = 0;
     for(mov_id in movies_object) {
-        if(movies_object[mov_id].otitle.toLowerCase().includes(movie_object.otitle.toLowerCase().substring(0,3)) && movies_object[mov_id].country.includes(movie_object.country)){
-            recMovie_id = movies_object[mov_id].id;
-            if(recMovie_id === movie_object.id) continue;
-            counter++;
-            if(counter < 8) {
-                recomended.innerHTML += `<li>
+        if (folkCount < 4) {
+            if (((movies_object[mov_id].folk != null) ? movies_object[mov_id].folk.trim().split(",").includes(movie_object.folk.trim().split(",")[`${0}`]) : false)) {
+                recMovie_id = movies_object[mov_id].id;
+                if (recMovie_id === movie_object.id) continue;
+                counter++;
+                if (counter < 8) {
+                    recomended.innerHTML += `<li>
                         <a href="show_movie.html?id=${recMovie_id}" class="movie-info movie-info-a">
                             <img id="img${recMovie_id}" src="https://nelson.uib.no/o/${(String(recMovie_id).length === 4) ? String(recMovie_id).substring(0, 1) : 0}/${recMovie_id}.jpg" 
                                  alt="${movies_object[recMovie_id].otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">
                             <span>${movies_object[recMovie_id].otitle}</span>
                         </a>
                     </li>`;
+                }
+
             }
 
         }
@@ -72,7 +78,7 @@ window.onload = function() {
 
 };
 function getImages(id){
-    alphabet = ["b", "c", "d"];
+    alphabet = ["b", "c"];
     for(i = 0; i < alphabet.length; i++) {
         link = `https://nelson.uib.no/o/${(String(id).length === 4) ? String(id).substring(0, 1) : 0}/${id + alphabet[i]}.jpg`;
         img = document.createElement("img");
