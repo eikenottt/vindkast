@@ -163,9 +163,9 @@ header nav #menu {
     z-index: 60;
 }
 
-header nav #menu #username {
+/*header nav #menu #username {
     color: #fff;
-}
+}*/
 
 header nav #menu .menuItem {
     background-color: #2c7686;
@@ -244,6 +244,12 @@ header nav #menu .accordion .accordion-menu {
 header nav #menu .accordion .accordion-menu a {
     padding: 10px;
 }
+
+/* Endrer ikoner i meny */
+header nav #menu .navimg {
+      height: 1.5em; 
+      padding: 3px; 
+    }
 
 header nav .menuicon {
     position: absolute;
