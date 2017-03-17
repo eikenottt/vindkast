@@ -7,7 +7,9 @@ Rune:
 Malin:
     - Implentere search til vindkast filen //Done
     - Replassere "Rutiner" på liten skjerm til meny
+    (tenker vi bare lager en ekstra side som vi linker til i menyen, det ser ryddigst ut)
     - Endre menyinnhold til å vise noe mer likt Malin sin meny
+    (tenker å endre slik at menyen istdenfor viser "innhold" og "mine sider (brukernavn)", + en logg ut knapp)
 
 Aasmund:
     - Implentere advanced_search.html til vindkast filen
