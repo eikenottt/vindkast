@@ -11,39 +11,86 @@
 window.onload = function() {
     query_params = get_query_string_parameters();
 
+    // Lager en global Array for søket til å oppdatere søkeresultatene i etterhvert som man sjekker flere søkefelt
     search_result = [];
-    film_title = document.querySelector("#film_title");
 
+    // Vi starter med søkefelt for tittel-parameteret da har størst sannsynlighet for å generere færrest resultater
     if (query_params.film_title) {
-        //Her kan dere for eksempel kalle en søkefunksjon som søker for tittel.
+        //Lager et lokalt array for å lagre søkeresultater for dette inputfeltet gjennom iterasjoner
+        title_search = [];
+        
+        // (SKAL SLETTES) film_title = document.querySelector("#film_title");
+
+        // Går igjennom alle elementer i Object.js
         for(movie in movies_object) {
             if(movies_object[movie].otitle.toLowerCase().includes(String(query_params.film_title).toLowerCase())) {
-                if(!(search_result.includes(movies_object[movie])))
-                search_result.push(movies_object[movie]);
+                title_search.push(movies_object[movie]);
             }
 
         }
-
+        search_result = title_search;
     }
 
 // Sjanger - Genre.js
 // Tittel, Actor, Director, Country - Object.js
+
     if (query_params.actor) {
+        actor_search = [];
+
+        for(movie in movies_object) {
+            if(movies_object[movie].folk.toLowerCase().includes(String(query_params.actors).toLowerCase())) {
+                actor_search.push(movies_object[movie]);
+            }
+            // Gjør den senere - Må dele opp strengen - Bruk split(",") og trim()
+            // Sjekk hva som er felles i search_result og actor_search
+            // Oppdated actor_search
+            // Bruker .folk for å referere til actors i JSON
+        }
+
+        // Må skrive noe som sammenligner og oppdaterer search_result basert på actor_search.
+
         actor = document.getElementById("actor");
         actor.innerHTML = query_params.actor;
     }
 
     if (query_params.director) {
+        dir_search = [];
+
+        for(movie in movies_object) {
+            if(movies_object[movie].dir.toLowerCase().includes(String(query_params.director).toLowerCase())) {
+                dir_search.push(movies_object[movie]);
+            }
+        }
+        // Skal være lik forrige løkke men bruker i stedet dir_search og .dir (for director)
         director = document.getElementById("director");
         director.innerHTML = query_params.director;
     }
-// 
+
     if (query_params.genre) {
+        gen_search = [];
+
+        for(movie in movies_object) {
+            // Denne er feil
+            if(genres_object[movie.id].toLowerCase().includes(String(query_params.genre).toLowerCase())) {
+                gen_search.push(movies_object[movie]);
+            }
+        }
+            // Denne referer til Genres.js ved genres_object istedetfor movies_object.
+            // Må også bruke split og trim
+            // Kalles ved å bruke id'en fra movies_object
         genre = document.getElementById("genre");
         genre.innerHTML = query_params.genre;
     }
 
     if (query_params.country) {
+        c_search = [];
+
+        for(movie in movies_object) {
+            if(movies_object[movie].country.toLowerCase().includes(String(query_params.country).toLowerCase())) {
+                dir_search.push(movies_object[movie]);
+            }
+        }
+        // Denne referer til Objects.js og movies_object igjen og kalles ved .country
         country = document.getElementById("country");
         country.innerHTML = query_params.country;
     }
