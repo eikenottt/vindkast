@@ -810,7 +810,7 @@ main .flex-right {
         position: relative;
     }
     /* Skjuler rutinecheckboks på liten skjerm*/
-    #routine {
+    #routine, .sidebox-label {
         display: none;
     }
     /* Viser rutiner i meny på liten skjerm*/
