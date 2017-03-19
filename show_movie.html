@@ -10,6 +10,7 @@
   <script type="text/javascript" src="script/query_params.js"></script>
   <script type="text/javascript" src="script/object.js"></script>
   <script type="text/javascript" src="script/genres.js"></script>
+  <script type="text/javascript" src="script/reviews.js"></script>
   <script type="text/javascript" src="script/show_movieNEW.js"></script>
 </head>
 
@@ -109,14 +110,12 @@
 						<input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
 						<label for="rating-input-1-1" class="rating-star"></label>
 					</span>
+      <span id="ratingnr"></span>
       <h3 id="no-title"></h3>
       <p id="genre"></p>
       <p id="lang"> <div id="duration"></div></p>
-      <p><span>Regissør: </span><div id="dir"></div></p>
-      <p><span>Hovedpersoner: </span><a href="http://www.imdb.com/name/nm0451234/">Irrfan Khan</a>, <a
-              href="http://www.imdb.com/name/nm0239267/?ref_=fn_al_nm_1">Lillete Dubey</a>, <a
-              href="http://www.imdb.com/name/nm1596350/?ref_=fn_al_nm_1">Nawazuddin Siddiqui</a>, <a
-              href="http://www.imdb.com/name/nm1909661/?ref_=fn_al_nm_1">Nimrat Kaur</a></p>
+      <p><span>Regissør: </span><span id="dir"></span></p>
+      <p><span>Hovedpersoner: </span><span id="folk"></span></p>
     </div>
     <div class="video-container">
 
