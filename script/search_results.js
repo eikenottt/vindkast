@@ -18,8 +18,6 @@ window.onload = function() {
     if (query_params.film_title) {
         //Lager et lokalt array for å lagre søkeresultater for dette inputfeltet gjennom iterasjoner
         title_search = [];
-        
-        // (SKAL SLETTES) film_title = document.querySelector("#film_title");
 
         // Går igjennom alle elementer i Object.js
         for(movie in movies_object) {
@@ -46,6 +44,7 @@ window.onload = function() {
             // Oppdated actor_search
             // Bruker .folk for å referere til actors i JSON
         }
+        search_result += actor_search;
 
         // Må skrive noe som sammenligner og oppdaterer search_result basert på actor_search.
 
@@ -61,6 +60,7 @@ window.onload = function() {
                 dir_search.push(movies_object[movie]);
             }
         }
+        search_result += dir_search;
         // Skal være lik forrige løkke men bruker i stedet dir_search og .dir (for director)
         director = document.getElementById("director");
         director.innerHTML = query_params.director;
@@ -70,11 +70,11 @@ window.onload = function() {
         gen_search = [];
 
         for(movie in movies_object) {
-            // Denne er feil
-            if(genres_object[movie.id].toLowerCase().includes(String(query_params.genre).toLowerCase())) {
+            if(genres_object[movies_object[movie].id].toLowerCase().join("~").includes(String(query_params.genre).toLowerCase())) {
                 gen_search.push(movies_object[movie]);
             }
         }
+        search_result += gen_search;
             // Denne referer til Genres.js ved genres_object istedetfor movies_object.
             // Må også bruke split og trim
             // Kalles ved å bruke id'en fra movies_object
@@ -87,9 +87,10 @@ window.onload = function() {
 
         for(movie in movies_object) {
             if(movies_object[movie].country.toLowerCase().includes(String(query_params.country).toLowerCase())) {
-                dir_search.push(movies_object[movie]);
+                c_search.push(movies_object[movie]);
             }
         }
+        search_result += c_search;
         // Denne referer til Objects.js og movies_object igjen og kalles ved .country
         country = document.getElementById("country");
         country.innerHTML = query_params.country;
