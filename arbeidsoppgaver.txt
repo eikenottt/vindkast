@@ -14,7 +14,7 @@ Malin:
     - endre til "mine lån" istedenfor "mine filmer"
 
 Aasmund:
-    - Implentere advanced_search.html til vindkast filen
+    - Implentere advanced_search.html til vindkast filen (Nesten Ferdig)
     - Legge inn rating fra "review" filen til filmene
     - gjøre det som står i *{} nede på siden
 
@@ -28,7 +28,8 @@ seksjonene på fremsiden "nyeste filmer" osv genereres med js
 
 
 * { Kanskje vi kan ha en seksjon over søkeresultatene der det feks står:
-        "Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende. Så putter vi inn de feltene der (i search results)? Jeg tror det kan se ryddig ut og er en logisk plassering for avansert søk.
+        "Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende. Så putter vi inn de feltene der (i search results)? 
+        Jeg tror det kan se ryddig ut og er en logisk plassering for avansert søk.
 }
 ja
 
