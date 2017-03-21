@@ -624,6 +624,10 @@ main .flex-right {
         justify-content: space-between;
     }
 
+    #innhold {
+        margin-bottom: 45px; 
+    }
+
     #information .text-wrap img {
         display: none;
     }
@@ -686,8 +690,7 @@ main .flex-right {
     }
 
     header nav #search-form #submit_search {
-        left: 310px;
-
+        right: -335px;
     }
 
     header nav #search-form .search {
