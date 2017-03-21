@@ -34,3 +34,5 @@ seksjonene på fremsiden "nyeste filmer" osv genereres med js
 ja
 
 Skal vi endre til "mine lån" istedenfor "mine filmer"? ja
+
+Skal vi legge til en footer eller? 

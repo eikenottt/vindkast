@@ -591,22 +591,23 @@ main .flex-right {
     header nav #search-form .search {
         position: absolute;
         width: var(--full-page-width);
-        height: 30px;
         text-align: center;
         display: inline-block;
-        top: 0;
+    }
+
+    header nav #search-form .search, header nav #search-form #submit_search {
         right: 0;
-        padding: 0;
+        top: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     header nav #search-form #submit_search {
         position: relative;
         display: inline-block;
-        right: 0;
-        top: 0;
         width: 10%;
         padding: 0;
-        height: 30px;
+        height: 31px;
     }
 
     header nav #hamburger:checked ~ #search-form {
@@ -686,6 +687,7 @@ main .flex-right {
 
     header nav #search-form #submit_search {
         left: 310px;
+
     }
 
     header nav #search-form .search {
