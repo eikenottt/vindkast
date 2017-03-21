@@ -46,7 +46,7 @@ window.onload = function() {
     }
     // SØK PÅ SKUESPILLER
     if (query_params.actor) {
-        temp_param = query_params.actors;
+        temp_param = query_params.actor;
         parameters.push(temp_param);
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) {
