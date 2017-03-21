@@ -22,7 +22,7 @@ window.onload = function() {
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) { // Hvis dette er første gyldige søkeparameter
             for(movie in movies_object) { // Søk gjennom hele Object.js
-                let title = movies_object[movie].otitle.toLowerCase(); // Holder på tittelen til objektet i små bokstaver
+                let title = String(movies_object[movie].otitle).toLowerCase(); // Holder på tittelen til objektet i små bokstaver
                 let title_check = String(temp_param).toLowerCase(); // Holder på brukerens søkeord som strengverdi i små bokstaver (Med tanke på potensiell implementasjon av søkeparameter som ikke er strenger)
                 if(title.includes(title_check)) { // Hvis søkeordet er en del av tittelen
                     search_result.push(movies_object[movie]); // Legg objektet til i det Globale Arrayet
@@ -32,10 +32,10 @@ window.onload = function() {
         // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
         else { // Hvis dette IKKE er første gyldige søkeparameter
             for(movie in search_result) { // Søk gjennom det Globale Arrayet for søkeresultater
-                let title =  search_result[movie].otitle.toLowerCase();
+                let title =  String(search_result[movie].otitle).toLowerCase();
                 let title_check = String(query_params.film_title).toLowerCase();
                 if(!(title.includes(title_check))) { // Hvis brukerens søkeord IKKE finnes i tittelen
-                    search.result.splice(search_result[movie, 1]); // Fjern objektet fra det Globale Arrayet
+                    search_result.splice(search_result[movie, 1]); // Fjern objektet fra det Globale Arrayet
                 }
             }
             if(search_result.length<1) { // Dersom det Globale Arrayet tømmes
@@ -51,7 +51,7 @@ window.onload = function() {
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) {
             for(movie in movies_object) {
-                let actor = movies_object[movie].folk.toLowerCase();
+                let actor = String(movies_object[movie].folk).toLowerCase();
                 let actor_check = String(temp_param).toLowerCase();
                 if(actor.includes(actor_check)) {
                     search_result.push(movies_object[movie]);
@@ -61,10 +61,10 @@ window.onload = function() {
         // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
         else {
             for(movie in search_result) {
-                let actor =  search_result[movie].folk.toLowerCase();
+                let actor =  String(search_result[movie].folk).toLowerCase();
                 let actor_check = String(temp_param).toLowerCase();
                 if(!(actor.includes(actor_check))) {
-                    search.result.splice(search_result[movie, 1]);
+                    search_result.splice(search_result[movie, 1]);
                 }
             }
             if(search_result.length<1) {
@@ -80,7 +80,7 @@ window.onload = function() {
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) {
             for(movie in movies_object) {
-                let director = movies_object[movie].dir.toLowerCase();
+                let director = String(movies_object[movie].dir).toLowerCase();
                 let director_check = String(temp_param).toLowerCase();
                 if(director.includes(director_check)) {
                     search_result.push(movies_object[movie]);
@@ -90,10 +90,10 @@ window.onload = function() {
         // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
         else {
             for(movie in search_result) {
-                let director =  search_result[movie].dir.toLowerCase();
+                let director =  String(search_result[movie].dir).toLowerCase();
                 let director_check = String(temp_param).toLowerCase();
                 if(!(director.includes(director_check))) {
-                    search.result.splice(search_result[movie, 1]);
+                    search_result.splice(search_result[movie, 1]);
                 }
             }
             if(search_result.length<1) {
@@ -109,7 +109,7 @@ window.onload = function() {
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) {
             for(movie in movies_object) {
-                let genre = genres_object[movies_object[movie].id].toLowerCase().join("~");
+                let genre = String(genres_object[movies_object[movie].id]).toLowerCase().join("~");
                 let genre_check = String(temp_param).toLowerCase();
                 if(genre.includes(genre_check)) {
                     search_result.push(movies_object[movie]);
@@ -120,10 +120,10 @@ window.onload = function() {
         // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
         else {
             for(movie in search_result) {
-                let genre =  genres_object[search_result[movie].id].toLowerCase().join("~");
+                let genre =  String(genres_object[search_result[movie].id]).toLowerCase().join("~");
                 let genre_check = String(temp_param).toLowerCase();
                 if(!(genre.includes(genre_check))) {
-                    search.result.splice(search_result[movie, 1]);
+                    search_result.splice(search_result[movie, 1]);
                 }
             }
             if(search_result.length<1) {
@@ -140,7 +140,7 @@ window.onload = function() {
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) {
             for(movie in movies_object) {
-                let country = movies_object[movie].dir.toLowerCase();
+                let country = String(movies_object[movie].dir).toLowerCase();
                 let country_check = String(temp_param).toLowerCase();
                 if(country.includes(country_check)) {
                     search_result.push(movies_object[movie]);
@@ -150,10 +150,10 @@ window.onload = function() {
         // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
         else {
             for(movie in search_result) {
-                let country =  search_result[movie].dir.toLowerCase();
+                let country =  String(search_result[movie].dir).toLowerCase();
                 let country_check = String(temp_param).toLowerCase();
                 if(!(country.includes(country_check))) {
-                    search.result.splice(search_result[movie, 1]);
+                    search_result.splice(search_result[movie, 1]);
                 }
             }
             if(search_result.length<1) {
