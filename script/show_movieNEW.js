@@ -4,7 +4,6 @@ window.onload = function() {
     movie_object = movies_object[movie_id];
     review = reviews_object[movie_id];
 
-
     pictureArr = [];
 
     title = document.querySelector("#title");
@@ -142,11 +141,10 @@ function getRating() {
 }
 
 function sortAfterRating() {
-
-    for(review in reviews_object) {
-        if(reviews_object[review] != null) {
-
-        }
+    ratings = [];
+    for(mid in movies_object) {
+        reviews_object[mid].rating;
+        ratings.push(movies_object[mid]);
     }
 
 }
