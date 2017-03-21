@@ -109,7 +109,7 @@ window.onload = function() {
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) {
             for(movie in movies_object) {
-                let genre = String(genres_object[movies_object[movie].id]).toLowerCase().join("~");
+                let genre = genres_object[movies_object[movie].id].join("~").toLowerCase();
                 let genre_check = String(temp_param).toLowerCase();
                 if(genre.includes(genre_check)) {
                     search_result.push(movies_object[movie]);
@@ -120,7 +120,7 @@ window.onload = function() {
         // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
         else {
             for(movie in search_result) {
-                let genre =  String(genres_object[search_result[movie].id]).toLowerCase().join("~");
+                let genre =  genres_object[search_result[movie].id].join("~").toLowerCase();
                 let genre_check = String(temp_param).toLowerCase();
                 if(!(genre.includes(genre_check))) {
                     search_result.splice(search_result[movie, 1]);
@@ -140,7 +140,7 @@ window.onload = function() {
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) {
             for(movie in movies_object) {
-                let country = String(movies_object[movie].dir).toLowerCase();
+                let country = String(movies_object[movie].country).toLowerCase();
                 let country_check = String(temp_param).toLowerCase();
                 if(country.includes(country_check)) {
                     search_result.push(movies_object[movie]);
@@ -150,7 +150,7 @@ window.onload = function() {
         // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
         else {
             for(movie in search_result) {
-                let country =  String(search_result[movie].dir).toLowerCase();
+                let country =  String(search_result[movie].country).toLowerCase();
                 let country_check = String(temp_param).toLowerCase();
                 if(!(country.includes(country_check))) {
                     search_result.splice(search_result[movie, 1]);
