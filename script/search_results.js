@@ -35,7 +35,7 @@ window.onload = function() {
                 let title =  String(search_result[movie].otitle).toLowerCase();
                 let title_check = String(query_params.film_title).toLowerCase();
                 if(!(title.includes(title_check))) { // Hvis brukerens søkeord IKKE finnes i tittelen
-                    search_result.splice(search_result[movie, 1]); // Fjern objektet fra det Globale Arrayet
+                    search_result.splice(search_result[movie], 1); // Fjern objektet fra det Globale Arrayet
                 }
             }
             if(search_result.length<1) { // Dersom det Globale Arrayet tømmes
@@ -46,7 +46,7 @@ window.onload = function() {
     }
     // SØK PÅ SKUESPILLER
     if (query_params.actor) {
-        temp_param = query_params.actors;
+        temp_param = query_params.actor;
         parameters.push(temp_param);
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) {
@@ -64,7 +64,7 @@ window.onload = function() {
                 let actor =  String(search_result[movie].folk).toLowerCase();
                 let actor_check = String(temp_param).toLowerCase();
                 if(!(actor.includes(actor_check))) {
-                    search_result.splice(search_result[movie, 1]);
+                    search_result.splice(search_result[movie], 1);
                 }
             }
             if(search_result.length<1) {
@@ -93,7 +93,7 @@ window.onload = function() {
                 let director =  String(search_result[movie].dir).toLowerCase();
                 let director_check = String(temp_param).toLowerCase();
                 if(!(director.includes(director_check))) {
-                    search_result.splice(search_result[movie, 1]);
+                    search_result.splice(search_result[movie], 1);
                 }
             }
             if(search_result.length<1) {
@@ -109,7 +109,7 @@ window.onload = function() {
         // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
         if(search_result.length<1) {
             for(movie in movies_object) {
-                let genre = genres_object[movies_object[movie].id].join("~").toLowerCase();
+                let genre = (genres_object[movies_object[movie].id] != null) ? genres_object[movies_object[movie].id].join("~").toLowerCase() : "";
                 let genre_check = String(temp_param).toLowerCase();
                 if(genre.includes(genre_check)) {
                     search_result.push(movies_object[movie]);
@@ -120,10 +120,10 @@ window.onload = function() {
         // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
         else {
             for(movie in search_result) {
-                let genre =  genres_object[search_result[movie].id].join("~").toLowerCase();
+                let genre = (genres_object[movies_object[movie].id] != null) ? genres_object[movies_object[movie].id].join("~").toLowerCase() : "";
                 let genre_check = String(temp_param).toLowerCase();
                 if(!(genre.includes(genre_check))) {
-                    search_result.splice(search_result[movie, 1]);
+                    search_result.splice(search_result[movie], 1);
                 }
             }
             if(search_result.length<1) {
@@ -153,7 +153,7 @@ window.onload = function() {
                 let country =  String(search_result[movie].country).toLowerCase();
                 let country_check = String(temp_param).toLowerCase();
                 if(!(country.includes(country_check))) {
-                    search_result.splice(search_result[movie, 1]);
+                    search_result.splice(search_result[movie], 1);
                 }
             }
             if(search_result.length<1) {

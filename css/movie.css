@@ -142,9 +142,22 @@
 }
 
 @media screen and (min-width: 1160px) {
+    /* Makes the cover img bigger. */
     .big_cover {
         width: 300px !important;
     }
+
+    #cover_image {
+        width: 300px;
+        position: relative;
+        float: right;
+    }
+
+    #cover_image img {
+        position: relative !important;
+        right:0 !important;
+    }
+
 }
 
 @media screen and (max-width: 645px) {
