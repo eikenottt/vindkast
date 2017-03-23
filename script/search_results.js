@@ -8,165 +8,38 @@
  }
  */
 
+
+
+var search_result = []; // Global Array for the Search Result
+
 window.onload = function() {
-    query_params = get_query_string_parameters();
-    // Global Array for det endelige søkeresultatet.
-    var search_result = [];
-    var parameters = []; // Lagrer parameter for søket hvis vi vil displaye dette
-    var temp_param; // holder på parameteret i hver enkelt metode
+    query_params = get_query_string_parameters(); // Retrieving parameters from the user
+    var title_search = String(query_params.film_title).toLowerCase(); // TITLE
+    var actor_search = String(query_params.actor).toLowerCase(); // ACTOR
+    var director_search = String(query_params.director).toLowerCase(); // DIRECTOR
+    var genre_search = String(query_params.genre).toLowerCase(); // GENRE
+    var country_search = String(query_params.country).toLowerCase(); // COUNTRY
 
-    // SØK PÅ TITTEL
-    if (query_params.film_title) {
-        temp_param = query_params.film_title; // Brukerens søkeord
-        parameters.push(temp_param); // Legger til søkeordet i en Global Liste som senere kan skrives ut
-        // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
-        if(search_result.length<1) { // Hvis dette er første gyldige søkeparameter
-            for(movie in movies_object) { // Søk gjennom hele Object.js
-                let title = String(movies_object[movie].otitle).toLowerCase(); // Holder på tittelen til objektet i små bokstaver
-                let title_check = String(temp_param).toLowerCase(); // Holder på brukerens søkeord som strengverdi i små bokstaver (Med tanke på potensiell implementasjon av søkeparameter som ikke er strenger)
-                if(title.includes(title_check)) { // Hvis søkeordet er en del av tittelen
-                    search_result.push(movies_object[movie]); // Legg objektet til i det Globale Arrayet
-                }
-            }
-        }
-        // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
-        else { // Hvis dette IKKE er første gyldige søkeparameter
-            for(movie in search_result) { // Søk gjennom det Globale Arrayet for søkeresultater
-                let title =  String(search_result[movie].otitle).toLowerCase();
-                let title_check = String(query_params.film_title).toLowerCase();
-                if(!(title.includes(title_check))) { // Hvis brukerens søkeord IKKE finnes i tittelen
-                    search_result.splice(search_result.indexOf(movie), 1); // Fjern objektet fra det Globale Arrayet
-                }
-            }
-            if(search_result.length<1) { // Dersom det Globale Arrayet tømmes
-                console.log("Error"); // Skriv error
-                return; // Avslutt søk
-            }
-        }
-    }
-    // SØK PÅ SKUESPILLER
-    if (query_params.actor) {
-        temp_param = query_params.actor;
-        parameters.push(temp_param);
-        // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
-        if(search_result.length<1) {
-            for(movie in movies_object) {
-                let actor = String(movies_object[movie].folk).toLowerCase();
-                let actor_check = String(temp_param).toLowerCase();
-                if(actor.includes(actor_check)) {
-                    search_result.push(movies_object[movie]);
-                }
-            }
-        }
-        // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
-        else {
-            for(movie in search_result) {
-                let actor =  String(search_result[movie].folk).toLowerCase();
-                let actor_check = String(temp_param).toLowerCase();
-                if(!(actor.includes(actor_check))) {
-                    search_result.splice(search_result.indexOf(movie), 1);
-                }
-            }
-            if(search_result.length<1) {
-                console.log("Error");
-                return;
-            }
-        }
-    }
-    // SØK PÅ REGISSØR
-    if (query_params.director) {
-        temp_param = query_params.director;
-        parameters.push(temp_param);
-        // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
-        if(search_result.length<1) {
-            for(movie in movies_object) {
-                let director = String(movies_object[movie].dir).toLowerCase();
-                let director_check = String(temp_param).toLowerCase();
-                if(director.includes(director_check)) {
-                    search_result.push(movies_object[movie]);
-                }
-            }
-        }
-        // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
-        else {
-            for(movie in search_result) {
-                let director =  String(search_result[movie].dir).toLowerCase();
-                let director_check = String(temp_param).toLowerCase();
-                if(!(director.includes(director_check))) {
-                    search_result.splice(search_result.indexOf(movie), 1);
-                }
-            }
-            if(search_result.length<1) {
-                console.log("Error");
-                return;
-            }
-        }
-    }
-    // SØK PÅ SJANGER
-    if (query_params.genre) {
-        temp_param = query_params.genre;
-        parameters.push(temp_param);
-        // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
-        if(search_result.length<1) {
-            for(movie in movies_object) {
-                let genre = (genres_object[movies_object[movie].id] != null) ? genres_object[movies_object[movie].id].join("~").toLowerCase() : "";
-                let genre_check = String(temp_param).toLowerCase();
-                if(genre.includes(genre_check)) {
-                    search_result.push(movies_object[movie]);
-                }
-            }
-            
-        }
-        // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
-        else {
-            for(movie in search_result) {
-                let genre = (genres_object[movies_object[movie].id] != null) ? genres_object[movies_object[movie].id].join("~").toLowerCase() : "";
-                let genre_check = String(temp_param).toLowerCase();
-                if(!(genre.includes(genre_check))) {
-                    search_result.splice(search_result.indexOf(movie), 1);
-                }
-            }
-            if(search_result.length<1) {
-                console.log("Error");
-                return;
-            }
-        }
-    }
+    for(movie in movies_object) { // For-loop iterating through the JSON-file movies_object.js
+        var title = String(movie.otitle).toLowerCase(); // Retrieving title from the JSON-file
+        var actor = (movie.folk != null) ? (movie.folk).join("~").toLowerCase() : ""; // Retrieving actors from the JSON-file, and seperating by tilde
+        var director = (movie.dir != null) ? (movie.dir).join("~").toLowerCase() : ""; // Retrieving directors from the JSON-file, and seperating by tilde
+        var genre = (genres_object[movie.id] != null) ? genres_object[movie.id].join("~").toLowerCase() : ""; // Retrieving genres from the JSON-file, and seperating by tilde
+        var country = String(movie.country).toLowerCase(); // Retrieving country from the JSON-file
 
-    // SØK PÅ LAND
-    if (query_params.country) {
-        temp_param = query_params.country;
-        parameters.push(temp_param);
-        // Sjekker om det Globale Arrayet er tomt og søker deretter i databasen - STRENGT TATT IKKE NØDVENDIG FOR FØRSTE PARAMETER
-        if(search_result.length<1) {
-            for(movie in movies_object) {
-                let country = String(movies_object[movie].country).toLowerCase();
-                let country_check = String(temp_param).toLowerCase();
-                if(country.includes(country_check)) {
-                    search_result.push(movies_object[movie]);
-                }
-            }
-        }
-        // I tilfellet hvor det Globale Arrayet ikke er tomt - VIL IKKE INTREFFE FOR FØRSTE PARAMETER
-        else {
-            for(movie in search_result) {
-                let country =  String(search_result[movie].country).toLowerCase();
-                let country_check = String(temp_param).toLowerCase();
-                if(!(country.includes(country_check))) {
-                    search_result.splice(search_result.indexOf(movie), 1);
-                }
-            }
-            if(search_result.length<1) {
-                console.log("Error");
-                return;
-            }
+        switch(true) { // If any of the following statements is inValid, break the switch-statement and continue iterating through the rest of the JSON-file
+            case  isValid(title, title_search): break; // Checking if title is inValid
+            case  isValid(actor, actor_search): break; // Checking if actor is inValid
+            case  isValid(director, director_search): break; // Checking if director is inValid
+            case  isValid(genre, genre_search): break; // Checking if genre is inValid
+            case  isValid(country, country_search): break; // Checking if country is inValid
+            default : search_result.push(movie); // If all the above statements are valid add the movie to our search_result
         }
     }
-
-    //Her kan dere for eksempel kalle en (display) funksjon som viser søkeresultater
+    // DISPLAY FUNCTION START
     display();
     function display() {
-        count = document.querySelector("#count");
+    count = document.querySelector("#count");
         count.style.marginBottom = "10";
         count.innerHTML = `Antall: ${search_result.length}`;
         ol = document.querySelector("#res_list");
@@ -180,6 +53,12 @@ window.onload = function() {
                                 </a>
                             </li>`;
         }
-
     }
-};
+    // DISPLAY FUNCTION END
+}
+function isValid(x, y) { // Function called to check if a search parameter 'y' is inValid
+    if(y != "" && !(x.includes(y))) { // If the parameter 'y' is not empty, and is not found in 'x' then it is inValid
+        return true;
+    }
+    else {return false;} // If not it is valid
+}
