@@ -79,7 +79,7 @@ function getImages(id){
 
 function showFolk(movieObj) {
 
-    const folks = movieObj.folk.trim().split(/[\s+,]{2,}/);
+    const folks = (movieObj.folk != null) ? movieObj.folk.trim().split(/[\s+,]{2,}/) : [];
 
     //folks.forEach(pers => folk.innerHTML += `<a href="http://www.imdb.com/find?ref_=nv_sr_fn&q=${pers}&s=nm" target="_blank">${pers}</a>,`);
     folks.forEach(pers => {
@@ -91,28 +91,30 @@ function showFolk(movieObj) {
 function displayRecomendedMovies() {
     genreCount = 0;
     folkCount = 0;
+    otherCount = 0;
     recomendedMovies = [];
-    sortAfterRating();
-    for(mov_id in movies_object) {
+    ratings = sortAfterRating();
+    for(i = 0; i < ratings.length; i++) {
 
         if(genreCount < 4){
-            if((genres_object[mov_id] != undefined) ? genres_object[movie_id].some(v => genres_object[mov_id].indexOf(v) >= 0) : false) {
-                if(movies_object[mov_id].id === movie_object.id || recomendedMovies.includes(movies_object[mov_id])) continue;
-                recomendedMovies.push(movies_object[mov_id]);
+            if((genres_object[ratings[i].movieId.id] != undefined) ? genres_object[movie_id].some(v => genres_object[ratings[i].movieId.id].indexOf(v) >= 0) : false) {
+                if(ratings[i].movieId.id === movie_object.id || recomendedMovies.includes(ratings[i].movieId)) continue;
+                recomendedMovies.push(ratings[i].movieId);
                 genreCount++;
             }
 
         }
 
         if (folkCount < 4) {
-            if (((movies_object[mov_id].folk != null) ? movie_object.folk.trim().split(",").some(v => movies_object[mov_id].folk.trim().split(",").indexOf(v) >= 0) : false)) {
-                recMovie_id = movies_object[mov_id].id;
-                if (recMovie_id === movie_object.id || recomendedMovies.includes(movies_object[mov_id]) ) continue;
-                recomendedMovies.push(movies_object[mov_id]);
+            if (((ratings[i].movieId.folk != null && movie_object.folk != null) ? movie_object.folk.trim().split(",").some(v => ratings[i].movieId.folk.trim().split(",").indexOf(v) >= 0) : false)) {
+                recMovie_id = ratings[i].movieId.id;
+                if (recMovie_id === movie_object.id || recomendedMovies.includes(ratings[i].movieId) ) continue;
+                recomendedMovies.push(ratings[i].movieId);
                 folkCount++;
             }
 
         }
+
     }
     recomendedMovies.forEach(mov => {
         recomended.innerHTML += `<li>
@@ -134,17 +136,44 @@ function getRating() {
             ratingavg += review[usr].rating;
             ratingCount++;
         }
-        rating.innerHTML = `${(ratingavg / ratingCount).toFixed(2)}`;
+        avgRating = ratingavg / ratingCount;
+        setRatingStars(Math.floor(avgRating));
+        rating.innerHTML = `${(avgRating).toFixed(2)}`;
     } else {
         rating.innerHTML = `Bli den første til å vurdere filmen`;
     }
 }
 
 function sortAfterRating() {
-    ratings = [];
+    ratingsArray = [];
+
+
     for(mid in movies_object) {
-        reviews_object[mid].rating;
-        ratings.push(movies_object[mid]);
+        ratings = {};
+        ravg = 0;
+        rev = reviews_object[mid];
+        i = 0;
+        for(usr in rev) {
+            i++;
+            ravg += rev[usr].rating;
+
+        }
+        if(i > 0){
+            ravg = (ravg / i).toFixed(2);
+            ratings.movieId = movies_object[mid];
+            ratings.ratingAvg = ravg;
+            ratingsArray.push(ratings);
+        }
+
+    }
+    ratingsArray.sort((a,b) => b.ratingAvg - a.ratingAvg);
+    return ratingsArray;
+}
+
+function setRatingStars(rating) {
+    if(rating != (null || 0)) {
+        input = document.querySelector(`#rating-input-1-${rating}`);
+        input.setAttribute("checked", "");
     }
 
 }

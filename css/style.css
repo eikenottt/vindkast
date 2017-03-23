@@ -30,6 +30,68 @@
 
 }
 
+/* -------- Main configuration --------- */
+* {
+    margin: 0;
+    font-family: var(--font-stack);
+    font-weight: var(--font-weight);
+}
+
+html {
+    height: var(--full-page-width);
+}
+
+body {
+    background: var(--primary-color);
+    width: var(--full-page-width);
+    min-width: 320px;
+    height: var(--full-page-width);
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #D1481B;
+}
+
+ul li {
+    list-style: none;
+}
+
+a:visited {
+    color: var(--link-color);
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+input:checked ~ .whitebox-l {
+    display: block;
+}
+
+.whitebox-l {
+    display: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ----------- Heading ------------- */
+
+
 header {
     position: relative;
     background: url("../img/header.jpg") no-repeat top center;
@@ -309,69 +371,8 @@ header nav .menuicon span::after {
     margin-top: 8px;
 }
 
-/* -------- Main configuration --------- */
-* {
-    margin: 0;
-    font-family: var(--font-stack);
-    font-weight: var(--font-weight);
-}
 
-html {
-    height: var(--full-page-width);
-}
 
-body {
-    background: var(--primary-color);
-    width: var(--full-page-width);
-    min-width: 320px;
-    height: var(--full-page-width);
-}
-
-h1 {
-    font-weight: bold;
-    font-size: 2em;
-}
-
-a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-a:hover {
-    color: #D1481B;
-}
-
-ul li {
-    list-style: none;
-}
-
-a:visited {
-    color: var(--link-color);
-}
-
-p {
-    margin-bottom: 20px;
-}
-
-input:checked ~ .whitebox-l {
-    display: block;
-}
-
-.whitebox-l {
-    display: none;
-    top: 0;
-    left: 0;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    z-index: 50;
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* ----------- Heading ------------- */
-/*.menuSearch {
-	display: none;
-}*/
 /* ----------- Main Content ------------- */
 main {
     position: relative;
@@ -379,6 +380,8 @@ main {
     margin: auto;
 }
 
+
+/* ------ Routine ------ */
 main #sidebox {
     display: none;
 }
@@ -459,6 +462,8 @@ main #routine .sidebox-x:hover {
     color: #D1481B;
 }
 
+/* ------ Movie sections ------ */
+
 main section {
     background: #fff;
     width: var(--full-page-width);
@@ -471,9 +476,16 @@ main section ul {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     position: relative;
     z-index: 1;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+main #res_list {
+    flex-wrap: wrap;
+    overflow: auto;
 }
 
 main section ul a {
