@@ -3,21 +3,16 @@ var search_result = []; // Global Array for the Search Result
 window.onload = function() {
     query_params = get_query_string_parameters(); // Retrieving parameters from the user
     var title_search, actor_search, director_search, genre_search, country_search = ""; // Creating an empty variable for each possible user input
-    if(query_params.film_title!=null) {
-        title_search = String(query_params.film_title).toLowerCase(); // TITLE - Validating that the parameter is not 'null' and updating it to reflect the users query
-    }
-    if(query_params.actor!=null) {
-        actor_search = String(query_params.actor).toLowerCase(); // ACTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
-    }
-    if(query_params.director!=null) {
-        director_search = String(query_params.director).toLowerCase(); // DIRECTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
-    }
-    if(query_params.genre!=null) {
-        genre_search = String(query_params.genre).toLowerCase(); // GENRE - Validating that the parameter is not 'null' and updating it to reflect the users query
-    }
-    if(query_params.country!=null) {
-        country_search = String(query_params.country).toLowerCase(); // COUNTRY - Validating that the parameter is not 'null' and updating it to reflect the users query
-    }
+    title_search = (query_params.film_title != null) ? String(query_params.film_title).toLowerCase() : false; // TITLE - Validating that the parameter is not 'null' and updating it to reflect the users query
+
+    actor_search = (query_params.actor != null) ? String(query_params.actor).toLowerCase() : false; // ACTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
+
+    director_search = (query_params.director != null) ? String(query_params.director).toLowerCase() : false; // DIRECTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
+
+    genre_search = (query_params.genre != null) ? String(query_params.genre).toLowerCase() : false; // GENRE - Validating that the parameter is not 'null' and updating it to reflect the users query
+
+    country_search = (query_params.country != null) ? String(query_params.country).toLowerCase() : false; // COUNTRY - Validating that the parameter is not 'null' and updating it to reflect the users query
+
 
     for(movie in movies_object) { // For-loop iterating through the JSON-file movies_object.js
         var title = String(movies_object[movie].otitle).toLowerCase(); // Retrieving title from the JSON-file

@@ -1,3 +1,4 @@
+
 window.onload = function() {
     query_params = get_query_string_parameters();
     movie_id = query_params.id;
@@ -25,13 +26,13 @@ window.onload = function() {
     // Title of the movie
     title.innerHTML = `${movie_object.otitle}`;
     // Country of origin and year of the movie
-    language.innerHTML = `${movie_object.country} ${movie_object.year}`;
+    language.innerHTML = `<div>Land: ${showCountryName(movie_object.country)}</div> <div>Utgivelsesår: ${movie_object.year}</div>`;
     // Duration of the movie in minutes
     duration.innerHTML = `(${movie_object.length} minutter)`;
     // Rating
     getRating();
     // genre
-    genre.innerHTML = `${genres_object[movie_id]}`;
+    genre.innerHTML = `Sjanger: ${genres_object[movie_id]}`;
     // Director of the movie
     director.innerHTML = `<a href="search_results.html?director=${movie_object.dir}">${movie_object.dir}</a>, `;
     // Folk in the movie
@@ -176,4 +177,17 @@ function setRatingStars(rating) {
         input.setAttribute("checked", "");
     }
 
+}
+
+function showCountryName(cCode){
+    if(country_object[cCode] != undefined) return country_object[cCode];
+    else {
+        countries = [];
+        cCode = cCode.split(/[\+\s+,]+/);
+        console.log(cCode);
+        for(i = 0; i < cCode.length; i++) {
+            countries.push(country_object[cCode[i]]);
+        }
+        return countries;
+    }
 }
