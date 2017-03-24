@@ -48,9 +48,9 @@ window.onload = function() {
     
     // add a "debug-table" on the bottom showing all elements from movie_object
     stats_table = document.getElementById("movie_stat_table");
-    for (key in movie_object) {
-        left = document.createTextNode(key);
-        right = document.createTextNode(movie_object[key]);
+    for (movie in movie_object) {
+        left = document.createTextNode(movie);
+        right = document.createTextNode(movie_object[movie]);
         add_row(stats_table, left, right);
     }
     
@@ -64,13 +64,13 @@ window.onload = function() {
 
     // review object debug-table
     review_table = document.getElementById("review_stat_table");
-    for (key in review_object) {
-	left = document.createTextNode(key);
-	right = document.createTextNode(review_object[key]);
+    for (movie in review_object) {
+	left = document.createTextNode(movie);
+	right = document.createTextNode(review_object[movie]);
 	add_row(review_table, left, right);
-	for (subkey in review_object[key]) {
+	for (subkey in review_object[movie]) {
 	    left = document.createTextNode(" -> " + subkey);
-	    right = document.createTextNode(review_object[key][subkey]);
+	    right = document.createTextNode(review_object[movie][subkey]);
 	    add_row(review_table, left, right);
 	}
     }

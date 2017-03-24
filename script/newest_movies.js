@@ -2,10 +2,9 @@ years = [];
 window.onload = function() {
 
     newMovies = document.querySelector("#newMovies");
-
     prev = null;
-    for(movie_id in movies_object) {
-        years.push(movies_object[movie_id]);
+    for(movie in movies_object) {
+        years.push(movies_object[movie]);
     }
     years.sort((a,b) => b.year-a.year);
 
