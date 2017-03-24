@@ -44,13 +44,11 @@ function isValid(x, y) { // Function called to check if a search parameter 'y' i
 function display(array,number) {
     count = document.querySelector("#count");
     count.style.marginBottom = "10";
-    count.innerHTML = `Antall: ${search_result.length}`;
+    count.innerHTML = `Antall: ${array.length}`;
     ul = document.querySelector("#res_list");
     for(i = 0; i < ((array.length > number) ? number : array.length); i++) {
-        writeOut(ul, search_result);
+        writeOut(ul, array);
     }
-    pages = ul.parentNode;
-    pages.innerHTML = ``;
 
 }
 
