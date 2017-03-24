@@ -31,6 +31,7 @@ window.onload = function() {
         }
     }
     // DISPLAY FUNCTION START
+
     display(search_result,25);
 
     // DISPLAY FUNCTION END
@@ -46,7 +47,11 @@ function display(array,number) {
     count.style.marginBottom = "10";
     count.innerHTML = `Antall: ${array.length}`;
     ul = document.querySelector("#res_list");
-    for(i = 0; i < ((array.length > number) ? number : array.length); i++) {
+    const width = ul.offsetWidth - 40;
+    if(array.length % 4 != 0) {
+        number = array.length - (array.length % 4);
+    }
+    for (i = 0; i < ((array.length > number) ? number : array.length); i++) {
         writeOut(ul, array);
     }
 

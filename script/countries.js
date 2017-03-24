@@ -202,6 +202,7 @@ country_object = {
     "SLV": "El Salvador",
     "SMR": "San Marino",
     "SOM": "Somalia",
+    "SOV": "Sovjetunionen",
     "SPM": "Saint-Pierre og Miquelon",
     "SRB": "Serbia",
     "SSD": "Sør-Sudan",
@@ -247,5 +248,6 @@ country_object = {
     "YEM": "Jemen",
     "ZAF": "Sør-Afrika",
     "ZMB": "Zambia",
-    "ZWE": "Zimbabwe"
+    "ZWE": "Zimbabwe",
+    "": "Ingen registrere land"
 };

@@ -28,7 +28,7 @@ window.onload = function() {
     // Country of origin and year of the movie
     language.innerHTML = `<div>Land: ${showCountryName(movie_object.country)}</div> <div>Utgivelsesår: ${movie_object.year}</div>`;
     // Duration of the movie in minutes
-    duration.innerHTML = `(${(movie_object.length != (null || 0)) ? `${movie_object.length} minutter)` : "Ingen informasjon om lengden på filmen)"}`;
+    duration.innerHTML = `(${(movie_object.length != (null && 0)) ? `${movie_object.length} minutter)` : "Ingen informasjon om lengden på filmen)"}`;
     // Rating
     getRating();
     // genre
@@ -39,7 +39,7 @@ window.onload = function() {
     // Folk in the movie
     showFolk(movie_object.folk, folk, "actor");
     // About the movie
-    about_movie.innerHTML = `${(movie_object.description != (null || "" )) ? movie_object.description : "Ingen omhandling tilgjengelig"}`;
+    about_movie.innerHTML = `${(movie_object.description != (null && "" )) ? movie_object.description : "Ingen omhandling tilgjengelig"}`;
     // Norwegian title of the movie
     nor_title.innerHTML = `Norsk tittel: ${movie_object.ntitle}`;
     // cover of the movie
@@ -102,7 +102,7 @@ function displayRecomendedMovies() {
     for(i = 0; i < ratings.length; i++) {
 
         if(genreCount < 4){
-            if((genres_object[ratings[i].movieId.id] != undefined) ? genres_object[movie_id].some(v => genres_object[ratings[i].movieId.id].indexOf(v) >= 0) : false) {
+            if(((genres_object[ratings[i].movieId.id] && genres_object[movie_id]) != undefined) ? genres_object[movie_id].some(v => genres_object[ratings[i].movieId.id].indexOf(v) >= 0) : false) {
                 if(ratings[i].movieId.id === movie_object.id || recomendedMovies.includes(ratings[i].movieId)) continue;
                 recomendedMovies.push(ratings[i].movieId);
                 genreCount++;
@@ -118,6 +118,11 @@ function displayRecomendedMovies() {
                 folkCount++;
             }
 
+        }
+
+        if(otherCount > 9)
+        if((folkCount && genreCount) == 0) {
+            recomendedMovies.push(ratings[i].id);
         }
 
     }
