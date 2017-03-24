@@ -28,15 +28,16 @@ window.onload = function() {
     // Country of origin and year of the movie
     language.innerHTML = `<div>Land: ${showCountryName(movie_object.country)}</div> <div>Utgivelsesår: ${movie_object.year}</div>`;
     // Duration of the movie in minutes
-    duration.innerHTML = `(${movie_object.length} minutter)`;
+    duration.innerHTML = `(${(movie_object.length != (null || 0)) ? `${movie_object.length} minutter)` : "Ingen informasjon om lengden på filmen)"}`;
     // Rating
     getRating();
     // genre
-    genre.innerHTML = `Sjanger: ${genres_object[movie_id]}`;
+    showFolk(genres_object[movie_id], genre, "genre");
+    //genre.innerHTML = `Sjanger: ${genres_object[movie_id]}`;
     // Director of the movie
-    director.innerHTML = `<a href="search_results.html?director=${movie_object.dir}">${movie_object.dir}</a>, `;
+    showFolk(movie_object.dir, director, "director");
     // Folk in the movie
-    showFolk(movie_object);
+    showFolk(movie_object.folk, folk, "actor");
     // About the movie
     about_movie.innerHTML = `${(movie_object.description != (null || "" )) ? movie_object.description : "Ingen omhandling tilgjengelig"}`;
     // Norwegian title of the movie
@@ -78,14 +79,17 @@ function getImages(id){
 
 }
 
-function showFolk(movieObj) {
+function showFolk(movieObjList, htmlTag, type) {
 
-    const folks = (movieObj.folk != null) ? movieObj.folk.trim().split(/[\s+,]{2,}/) : [];
+    let folks = movieObjList;
+
+    if(!Array.isArray(movieObjList))
+     folks = (movieObjList != null) ? movieObjList.trim().split(/[\s+,/]{2,}/) : [];
 
     //folks.forEach(pers => folk.innerHTML += `<a href="http://www.imdb.com/find?ref_=nv_sr_fn&q=${pers}&s=nm" target="_blank">${pers}</a>,`);
     folks.forEach(pers => {
         pers = pers.replace(",","");
-        folk.innerHTML += `<a href="search_results.html?actor=${pers}">${pers}</a>, `
+        htmlTag.innerHTML += `<a href="search_results.html?${type}=${pers}">${pers}</a>, `
     });
 }
 
@@ -184,7 +188,6 @@ function showCountryName(cCode){
     else {
         countries = [];
         cCode = cCode.split(/[\+\s+,]+/);
-        console.log(cCode);
         for(i = 0; i < cCode.length; i++) {
             countries.push(country_object[cCode[i]]);
         }

@@ -31,7 +31,7 @@ window.onload = function() {
         }
     }
     // DISPLAY FUNCTION START
-    display();
+    display(search_result,25);
 
     // DISPLAY FUNCTION END
 };
@@ -41,19 +41,29 @@ function isValid(x, y) { // Function called to check if a search parameter 'y' i
     }
     else {return false;} // If not it is valid
 }
-function display() {
+function display(array,number) {
     count = document.querySelector("#count");
     count.style.marginBottom = "10";
     count.innerHTML = `Antall: ${search_result.length}`;
-    ol = document.querySelector("#res_list");
-    for(i = 0; i < search_result.length; i++){
-        movie_id = search_result[i].id;
-        ol.innerHTML += `<li>
-                                <a href="show_movie.html?id=${movie_id}" class="movie-info movie-info-a">
-                                    <img id="img${movie_id}" src="https://nelson.uib.no/o/${(String(movie_id).length === 4) ? String(movie_id).substring(0,1) : 0}/${movie_id}.jpg" 
-                                         alt="${search_result[i].otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">
-                                    <span>${search_result[i].otitle}</span>
+    ul = document.querySelector("#res_list");
+    for(i = 0; i < ((array.length > number) ? number : array.length); i++) {
+        writeOut(ul, search_result);
+    }
+    pages = ul.parentNode;
+    pages.innerHTML = ``;
+
+}
+
+function writeOut(tag, array) {
+        tag.innerHTML += `<li>
+                                <a href="show_movie.html?id=${array[i].id}" class="movie-info movie-info-a">
+                                    <img id="img${array[i].id}" src="https://nelson.uib.no/o/${(String(array[i].id).length === 4) ? String(array[i].id).substring(0,1) : 0}/${array[i].id}.jpg" 
+                                         alt="${array[i].otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">
+                                    <span>${array[i].otitle}</span>
                                 </a>
                             </li>`;
-    }
 }
+
+
+
+
