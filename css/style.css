@@ -252,8 +252,7 @@ header nav #menu #innhold, header nav #menu #minside {
 }
 
 header nav #menu #minside{
-    margin-top: 2px;
-    border-top: var(--hover-color);
+    border-top: 2px solid var(--primary-color);
     padding-top: 5px;
 }
 
