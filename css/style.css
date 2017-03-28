@@ -146,7 +146,7 @@ header nav {
 header nav #search-form {
     position: relative;
     bottom: -11px;
-    z-index: 65;
+    z-index: 300;
 }
 
 header nav #search-form .search {
@@ -252,7 +252,9 @@ header nav #menu #innhold, header nav #menu #minside {
 }
 
 header nav #menu #minside{
-    margin-top: 10px;
+    margin-top: 2px;
+    border-top: var(--hover-color);
+    padding-top: 5px;
 }
 
 
@@ -270,7 +272,7 @@ header nav #menu .accordion input {
     display: none;
 }
 
-header nav #menu .accordion input:checked ~ label::before {
+header nav #menu .accordion input:checked ~ label::after {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -278,6 +280,7 @@ header nav #menu .accordion input:checked ~ label::before {
     transform: rotate(90deg);
     width: calc(100% - 300px);
     background: rgba(255, 255, 255, .8);
+    margin-top: 0;
 }
 
 header nav #menu .accordion input:checked ~ .accordion-menu {
@@ -306,11 +309,12 @@ header nav #menu .accordion label {
     z-index: 20;
 }
 
-header nav #menu .accordion label::before {
+header nav #menu .accordion label::after {
     content: "\25B7";
     position: absolute;
     display: inline-block;
-    margin-left: -25px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 header nav #menu .accordion .accordion-menu {
@@ -330,6 +334,7 @@ header nav #menu .accordion .accordion-menu a {
 header nav #menu .navimg {
       height: 1.5em; 
       padding: 3px; 
+      vertical-align: text-bottom;
     }
 
 header nav .menuicon {
@@ -758,7 +763,7 @@ main .flex-right {
     }
 
     header nav #menu .menuItem {
-        background-color: var(--link-color);
+
         display: inline-block;
     }
 

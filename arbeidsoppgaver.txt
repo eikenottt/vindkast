@@ -12,6 +12,7 @@ Malin:
     - endre til "mine lån" istedenfor "mine filmer"
     - legge til en footer
     - endre til "mine lån" istedenfor "mine filmer"
+    - endre piltast fra before til after
 
 Aasmund:
     - Implentere advanced_search.html til vindkast filen (Nesten Ferdig)
