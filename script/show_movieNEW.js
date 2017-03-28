@@ -102,21 +102,22 @@ function displayRecomendedMovies() {
     recomendedMovies = [];
     ratings = sortAfterRating();
     for(i = 0; i < ratings.length; i++) {
-
+        pickMovie = pickRandomMovie(ratings).movieId;
         if(genreCount < 4){
-            if(((genres_object[ratings[i].movieId.id] && genres_object[movie_id]) != undefined) ? genres_object[movie_id].some(v => genres_object[ratings[i].movieId.id].indexOf(v) >= 0) : false) {
-                if(ratings[i].movieId.id === movie_object.id || recomendedMovies.includes(ratings[i].movieId)) continue;
-                recomendedMovies.push(ratings[i].movieId);
+
+            if(((genres_object[pickMovie.id] && genres_object[movie_id]) != undefined) ? genres_object[movie_id].some(v => genres_object[pickMovie.id].indexOf(v) >= 0) : false) {
+                if(pickMovie.id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
+                recomendedMovies.push(pickMovie);
                 genreCount++;
             }
 
         }
 
         if (folkCount < 4) {
-            if (((ratings[i].movieId.folk != null && movie_object.folk != null) ? movie_object.folk.trim().split(",").some(v => ratings[i].movieId.folk.trim().split(",").indexOf(v) >= 0) : false)) {
-                recMovie_id = ratings[i].movieId.id;
-                if (recMovie_id === movie_object.id || recomendedMovies.includes(ratings[i].movieId) ) continue;
-                recomendedMovies.push(ratings[i].movieId);
+            if (((pickMovie.folk != null && movie_object.folk != null) ? movie_object.folk.trim().split(",").some(v => pickMovie.folk.trim().split(",").indexOf(v) >= 0) : false)) {
+                recMovie_id = pickMovie.id;
+                if (recMovie_id === movie_object.id || recomendedMovies.includes(pickMovie) ) continue;
+                recomendedMovies.push(pickMovie);
                 folkCount++;
             }
 
@@ -223,4 +224,14 @@ function makeButtons() {
     wishButton.addEventListener("click", () => {
         wish_object[movie_id] = movie_object;
     });
+}
+
+function pickRandomMovie(array) {
+    let result;
+    let count = 0;
+    for(let id in array) {
+        if(Math.random() < 1/++count)
+            result = id;
+    }
+    return array[result];
 }

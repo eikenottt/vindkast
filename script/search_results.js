@@ -52,22 +52,31 @@ function display(array) {
     const movieCoverWidth = 133;
     const width = Math.floor((ul.offsetWidth - parseInt(window.getComputedStyle(ul).paddingLeft.replace("px",""))) / movieCoverWidth);
     if(array.length % width != 0 && array.length > width) {
-        number = array.length - (array.length % width);
+        colums = Math.round(array.length/width);
+        number = (colums > 4) ? splitToPages: array.length;
     }
-    for (i = 0; i < ((array.length > number) ? number : array.length); i++) {
-        writeOut(ul, array);
-    }
-
-}
-
-function writeOut(tag, array) {
-        tag.innerHTML += `<li>
+    length = ((array.length > number) ? number : array.length);
+    let html = '';
+    for (i = 0; i < length; i++) {
+        html += `<li>
                                 <a href="show_movie.html?id=${array[i].id}" class="movie-info movie-info-a">
                                     <img id="img${array[i].id}" src="https://nelson.uib.no/o/${(String(array[i].id).length === 4) ? String(array[i].id).substring(0,1) : 0}/${array[i].id}.jpg" 
                                          alt="${array[i].otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">
                                     <span>${array[i].otitle}</span>
                                 </a>
                             </li>`;
+    }
+
+    ul.innerHTML = html;
+
+}
+
+function writeOut(array, vabl) {
+
+}
+
+function splitToPages() {
+
 }
 
 
