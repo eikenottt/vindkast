@@ -25,6 +25,8 @@ window.onload = function() {
 
     // Title of the movie
     title.innerHTML = `${movie_object.otitle}`;
+    // Make buttons
+    makeButtons();
     // Country of origin and year of the movie
     language.innerHTML = `<div>Land: ${showCountryName(movie_object.country)}</div> <div>Utgivelsesår: ${movie_object.year}</div>`;
     // Duration of the movie in minutes
@@ -198,4 +200,24 @@ function showCountryName(cCode){
         }
         return countries;
     }
+}
+
+function makeButtons() {
+    buttons = document.querySelector(".buttons");
+
+    buttons.innerHTML += `
+        <button id="wish" class="liste">+Liste</button>
+        <button id="loan" class="liste">+Låne</button>
+    `;
+
+    wishButton = document.querySelector("#wish");
+    loanButton = document.querySelector("#loan");
+
+    loanButton.addEventListener("click", () => {
+        loan_object[movie_id] = movie_object;
+    });
+
+    wishButton.addEventListener("click", () => {
+        wish_object[movie_id] = movie_object;
+    });
 }

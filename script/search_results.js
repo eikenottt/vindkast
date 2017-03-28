@@ -31,25 +31,28 @@ window.onload = function() {
         }
     }
     // DISPLAY FUNCTION START
-
-    display(search_result,25);
+    display(search_result);
 
     // DISPLAY FUNCTION END
+
 };
+
 function isValid(x, y) { // Function called to check if a search parameter 'y' is inValid
     if (y != "" && !(x.includes(y))) { // If the parameter 'y' is not empty, and is not found in 'x' then it is inValid
         return true;
     }
     else {return false;} // If not it is valid
 }
-function display(array,number) {
+function display(array) {
     count = document.querySelector("#count");
     count.style.marginBottom = "10";
     count.innerHTML = `Antall: ${array.length}`;
     ul = document.querySelector("#res_list");
-    const width = ul.offsetWidth - 40;
-    if(array.length % 4 != 0) {
-        number = array.length - (array.length % 4);
+    number = array.length;
+    const movieCoverWidth = 133;
+    const width = Math.floor((ul.offsetWidth - parseInt(window.getComputedStyle(ul).paddingLeft.replace("px",""))) / movieCoverWidth);
+    if(array.length % width != 0 && array.length > width) {
+        number = array.length - (array.length % width);
     }
     for (i = 0; i < ((array.length > number) ? number : array.length); i++) {
         writeOut(ul, array);
