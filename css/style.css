@@ -137,8 +137,8 @@ header nav {
     left: 0;
     bottom: 60px;
     width: var(--full-page-width);
-    z-index: 4;
     position: absolute;
+
     /* ------- Hamburger Menu ------- */
 }
 
@@ -223,7 +223,7 @@ header nav #menu {
     position: absolute;
     flex-flow: column nowrap;
     top: 58px;
-    z-index: 60;
+     z-index: 250;
 }
 
 /*header nav #menu #username {
@@ -487,6 +487,7 @@ main section {
     margin-bottom: 30px;
     padding: 20px;
     margin-left: -20px;
+    z-index: 200;
 }
 
 main section ul {
@@ -595,13 +596,8 @@ main .flex-right {
     padding-top: 0;
 }
 
-/* Scss Document */
-/* ------- Variables --------- */
-/* ---------- Colors ---------- */
-/* ---------- Fonts ----------- */
-/* -------- widths and heights --------- */
-/* -------- Hamburger menu ---------- */
-/* ---------- mixins ---------- */
+
+/* -------- Liten mobilskjerm  ----------*/
 @media screen and (max-width: 650px) {
     header h1 {
         left: 0;
@@ -652,6 +648,11 @@ main .flex-right {
         -ms-flex-pack: justify;
         justify-content: space-between;
     }
+
+    header nav #menu {
+      width: var(--full-page-width);
+    }
+
 
     #innhold {
         margin-bottom: 45px; 
@@ -860,10 +861,6 @@ main .flex-right {
     /* Viser rutiner i meny på liten skjerm*/
     header nav #menu #rutine-side {
         display: inline-block;
-    }
-    
-   header nav #menu {
-      width: var(--full-page-width);
     }
 }
 
