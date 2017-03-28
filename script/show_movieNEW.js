@@ -205,7 +205,10 @@ function showCountryName(cCode){
 function makeButtons() {
     buttons = document.querySelector(".buttons");
 
-    buttons.innerHTML += `
+    loan_object = JSON.parse(loan_list);
+    wish_object = JSON.parse(wish_list);
+
+    buttons.innerHTML = `
         <button id="wish" class="liste">+Liste</button>
         <button id="loan" class="liste">+Låne</button>
     `;

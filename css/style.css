@@ -6,6 +6,7 @@
     --link-color: #3999AE;
     --section-color: #fff;
     --button-color: #ddd;
+    --hover-color: #D1481B;
     --button-color-hover: calc(var(--button-color) * 2);
 
     /* --- fonts --- */
