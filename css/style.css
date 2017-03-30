@@ -778,7 +778,7 @@ main .flex-right {
     }
 
     header nav #menu .accordion label {
-        padding: 10px 8px 10px 33px;
+        padding: 10px;
     }
 
     header nav #menu .accordion .accordion-menu {
