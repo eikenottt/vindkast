@@ -38,3 +38,17 @@ function get_query_string_parameters() {
     return result;
 }
 
+function writeHTML(array, place, amount){
+    let html = '';
+    for(let i = 0; i < amount; i++){
+        html += `<li title="${(array[i].description != null) ? array[i].description.trim().substring(0,160) + "..." : 'Ingen informasjon om filmen'}">
+                                <a href="show_movie.html?id=${array[i].id}" class="movie-info movie-info-a">
+                                    <img id="img${array[i].id}" src="https://nelson.uib.no/o/${(String(array[i].id).length === 4) ? String(array[i].id).substring(0,1) : 0}/${array[i].id}.jpg" 
+                                         alt="${array[i].otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">
+                                    <span>${array[i].otitle}</span>
+                                </a>
+                            </li>`;
+    }
+    place.innerHTML = html;
+}
+

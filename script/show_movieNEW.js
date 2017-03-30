@@ -67,10 +67,7 @@ function getImages(id){
     alphabet = ["b", "c"];
     for(i = 0; i < alphabet.length; i++) {
         link = `https://nelson.uib.no/o/${(String(id).length === 4) ? String(id).substring(0, 1) : 0}/${id + alphabet[i]}.jpg`;
-        img = document.createElement("img");
-        img.setAttribute("src", link);
-        img.setAttribute("onerror", "this.onerror=null");
-        if(img.getAttribute("onerror") != null)
+        if(link != null)
         pictureArr.push(link);
     }
     pictureArr.forEach((pic, i) => {
@@ -103,7 +100,7 @@ function displayRecomendedMovies() {
     ratings = sortAfterRating();
     for(i = 0; i < ratings.length; i++) {
         pickMovie = pickRandomMovie(ratings).movieId;
-        if(genreCount < 4){
+        if(genreCount < 5){
 
             if(((genres_object[pickMovie.id] && genres_object[movie_id]) != undefined) ? genres_object[movie_id].some(v => genres_object[pickMovie.id].indexOf(v) >= 0) : false) {
                 if(pickMovie.id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
@@ -113,7 +110,7 @@ function displayRecomendedMovies() {
 
         }
 
-        if (folkCount < 4) {
+        if (folkCount < 5) {
             if (((pickMovie.folk != null && movie_object.folk != null) ? movie_object.folk.trim().split(",").some(v => pickMovie.folk.trim().split(",").indexOf(v) >= 0) : false)) {
                 recMovie_id = pickMovie.id;
                 if (recMovie_id === movie_object.id || recomendedMovies.includes(pickMovie) ) continue;
