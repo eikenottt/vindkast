@@ -15,7 +15,7 @@ window.onload = function() {
     }
 
     writeHTML(loaned, newlyloanedMovies, 10);
-
+    showHeader();
     displayRecomendedMovies();
 };
 
