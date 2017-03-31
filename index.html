@@ -8,6 +8,7 @@
         <script src="script/object.js" type="text/javascript"></script>
         <script src="script/query_params.js" type="text/javascript"></script>
         <script src="script/newest_movies.js" type="text/javascript"></script>
+        <script src="script/functions.js" type="text/javascript"></script>
         <link rel="icon" type="image/png" href="img/wind.png">
     </head>
     <body>
@@ -29,8 +30,8 @@
                 </label>
                 <ul id="menu">
                     <li class="menuItem" id="innhold">Innhold</li>
-                    <li class="menuItem"><a href="#"><img class="navimg" src="img/ikon/play.svg" alt="menyikon">Filmer A-Å</a></li>
-                    <li class="menuItem"><a href="#"><img class="navimg" src="img/ikon/kamera.svg" alt="menyikon">Dokumentarer</a></li>
+                    <li class="menuItem"><a href="search_results.html?film_title="><img class="navimg" src="img/ikon/play.svg" alt="menyikon">Filmer A-Å</a></li>
+                    <li class="menuItem"><a href="search_results.html?genre=dokumentar"><img class="navimg" src="img/ikon/kamera.svg" alt="menyikon">Dokumentarer</a></li>
                     <li class="menuItem"><a href="#"><img class="navimg" src="img/ikon/stol.svg" alt="menyikon">Regissører</a></li>
                     <li class="menuItem"><a href="#"><img class="navimg" src="img/ikon/siluett.svg" alt="menyikon">Skuespillere</a></li>
                     <li class="menuItem" id="minside"><a href="onskeliste.html">Min side (Ola123)</a></li>
@@ -99,19 +100,8 @@
                     </section>
                     <section>
                         <h2>Anbefalte Filmer</h2>
-                        <ul class="movies">
-                            <li>
-                                <a href="theintouchables.html" class="movie-info movie-info-a">
-                                    <img src="img/The_Intouchables_3.jpg" alt="The Intouchables">
-                                    <span>The Intouchables</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="lunch.html" class="movie-info movie-info-a">
-                                    <img src="img/The_Lunchbox_1.jpg" alt="The Lunchbox">
-                                    <span>The Lunchbox</span>
-                                </a>
-                            </li>
+                        <ul id="recomended" class="movies">
+
                         </ul>
                     </section>
                 </section>

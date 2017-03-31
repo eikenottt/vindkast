@@ -21,6 +21,10 @@ Aasmund:
             Generere Avansert søk inn i search results?
 
 
+Om me har tid:
+    - animerte piler å bla med på fremsiden som blåser deg til neste skjerm
+
+
 Utførte Oppgaver:
     Rune:     - Fikse scss til css //DONEs
               - Hente bilder til filmene //Done

@@ -16,7 +16,7 @@ window.onload = function() {
 
     writeHTML(loaned, newlyloanedMovies, 10);
 
-
+    displayRecomendedMovies();
 };
 
 function pickRandomMovie(obj) {
@@ -37,3 +37,4 @@ function sortByYear() {
     years.sort((a,b) => b.year-a.year);
     return years;
 }
+

@@ -4,7 +4,7 @@ window.onload = function() {
     movie_id = query_params.id;
     movie_object = movies_object[movie_id];
     review = reviews_object[movie_id];
-
+    loaned = [];
     pictureArr = [];
 
     title = document.querySelector("#title");
@@ -20,6 +20,7 @@ window.onload = function() {
     recomended = document.querySelector("#recomended");
     folk = document.querySelector("#folk");
     rating = document.querySelector("#ratingnr");
+    newlyloanedMovies = document.querySelector("#newlyloanedMovies");
 
     document.title = `Vindkast - ${movie_object.otitle}`;
 
@@ -28,7 +29,7 @@ window.onload = function() {
     // Make buttons
     makeButtons();
     // Country of origin and year of the movie
-    language.innerHTML = `<div>Land: ${showCountryName(movie_object.country)}</div> <div>Utgivelsesår: ${movie_object.year}</div>`;
+    language.innerHTML = `<div><span>Land: </span>${showCountryName(movie_object.country)}</div> <div>Utgivelsesår: ${movie_object.year}</div>`;
     // Duration of the movie in minutes
     duration.innerHTML = `(${(movie_object.length != (null && 0)) ? `${movie_object.length} minutter)` : "Ingen informasjon om lengden på filmen)"}`;
     // Rating
@@ -49,6 +50,13 @@ window.onload = function() {
                                          alt="${movie_object.otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">`;
 
 
+    for(let i = 0; i < 10; i++){
+        const pickedMovie = pickRandomMovie(movies_object);
+        if(!loaned.includes(pickedMovie))
+            loaned.push(pickedMovie);
+    }
+
+    writeHTML(loaned, newlyloanedMovies, 10);
    getImages(movie_id);
 
     if (movie_object["youtube trailer id"] == "") {
@@ -78,19 +86,29 @@ function getImages(id){
 
 }
 
+/**
+ * Show information about the movie in html
+ *
+ * @param {(string|string[])} movieObjList - string or array with type
+ * @param {Object} htmlTag - the tag in the html document
+ * @param {string} type - the type to search for
+ */
 function showFolk(movieObjList, htmlTag, type) {
 
     let folks = movieObjList;
 
     if(!Array.isArray(movieObjList))
-     folks = (movieObjList != null) ? movieObjList.trim().split(/[\s+,/]{2,}/) : [];
+        folks = (movieObjList != null) ? movieObjList.trim().split(/[\s+,/]{2,}/) : [];
 
     //folks.forEach(pers => folk.innerHTML += `<a href="http://www.imdb.com/find?ref_=nv_sr_fn&q=${pers}&s=nm" target="_blank">${pers}</a>,`);
+    let html = '';
     folks.forEach(pers => {
         pers = pers.replace(",","");
-        htmlTag.innerHTML += `<a href="search_results.html?${type}=${pers}">${pers}</a>, `
+        html += `<li><a href="search_results.html?${type}=${pers}">${pers}</a></li>`;
     });
+    htmlTag.innerHTML += html;
 }
+
 
 function displayRecomendedMovies() {
     genreCount = 0;
@@ -126,15 +144,8 @@ function displayRecomendedMovies() {
         }
 
     }
-    recomendedMovies.forEach(mov => {
-        recomended.innerHTML += `<li>
-                    <a href="show_movie.html?id=${mov.id}" class="movie-info movie-info-a">
-                        <img id="img${mov.id}" src="https://nelson.uib.no/o/${(String(mov.id).length === 4) ? String(mov.id).substring(0, 1) : 0}/${mov.id}.jpg" 
-                             alt="${mov.otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">
-                        <span>${mov.otitle}</span>
-                    </a>
-                </li>`
-    })
+
+    writeHTML(recomendedMovies, recomended, recomendedMovies.length);
 
 }
 
