@@ -142,6 +142,11 @@ function sortAfterRating() {
             ratings.ratingAvg = ravg;
             ratingsArray.push(ratings);
         }
+        else {
+            ratings.movieId = movies_object[mid];
+            ratings.ratingAvg = 0;
+            ratingsArray.push(ratings);
+        }
 
     }
     ratingsArray.sort((a,b) => b.ratingAvg - a.ratingAvg);

@@ -32,7 +32,11 @@ window.onload = function() {
 };
 
 function isValid(x, y) { // Function called to check if a search parameter 'y' is inValid
-    return y != "" && !(x.includes(y)); // If not it is valid
+    if (y != "" && !(x.includes(y))) { // If the parameter 'y' is not empty, and is not found in 'x' then it is inValid
+        return true;
+    }
+    else {return false;} // If not it is valid
+
 }
 function display(array) {
     let count,ul,number,colums, length;
