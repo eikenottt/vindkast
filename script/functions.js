@@ -33,14 +33,8 @@ function getImages(id){
     for(i = 0; i < alphabet.length; i++) {
         link = `https://nelson.uib.no/o/${(String(id).length === 4) ? String(id).substring(0, 1) : 0}/${id + alphabet[i]}.jpg`;
 
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if(this.status != 404){
-                pictureArr.push(link);
-            }
-        }
-        xhttp.open('GET', link, true);
-        xhttp.send();
+        pictureArr.push(link);
+
     }
     pictureArr.forEach((pic, i) => {
         html += `<div class="image" id="limage${i}" style="background-image: url(${pic});" ></div>`;
@@ -146,6 +140,11 @@ function sortAfterRating() {
             ravg = (ravg / i).toFixed(2);
             ratings.movieId = movies_object[mid];
             ratings.ratingAvg = ravg;
+            ratingsArray.push(ratings);
+        }
+        else {
+            ratings.movieId = movies_object[mid];
+            ratings.ratingAvg = 0;
             ratingsArray.push(ratings);
         }
 

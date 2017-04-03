@@ -605,6 +605,23 @@ main .flex-right {
     padding-top: 0;
 }
 
+#advanced_search {
+    border: none;
+    background: none;
+    color: var(--link-color);
+    font-size: 1em;
+    cursor: pointer;
+}
+#advanced_search:hover {
+    color: var(--hover-color);
+}
+
+.close {
+    transition: 0.2s;
+    height: 0;
+    overflow: hidden;
+}
+
 
 /* -------- Liten mobilskjerm  ----------*/
 @media screen and (max-width: 650px) {
