@@ -308,6 +308,7 @@ header nav #menu .accordion label {
     cursor: pointer;
     display: block;
     z-index: 20;
+    padding: 10px;
 }
 
 header nav #menu .accordion label::after {
