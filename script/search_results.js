@@ -32,10 +32,7 @@ window.onload = function() {
 };
 
 function isValid(x, y) { // Function called to check if a search parameter 'y' is inValid
-    if (y != "" && !(x.includes(y))) { // If the parameter 'y' is not empty, and is not found in 'x' then it is inValid
-        return true;
-    }
-    else {return false;} // If not it is valid
+    return y != "" && !(x.includes(y)); // If not it is valid
 
 }
 function display(array) {
@@ -57,6 +54,9 @@ function display(array) {
 
 }
 
+/**
+ * Toggles a class on the advanced search to show and hide it.
+ */
 function showAdvancedSearch() {
     const adv = document.querySelector("#adv_box");
     adv.classList.toggle("close");

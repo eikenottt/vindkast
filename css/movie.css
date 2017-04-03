@@ -64,6 +64,13 @@
     right: 30px;
 }
 
+#information .text-wrap #title {
+    width: 218px;
+    position: relative;
+    left: 50%;
+    margin-left: -109px;
+}
+
 #information a {
     color: #3999AE;
     width: auto;

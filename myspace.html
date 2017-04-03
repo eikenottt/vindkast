@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Min Side</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/wind.png">
+    <script src="script/functions.js"></script>
+    <script src="script/object.js"></script>
+    <script src="script/query_params.js"></script>
+    <script src="script/reviews.js"></script>
+    <script src="script/wish_list.js"></script>
+    <script src="script/genres.js"></script>
+</head>
+<body>
+<header>
+    <script src="script/header.js"></script>
+</header>
+<main>
+    <input type="checkbox" id="sidebox">
+    <label for="sidebox" class="whitebox-l">
+        <span class="whitebox"></span>
+    </label>
+        <script src="script/routine.js"></script>
+    <section class="flex-left">
+        <h2>Mine lån</h2>
+        <ul id="my_loan" class="movies">
+            <script src="script/my_loan.js"></script>
+        </ul>
+    </section>
+    <section class="flex-right">
+        <section>
+            <h2>Ønskeliste</h2>
+            <ul id="my_wish" class="movies">
+                <script src="script/my_wish.js"></script>
+            </ul>
+        </section>
+        <script src="script/recomendedMovies.js"></script>
+    </section>
+</main>
+</body>
+</html>

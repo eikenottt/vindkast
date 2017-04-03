@@ -31,7 +31,7 @@ window.onload = function() {
     // Duration of the movie in minutes
     duration.innerHTML = `(${(movie_object.length != (null && 0)) ? `${movie_object.length} minutter)` : "Ingen informasjon om lengden på filmen)"}`;
     // Rating
-    rating.innerHTML = getRating(review);
+    rating.innerHTML = getAvgRating(review);
     // genre
     showInformationFromMovie(genres_object[movie_id], genre, "genre");
     //genre.innerHTML = `Sjanger: ${genres_object[movie_id]}`;
