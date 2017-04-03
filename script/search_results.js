@@ -20,7 +20,7 @@ window.onload = function() {
             actor = (moviesArray[movie].movieId.folk != null) ? (moviesArray[movie].movieId.folk).toLowerCase() : "", // Retrieving actors from the JSON-file, and seperating by tilde
             director = (moviesArray[movie].movieId.dir != null) ? (moviesArray[movie].movieId.dir).toLowerCase() : "", // Retrieving directors from the JSON-file, and seperating by tilde
             genre = (genres_object[moviesArray[movie].movieId.id] != null) ? genres_object[moviesArray[movie].movieId.id].join("~").toLowerCase() : "", // Retrieving genres from the JSON-file, and seperating by tilde
-            country = String(moviesArray[movie].movieId.country).toLowerCase(); // Retrieving country from the JSON-file
+            country = String(country_object[moviesArray[movie].movieId.country]).toLowerCase(); // Retrieving country from the JSON-file
 
         switch(true) { // If any of the following statements is inValid, break the switch-statement and continue iterating through the rest of the JSON-file
             case  isValid(title, title_search): break; // Checking if title is inValid
