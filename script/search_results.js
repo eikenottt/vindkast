@@ -52,3 +52,8 @@ function display(array) {
     writeMovieHTML(array, ul, array.length);
 
 }
+
+function showAdvancedSearch() {
+    const adv = document.querySelector("#adv_box");
+    adv.classList.toggle("close");
+}
