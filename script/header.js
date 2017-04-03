@@ -36,7 +36,7 @@ document.write(`
                             
                         </div>
                         </li> <!-- Slutt på accordion -->
-                        <li class="menuItem" id="rutine-side"><a href="rutiner.html"><img class="navimg" src="img/ikon/rutinecheck.svg">Rutiner</a></li>
+                        <li class="menuItem" id="rutine-side"><a href="imports/rutiner.html"><img class="navimg" src="img/ikon/rutinecheck.svg">Rutiner</a></li>
                         <!-- Logg ut -->
                         <li class="menuItem"><a href="#"><img class="navimg" src="img/ikon/ut.svg">Logg ut</a></li>
                         </ul> <!-- Slutt på Hamburger menyen -->
