@@ -3,14 +3,11 @@ let search_result = []; // Global Array for the Search Result
 window.onload = function() {
     query_params = get_query_string_parameters(); // Retrieving parameters from the user
     let title_search, actor_search, director_search, genre_search, country_search = "", moviesArray, movie; // Creating an empty variable for each possible user input
+
     title_search = (query_params.film_title != null) ? String(query_params.film_title).toLowerCase() : false; // TITLE - Validating that the parameter is not 'null' and updating it to reflect the users query
-
     actor_search = (query_params.actor != null) ? String(query_params.actor).toLowerCase() : false; // ACTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
-
     director_search = (query_params.director != null) ? String(query_params.director).toLowerCase() : false; // DIRECTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
-
     genre_search = (query_params.genre != null) ? String(query_params.genre).toLowerCase() : false; // GENRE - Validating that the parameter is not 'null' and updating it to reflect the users query
-
     country_search = (query_params.country != null) ? String(query_params.country).toLowerCase() : false; // COUNTRY - Validating that the parameter is not 'null' and updating it to reflect the users query
 
     moviesArray = sortAfterRating();
@@ -31,11 +28,7 @@ window.onload = function() {
             default : search_result.push(moviesArray[movie].movieId); // If all the above statements are valid add the movie to our search_result
         }
     }
-    // DISPLAY FUNCTION START
     display(search_result);
-
-    // DISPLAY FUNCTION END
-
 };
 
 function isValid(x, y) { // Function called to check if a search parameter 'y' is inValid
