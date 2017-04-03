@@ -10,9 +10,8 @@ Malin:
     -legge til ikoner i meny
     - Generere Menyen ved hjelp av javascript
     - endre til "mine lån" istedenfor "mine filmer"
-    - legge til en footer
-    - endre til "mine lån" istedenfor "mine filmer"
     - endre piltast fra before til after
+        - legge til en footer
 
 Aasmund:
     - Implentere advanced_search.html til vindkast filen (Nesten Ferdig)
