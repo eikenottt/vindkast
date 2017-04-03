@@ -50,11 +50,11 @@ function display(array) {
     number = array.length;
     const movieCoverWidth = 133;
     const width = Math.floor((ul.offsetWidth - parseInt(window.getComputedStyle(ul).paddingLeft.replace("px",""))) / movieCoverWidth);
-    if(array.length % width != 0 && array.length > width) {
+    /*if(array.length % width != 0 && array.length > width) {
         colums = Math.round(array.length/width);
         number = //(colums > 4) ? splitToPages:
             array.length;
-    }
+    }*/
     length = ((array.length > number) ? number : array.length);
     writeMovieHTML(array, ul, array.length);
 

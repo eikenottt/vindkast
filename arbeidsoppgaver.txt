@@ -16,6 +16,7 @@ Malin:
 
 Aasmund:
     - Implentere advanced_search.html til vindkast filen (Nesten Ferdig)
+        - søk etter land
     - ha en seksjon over søkeresultatene der det står:
             "Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende.
             Generere Avansert søk inn i search results?
