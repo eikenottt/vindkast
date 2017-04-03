@@ -32,7 +32,11 @@ window.onload = function() {
 };
 
 function isValid(x, y) { // Function called to check if a search parameter 'y' is inValid
-    return y != "" && !(x.includes(y)); // If not it is valid
+    if (y != "" && !(x.includes(y))) { // If the parameter 'y' is not empty, and is not found in 'x' then it is inValid
+        return true;
+    }
+    else {return false;} // If not it is valid
+
 }
 function display(array) {
     let count,ul,number,colums, length;
@@ -43,12 +47,17 @@ function display(array) {
     number = array.length;
     const movieCoverWidth = 133;
     const width = Math.floor((ul.offsetWidth - parseInt(window.getComputedStyle(ul).paddingLeft.replace("px",""))) / movieCoverWidth);
-    if(array.length % width != 0 && array.length > width) {
+    /*if(array.length % width != 0 && array.length > width) {
         colums = Math.round(array.length/width);
         number = //(colums > 4) ? splitToPages:
             array.length;
-    }
+    }*/
     length = ((array.length > number) ? number : array.length);
     writeMovieHTML(array, ul, array.length);
 
+}
+
+function showAdvancedSearch() {
+    const adv = document.querySelector("#adv_box");
+    adv.classList.toggle("close");
 }
