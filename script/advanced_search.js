@@ -1,12 +1,4 @@
-﻿<!DOCTYPE html>
-
-<html>
-  <meta charset="utf-8"/>
-  <head>
-  </head>
-  <body>
-	<!-- Skjemaet gir mulighet for å ha en mer avansert søk. -->
-    <form id="search" action="../search_results.html" method="get">
+document.write{` <form id="search" action="../search_results.html" method="get">
 		<div>
 			<h1>Advanced search</h1>
 			<h2>Her blir det mulig å søke etter filmer basert på tittel, skuespillere, sjangere, land og/eller regissør</h2>
@@ -35,6 +27,5 @@
 			</div>	
 		</fieldset>
 		<input type="submit" id="submit_search" value="Søk">
-	</form>
-  </body>
-</html>
+	</form> `
+}
