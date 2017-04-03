@@ -215,6 +215,7 @@ country_object = {
     "SXM": "Sint Maarten",
     "SYC": "Seychellene",
     "SYR": "Syria",
+    "TAW": "Taiwan",
     "TCA": "Turks- og Caicosøyene",
     "TCD": "Tsjad",
     "TGO": "Togo",

@@ -102,7 +102,7 @@ function displayRecomendedMovies(htmltag, movie_id) {
  * @param reviewObj
  * @returns {string}
  */
-function getRating(reviewObj) {
+function getAvgRating(reviewObj) {
     let ratingavg = 0, ratingCount = 0, usr, avgRating;
     if(reviewObj != null) {
         for (usr in reviewObj) {
@@ -272,4 +272,30 @@ function writeMovieHTML(array, place, amount){
         html.appendChild(li);
     }
     place.appendChild(html);
+}
+
+
+
+function listings(list) {
+    let html = '', i;
+
+    let j = list.length, movies;
+    if(list.length > 3){ j = 3}
+    i = list.length-1;
+    movies = fromWishToMovie(list);
+    for(; i >= movies.length - j; i--) {
+        html += `<a href="show_movie.html?id=${movies[i].id}">${movies[i].otitle}</a>`
+    }
+
+    return html;
+
+}
+
+
+function fromWishToMovie(array) {
+    let i, movieArray = [];
+    for(i=0; i< array.length; i++){
+        movieArray.push(movies_object[array[i]]);
+    }
+    return movieArray;
 }

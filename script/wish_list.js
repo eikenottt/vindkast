@@ -1,3 +1,3 @@
-const wish_list = [340, 590, 15],
-    loan_list = [4, 56, 120];
+const wish_list = [3814, 3810, 3611, 3832],
+    loan_list = [2685, 1100];
 
