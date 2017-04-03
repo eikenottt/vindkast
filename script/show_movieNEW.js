@@ -104,7 +104,7 @@ function showFolk(movieObjList, htmlTag, type) {
     let html = '';
     folks.forEach(pers => {
         pers = pers.replace(",","");
-        html += `<li><a href="search_results.html?${type}=${pers}">${pers}</a></li>`;
+        html += `<li><a href="search_results.html?${type}=${pers}">${pers}</a></li>, `;
     });
     htmlTag.innerHTML += html;
 }
@@ -214,8 +214,8 @@ function showCountryName(cCode){
 function makeButtons() {
     buttons = document.querySelector(".buttons");
 
-    loan_object = JSON.parse(loan_list);
-    wish_object = JSON.parse(wish_list);
+    //loan_object = JSON.parse(loan_list);
+    //wish_object = JSON.parse(wish_list);
 
     buttons.innerHTML = `
         <button id="wish" class="liste">+Liste</button>

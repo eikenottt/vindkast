@@ -141,6 +141,11 @@
     height: 100%;
 }
 
+.text-wrap li {
+    list-style: none;
+    display: inline-block;
+}
+
 @media screen and (min-width: 1160px) {
     /* Makes the cover img bigger. */
     .big_cover {
