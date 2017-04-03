@@ -38,17 +38,53 @@ function get_query_string_parameters() {
     return result;
 }
 
-function writeHTML(array, place, amount){
+/*function writeHTML(array, place, amount){
     let html = '';
+    function getImage(objid) {
+        return `https://nelson.uib.no/o/${(String(objid).length === 4) ? String(objid).substring(0,1) : 0}/${objid}.jpg`;
+    }
     for(let i = 0; i < amount; i++){
-        html += `<li title="${(array[i].description != null) ? array[i].description.trim().substring(0,160) + "..." : 'Ingen informasjon om filmen'}">
-                                <a href="show_movie.html?id=${array[i].id}" class="movie-info movie-info-a">
-                                    <img id="img${array[i].id}" src="https://nelson.uib.no/o/${(String(array[i].id).length === 4) ? String(array[i].id).substring(0,1) : 0}/${array[i].id}.jpg" 
-                                         alt="${array[i].otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">
-                                    <span>${array[i].otitle}</span>
+        let desc = array[i].description;
+        let movie = array[i];
+        html += `<li title='${(desc != (null && undefined)) ? desc.trim().substring(0,160) + "..." : 'Ingen informasjon om filmen'}'>
+                                <a href="show_movie.html?id=${movie.id}" class="movie-info movie-info-a">
+                                    <img id="img${movie.id}" src="${getImage(movie.id)}" 
+                                         alt="${movie.otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">
+                                    <span>${movie.otitle}</span>
                                 </a>
                             </li>`;
     }
     place.innerHTML = html;
+}*/
+
+function writeHTML(array, place, amount){
+    let html = document.createDocumentFragment();
+    function getImage(objid) {
+        return `https://nelson.uib.no/o/${(String(objid).length === 4) ? String(objid).substring(0,1) : 0}/${objid}.jpg`;
+    }
+    for(let i = 0; i < amount; i++){
+        let desc = array[i].description;
+        let movie = array[i];
+        const li = document.createElement("li"),
+            a = document.createElement("a"),
+            img = document.createElement("img"),
+            span = document.createElement("span");
+        span.appendChild(document.createTextNode(array[i].otitle));
+        img.setAttribute("id", `img${movie.id}`);
+        img.src = getImage(movie.id);
+        img.alt = movie.otitle;
+        img.setAttribute("onerror", "this.onerror=null;this.src='img/notFound.jpg'");
+        a.href = `show_movie.html?id=${movie.id}`;
+        a.classList.add("movie-info");
+        a.classList.add("movie-info-a")
+        a.appendChild(img);
+        a.appendChild(span);
+        li.setAttribute("title", (desc != (null && "" && undefined)) ? desc.trim().substring(0,160) + "..." : 'Ingen informasjon om filmen');
+        li.appendChild(a);
+        html.appendChild(li);
+    }
+    place.appendChild(html);
 }
+
+
 
