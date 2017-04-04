@@ -38,3 +38,8 @@ Utførte Oppgaver:
 
     Aasmund:  - Legge inn rating fra "review" filen til filmene //DONE
               - søkeresultat siden skal genereres med javascript
+
+
+Fikse bugs: 
+- Fikse undefined i wish list 
+- Landkode (problem når det er flere filmer som er delt opp med forskjellige tegn. 
