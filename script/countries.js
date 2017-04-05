@@ -150,6 +150,7 @@ country_object = {
     "MNE": "Montenegro",
     "MNG": "Mongolia",
     "MNP": "Nord-Marianene",
+    "MON": "Mongolia",
     "MOZ": "Mosambik",
     "MRT": "Mauritania",
     "MSR": "Montserrat",

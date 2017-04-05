@@ -11,7 +11,7 @@ function showInformationFromMovie(movieObjList, htmlTag, type) {
     let tempArray = movieObjList;
 
     if(!Array.isArray(movieObjList))
-        tempArray = (movieObjList != null) ? movieObjList.trim().split(/[\s+,/]{2,}/) : [];
+        tempArray = (movieObjList != null) ? movieObjList.trim().split(/[\s+,/;]{2,}/) : [];
 
     //folks.forEach(pers => folk.innerHTML += `<a href="http://www.imdb.com/find?ref_=nv_sr_fn&q=${pers}&s=nm" target="_blank">${pers}</a>,`);
     let html = '';
@@ -264,7 +264,7 @@ function writeMovieHTML(array, place, amount){
         img.setAttribute("onerror", "this.onerror=null;this.src='img/notFound.jpg'");
         a.href = `show_movie.html?id=${movie.id}`;
         a.classList.add("movie-info");
-        a.classList.add("movie-info-a")
+        a.classList.add("movie-info-a");
         a.appendChild(img);
         a.appendChild(span);
         li.setAttribute("title", (desc != (null && "" && undefined)) ? desc.trim().substring(0,160) + "..." : 'Ingen informasjon om filmen');
