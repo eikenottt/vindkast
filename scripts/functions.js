@@ -57,10 +57,9 @@ function displayRecomendedMovies(htmltag, movie_id) {
         movie_id = pickRandomMovie(wish_list);  // pick a random movie id from wish_list
     }
 
-    let genreCount = 0,
-        folkCount = 0,
-        countryArray,
+    let countryArray,
         c,
+        beforeCount,
         otherCount = 0,
         pickMovie, i, recMovie_id,
         movie_object = movies_object[movie_id];
@@ -70,43 +69,46 @@ function displayRecomendedMovies(htmltag, movie_id) {
     for (i = 0; i < ratings.length; i++) {
         pickMovie = pickRandomMovie(ratings).movieId;
         countryArray = movie_object.country.split(regexp);
-        if (otherCount < 3) {
+        beforeCount = otherCount;
 
-            for (c in countryArray) {
-                if (pickMovie.country.includes(countryArray[c])) {
+            if (otherCount > 2 && otherCount < 6) {
+                for (c in countryArray) {
+                    if (pickMovie.country.includes(countryArray[c])) {
+                        recomendedMovies.push(pickMovie);
+                        otherCount++;
+                    }
+                }
+            }
+
+            if (otherCount > 5 && otherCount < 9) {
+
+                if (((genres_object[pickMovie.id] && genres_object[movie_id]) != undefined) ? genres_object[movie_id].some(v => genres_object[pickMovie.id].indexOf(v) >= 0) : false) {
+                    if (pickMovie.id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
                     recomendedMovies.push(pickMovie);
                     otherCount++;
                 }
             }
-        }
 
-        if(otherCount > 5 && otherCount < 9) {
+            if (otherCount < 3) {
 
-            if (((genres_object[pickMovie.id] && genres_object[movie_id]) != undefined) ? genres_object[movie_id].some(v => genres_object[pickMovie.id].indexOf(v) >= 0) : false) {
-                if (pickMovie.id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
-                recomendedMovies.push(pickMovie);
-                genreCount++;
-                otherCount++;
-            }
-        }
+                if (((pickMovie.folk != null && movie_object.folk != null) ? movie_object.folk.trim().split(",").some(v => pickMovie.folk.trim().split(",").indexOf(v) >= 0) : false)) {
+                    recMovie_id = pickMovie.id;
+                    if (recMovie_id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
+                    recomendedMovies.push(pickMovie);
+                    otherCount++;
+                }
 
-        if(otherCount > 2 && otherCount < 6) {
-
-            if (((pickMovie.folk != null && movie_object.folk != null) ? movie_object.folk.trim().split(",").some(v => pickMovie.folk.trim().split(",").indexOf(v) >= 0) : false)) {
-                recMovie_id = pickMovie.id;
-                if (recMovie_id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
-                recomendedMovies.push(pickMovie);
-                folkCount++;
-                otherCount++;
             }
 
-        }
-
-        if (otherCount > 9)
-            if ((folkCount || genreCount) == 0) {
-                recomendedMovies.push(ratings[i].id);
-                otherCount++;
+            if (otherCount == beforeCount) {
+                if(pickMovie.otitle.includes(movie_object.otitle.substring(0,6))) {
+                    if(pickMovie.id != movie_object.id) {
+                        recomendedMovies.push(pickMovie);
+                        otherCount++;
+                    }
+                }
             }
+
 
     }
 
@@ -275,6 +277,7 @@ function writeMovieHTML(array, place, amount) {
 
     for (let i = 0; i < amount; i++) {
         let desc = array[i].description;
+        desc = (desc != (null && "" && undefined)) ? desc.trim().substring(0, 160) + "..." : 'Ingen informasjon om filmen';
         let movie = array[i];
         const li = document.createElement("li"),
             a = document.createElement("a"),
@@ -290,7 +293,7 @@ function writeMovieHTML(array, place, amount) {
         a.classList.add("movie-info-a");
         a.appendChild(img);
         a.appendChild(span);
-        li.setAttribute("title", (desc != (null && "" && undefined)) ? desc.trim().substring(0, 160) + "..." : 'Ingen informasjon om filmen');
+        li.setAttribute("title", desc);
         li.appendChild(a);
         html.appendChild(li);
     }

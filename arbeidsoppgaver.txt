@@ -1,21 +1,13 @@
 Rune:
     - Få "Lånte filmer" og "Ønskeliste" til å fungere
     - Ordne layout på "show_movie"
-        - Gjøre sjangrene klikkbare, slik at det ein kan lett finne filmer i samme sjanger uten å måtte søke
     - Lage en navigasjons funksjon til fremsiden som laster inn de neste filmene i rekken.
 
 Malin:
-    - Endre menyinnhold til å vise noe mer likt Malin sin meny
-    (tenker å endre slik at menyen istdenfor viser "innhold" og "mine sider (brukernavn)", + en logg ut knapp)
-    -legge til ikoner i meny
-    - Generere Menyen ved hjelp av javascript
     - endre til "mine lån" istedenfor "mine filmer"
-    - endre piltast fra before til after
-        - legge til en footer
+    - legge til en footer
 
 Aasmund:
-    - Implentere advanced_search.html til vindkast filen (Nesten Ferdig)
-        - søk etter land
     - ha en seksjon over søkeresultatene der det står:
             "Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende.
             Generere Avansert søk inn i search results?
@@ -33,13 +25,22 @@ Utførte Oppgaver:
               - seksjonene på fremsiden "nyeste filmer" osv genereres med js //DONE
               - Fikse undefined i wish list //DONE
               - Landkode (problem når det er flere filmer som er delt opp med forskjellige tegn. //DONE
+              - Gjøre sjangrene klikkbare, slik at det ein kan lett finne filmer i samme sjanger uten å måtte søke //DONE
 
     Malin:    - Implentere search til vindkast filen //Done
               - Replassere "Rutiner" på liten skjerm til meny //DONE (tenker vi bare lager en ekstra side som vi linker til i menyen, det ser ryddigst ut)
               - Endre ID i CSS fra submit til submit_search  //DONE
+              - Endre menyinnhold til å vise noe mer likt Malin sin meny //DONE
+                  (tenker å endre slik at menyen istdenfor viser "innhold" og "mine sider (brukernavn)", + en logg ut knapp)
+              - legge til ikoner i meny //DONE
+              - Generere Menyen ved hjelp av javascript //DONE
+              - endre piltast fra before til after //DONE
+
 
     Aasmund:  - Legge inn rating fra "review" filen til filmene //DONE
               - søkeresultat siden skal genereres med javascript
+              - Implentere advanced_search.html til vindkast filen //DONE
+              - søk etter land //DONE
 
 
 Fikse bugs: 
