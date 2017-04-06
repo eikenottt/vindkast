@@ -1,4 +1,5 @@
-document.write(`
+
+    document.write(`
      <h1><a href="index.html" title="Vindkast">Vindkast</a></h1>
             <nav>
                 <!-- Hamburger meny -->
@@ -42,7 +43,8 @@ document.write(`
                         </ul> <!-- Slutt på Hamburger menyen -->
                 </nav> `);
 
-const loan = document.querySelector("#loan"),
-    wish = document.querySelector("#wish");
-loan.innerHTML = listings(loan_list);
-wish.innerHTML = listings(wish_list);
+    const loan = document.querySelector("#loan"),
+        wish = document.querySelector("#wish");
+    loan.innerHTML = listings(loan_list);
+    wish.innerHTML = listings(wish_list);
+

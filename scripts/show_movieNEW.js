@@ -18,27 +18,30 @@ window.onload = function() {
     recomended = document.querySelector("#recomended"),
     folk = document.querySelector("#folk"),
     rating = document.querySelector("#ratingnr"),
-    newlyloanedMovies = document.querySelector("#newlyloanedMovies");
+    newlyloanedMovies = document.querySelector("#newlyloanedMovies"),
+    imdb = document.querySelector("#imdb");
 
     document.title = `Vindkast - ${movie_object.otitle}`;
 
     // Title of the movie
-    title.innerHTML = `${movie_object.otitle}`;
+    title.innerHTML = movie_object.otitle;
+    // Imdb link
+    imdb.innerHTML = (movie_object.imdb_id != null && movie_object.imdb_id != "" && movie_object.imdb_id.substring(0,1) == "t") ? `<a href="http://www.imdb.com/title/${movie_object.imdb_id}" target="_blank">Se mer på Imdb.com</a>` : "" ;
     // Make buttons
     makeButtons();
     // Country of origin and year of the movie
-    language.innerHTML = `<div><span>Land: </span>${showCountryName(movie_object.country)}</div> <div>Utgivelsesår: ${movie_object.year}</div>`;
+    language.innerHTML = `<div><span>Land: </span>${showInformationFromMovie(showCountryName(movie_object.country),"country")}</div> <div><span>Utgivelsesår: </span>${movie_object.year}</div>`;
     // Duration of the movie in minutes
     duration.innerHTML = `(${(movie_object.length != (null && 0)) ? `${movie_object.length} minutter)` : "Ingen informasjon om lengden på filmen)"}`;
     // Rating
     rating.innerHTML = getAvgRating(review);
     // genre
-    showInformationFromMovie(genres_object[movie_id], genre, "genre");
+    genre.innerHTML = `<span>Sjanger: </span>` + showInformationFromMovie(genres_object[movie_id], "genre");
     //genre.innerHTML = `Sjanger: ${genres_object[movie_id]}`;
     // Director of the movie
-    showInformationFromMovie(movie_object.dir, director, "director");
+    director.innerHTML = showInformationFromMovie(movie_object.dir, "director");
     // Folk in the movie
-    showInformationFromMovie(movie_object.folk, folk, "actor");
+    folk.innerHTML = showInformationFromMovie(movie_object.folk, "actor");
     // About the movie
     about_movie.innerHTML = `${(movie_object.description != (null && "" )) ? movie_object.description : "Ingen omhandling tilgjengelig"}`;
     // Norwegian title of the movie

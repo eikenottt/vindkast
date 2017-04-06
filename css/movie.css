@@ -71,6 +71,13 @@
     margin-left: -109px;
 }
 
+#information .text-wrap h6#imdb {
+    left: 50%;
+    position: absolute;
+    margin-left: -50px;
+    top: 39px;
+}
+
 #information a {
     color: #3999AE;
     width: auto;

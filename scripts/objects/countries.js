@@ -108,7 +108,6 @@ country_object = {
     "IRL": "Irland",
     "IRN": "Iran",
     "IRQ": "Irak",
-    "ISL": "Island",
     "ISR": "Israel",
     "ITA": "Italia",
     "JAM": "Jamaica",

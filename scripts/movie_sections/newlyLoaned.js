@@ -1,8 +1,9 @@
-document.write(`<section>
+document.write(`
+    <section>
         <h2>Nylig Lånte Filmer</h2>
         <ul id="newlyLoanedMovies" class="movies">
         </ul>
-  </section>`);
+    </section>`);
 
 const newlyLoaned = document.querySelector("#newlyLoanedMovies");
 
