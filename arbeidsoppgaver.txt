@@ -6,6 +6,7 @@ Rune:
 Malin:
     - endre til "mine lån" istedenfor "mine filmer"
     - legge til en footer
+    - fikse bug i meny (se fikse bugs)
 
 Aasmund:
     - ha en seksjon over søkeresultatene der det står:
@@ -44,4 +45,4 @@ Utførte Oppgaver:
 
 
 Fikse bugs: 
-
+    - pila i Mine Filmer og Ønskeliste flytter seg feil i mobilvisning

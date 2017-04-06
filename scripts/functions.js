@@ -62,55 +62,57 @@ function displayRecomendedMovies(htmltag, movie_id) {
         beforeCount,
         otherCount = 0,
         pickMovie, i, recMovie_id,
-        movie_object = movies_object[movie_id];
-    const recomendedMovies = [],
+        movie_object = movies_object[movie_id],
+        recomendedMovies = [],
         ratings = sortAfterRating();
 
     for (i = 0; i < ratings.length; i++) {
-        pickMovie = pickRandomMovie(ratings).movieId;
+        pickMovie = ratings[i].movieId;
         countryArray = movie_object.country.split(regexp);
         beforeCount = otherCount;
 
-            if (otherCount > 2 && otherCount < 6) {
-                for (c in countryArray) {
-                    if (pickMovie.country.includes(countryArray[c])) {
-                        recomendedMovies.push(pickMovie);
-                        otherCount++;
-                    }
-                }
-            }
-
-            if (otherCount > 5 && otherCount < 9) {
-
-                if (((genres_object[pickMovie.id] && genres_object[movie_id]) != undefined) ? genres_object[movie_id].some(v => genres_object[pickMovie.id].indexOf(v) >= 0) : false) {
-                    if (pickMovie.id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
+        if (otherCount > 2 && otherCount < 6) {
+            for (c in countryArray) {
+                if (pickMovie.country.includes(countryArray[c])) {
                     recomendedMovies.push(pickMovie);
                     otherCount++;
                 }
             }
+        }
 
-            if (otherCount < 3) {
+        if (otherCount > 5 && otherCount < 9) {
 
-                if (((pickMovie.folk != null && movie_object.folk != null) ? movie_object.folk.trim().split(",").some(v => pickMovie.folk.trim().split(",").indexOf(v) >= 0) : false)) {
-                    recMovie_id = pickMovie.id;
-                    if (recMovie_id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
+            if (((genres_object[pickMovie.id] && genres_object[movie_id]) != undefined) ? genres_object[movie_id].some(v => genres_object[pickMovie.id].indexOf(v) >= 0) : false) {
+                if (pickMovie.id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
+                recomendedMovies.push(pickMovie);
+                otherCount++;
+            }
+        }
+
+        if (otherCount < 3) {
+
+            if (((pickMovie.folk != null && movie_object.folk != null) ? movie_object.folk.trim().split(",").some(v => pickMovie.folk.trim().split(",").indexOf(v) >= 0) : false)) {
+                recMovie_id = pickMovie.id;
+                if (recMovie_id === movie_object.id || recomendedMovies.includes(pickMovie)) continue;
+                recomendedMovies.push(pickMovie);
+                otherCount++;
+            }
+
+        }
+
+        if (otherCount == beforeCount && otherCount < 15) {
+            if (pickMovie.dir.includes(movie_object.dir)) {
+                if (pickMovie.id != movie_object.id) {
                     recomendedMovies.push(pickMovie);
                     otherCount++;
                 }
-
             }
-
-            if (otherCount == beforeCount) {
-                if(pickMovie.otitle.includes(movie_object.otitle.substring(0,6))) {
-                    if(pickMovie.id != movie_object.id) {
-                        recomendedMovies.push(pickMovie);
-                        otherCount++;
-                    }
-                }
-            }
+        }
 
 
     }
+
+    recomendedMovies = shuffle(recomendedMovies);
 
     writeMovieHTML(recomendedMovies, htmltag, recomendedMovies.length);
 
@@ -138,6 +140,24 @@ function getAvgRating(reviewObj) {
     }
 }
 
+function shuffle(array) {
+    let currentIndex = array.length, t, i;
+
+    // While there remain elements to shuffle…
+    while (currentIndex) {
+
+        // Pick a remaining element…
+        i = Math.floor(Math.random() * currentIndex--);
+
+        // And swap it with the current element.
+        t = array[currentIndex];
+        array[currentIndex] = array[i];
+        array[i] = t;
+    }
+
+    return array;
+}
+
 /**
  *
  * @returns {Array}
@@ -152,7 +172,7 @@ function sortAfterRating() {
         ravg = 0;
         rev = reviews_object[mid];
         i = 0;
-        for(s in rev) {
+        for (s in rev) {
             i++;
             ravg += rev[s].rating;
         }
@@ -310,7 +330,7 @@ function listings(list) {
     }
     i = list.length - 1;
     movies = fromWishToMovie(list);
-    if(movies != undefined) {
+    if (movies != undefined) {
         for (; i >= movies.length - j; i--) {
             html += `<a href="show_movie.html?id=${movies[i].id}">${movies[i].otitle}</a>`
         }

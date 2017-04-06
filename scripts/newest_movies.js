@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
 
     const newMovies = document.querySelector("#newMovies");
 
@@ -10,10 +10,10 @@ window.onload = function() {
 
 function sortByYear() {
     let years = [];
-    for(let movie in movies_object) {
+    for (let movie in movies_object) {
         years.push(movies_object[movie]);
     }
-    years.sort((a,b) => b.year-a.year);
+    years.sort((a, b) => b.year - a.year);
     return years;
 }
 

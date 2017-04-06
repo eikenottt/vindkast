@@ -1,36 +1,35 @@
-
-window.onload = function() {
+window.onload = function () {
     const query_params = get_query_string_parameters(),
-    movie_id = query_params.id,
-    movie_object = movies_object[movie_id],
-    review = reviews_object[movie_id],
+        movie_id = query_params.id,
+        movie_object = movies_object[movie_id],
+        review = reviews_object[movie_id],
 
-    title = document.querySelector("#title"),
-    language = document.querySelector("#lang"),
-    cover_image = document.querySelector("#cover_image"),
-    duration = document.querySelector("#duration"),
-    genre = document.querySelector("#genre"),
-    director = document.querySelector("#dir"),
-    about_movie = document.querySelector("#about_movie"),
-    video_trailer = document.querySelector(".video-container"),
-    nor_title = document.querySelector("#no-title"),
-    pictures = document.querySelector("#frame"),
-    recomended = document.querySelector("#recomended"),
-    folk = document.querySelector("#folk"),
-    rating = document.querySelector("#ratingnr"),
-    newlyloanedMovies = document.querySelector("#newlyloanedMovies"),
-    imdb = document.querySelector("#imdb");
+        title = document.querySelector("#title"),
+        language = document.querySelector("#lang"),
+        cover_image = document.querySelector("#cover_image"),
+        duration = document.querySelector("#duration"),
+        genre = document.querySelector("#genre"),
+        director = document.querySelector("#dir"),
+        about_movie = document.querySelector("#about_movie"),
+        video_trailer = document.querySelector(".video-container"),
+        nor_title = document.querySelector("#no-title"),
+        pictures = document.querySelector("#frame"),
+        recomended = document.querySelector("#recomended"),
+        folk = document.querySelector("#folk"),
+        rating = document.querySelector("#ratingnr"),
+        newlyloanedMovies = document.querySelector("#newlyloanedMovies"),
+        imdb = document.querySelector("#imdb");
 
     document.title = `Vindkast - ${movie_object.otitle}`;
 
     // Title of the movie
     title.innerHTML = movie_object.otitle;
     // Imdb link
-    imdb.innerHTML = (movie_object.imdb_id != null && movie_object.imdb_id != "" && movie_object.imdb_id.substring(0,1) == "t") ? `<a href="http://www.imdb.com/title/${movie_object.imdb_id}" target="_blank">Se mer på Imdb.com</a>` : "" ;
+    imdb.innerHTML = (movie_object.imdb_id != null && movie_object.imdb_id != "" && movie_object.imdb_id.substring(0, 1) == "t") ? `<a href="http://www.imdb.com/title/${movie_object.imdb_id}" target="_blank">Se mer på Imdb.com</a>` : "";
     // Make buttons
     makeButtons();
     // Country of origin and year of the movie
-    language.innerHTML = `<div><span>Land: </span>${showInformationFromMovie(showCountryName(movie_object.country),"country")}</div> <div><span>Utgivelsesår: </span>${movie_object.year}</div>`;
+    language.innerHTML = `<div><span>Land: </span>${showInformationFromMovie(showCountryName(movie_object.country), "country")}</div> <div><span>Utgivelsesår: </span>${movie_object.year}</div>`;
     // Duration of the movie in minutes
     duration.innerHTML = `(${(movie_object.length != (null && 0)) ? `${movie_object.length} minutter)` : "Ingen informasjon om lengden på filmen)"}`;
     // Rating
@@ -47,7 +46,7 @@ window.onload = function() {
     // Norwegian title of the movie
     nor_title.innerHTML = `Norsk tittel: ${movie_object.ntitle}`;
     // cover of the movie
-    cover_image.innerHTML = `<img id="img${movie_id}" src="https://nelson.uib.no/o/${(String(movie_id).length === 4) ? String(movie_id).substring(0,1) : 0}/${movie_id}.jpg" 
+    cover_image.innerHTML = `<img id="img${movie_id}" src="https://nelson.uib.no/o/${(String(movie_id).length === 4) ? String(movie_id).substring(0, 1) : 0}/${movie_id}.jpg" 
                                          alt="${movie_object.otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">`;
 
 
@@ -59,8 +58,6 @@ window.onload = function() {
     } else {
         video_trailer.innerHTML = `<iframe class="trailer" src="https://www.youtube-nocookie.com/embed/${movie_object["youtube trailer id"]}?rel=0&amp;showinfo=0" allowfullscreen></iframe>`;
     }
-
-
 
 
 };

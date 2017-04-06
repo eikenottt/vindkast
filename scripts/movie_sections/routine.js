@@ -1,4 +1,3 @@
-
 let rutiner = `<ol>
                         <li>Følgende kan låne: staben ved Institutt for informasjons- og medievitenskap, studenter ved instituttet,
                             på grunnlag av faglig begrunnelse, andre ved UiB etter særlig avtale for et avgrenset tidsrom

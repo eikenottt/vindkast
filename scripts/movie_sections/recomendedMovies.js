@@ -1,4 +1,3 @@
-
 document.write(`
   <section>
         <h2>Anbefalte Filmer</h2>
