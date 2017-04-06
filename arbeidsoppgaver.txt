@@ -31,6 +31,8 @@ Utførte Oppgaver:
               - Sortere søkeresultat etter rating. //DONE
               - show movie siden skal genereres med javascript //DONE
               - seksjonene på fremsiden "nyeste filmer" osv genereres med js //DONE
+              - Fikse undefined i wish list //DONE
+              - Landkode (problem når det er flere filmer som er delt opp med forskjellige tegn. //DONE
 
     Malin:    - Implentere search til vindkast filen //Done
               - Replassere "Rutiner" på liten skjerm til meny //DONE (tenker vi bare lager en ekstra side som vi linker til i menyen, det ser ryddigst ut)
@@ -41,5 +43,4 @@ Utførte Oppgaver:
 
 
 Fikse bugs: 
-- Fikse undefined i wish list 
-- Landkode (problem når det er flere filmer som er delt opp med forskjellige tegn. 
+
