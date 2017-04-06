@@ -1,6 +1,5 @@
 Rune:
     - Få "Lånte filmer" og "Ønskeliste" til å fungere
-    - Ordne layout på "show_movie"
     - Lage en navigasjons funksjon til fremsiden som laster inn de neste filmene i rekken.
 
 Malin:
@@ -9,9 +8,7 @@ Malin:
     - fikse bug i meny (se fikse bugs)
 
 Aasmund:
-    - ha en seksjon over søkeresultatene der det står:
-            "Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende.
-            Generere Avansert søk inn i search results?
+    - finne alternativ font om første valg ikkje blir lastet
 
 
 Om me har tid:
@@ -27,6 +24,7 @@ Utførte Oppgaver:
               - Fikse undefined i wish list //DONE
               - Landkode (problem når det er flere filmer som er delt opp med forskjellige tegn. //DONE
               - Gjøre sjangrene klikkbare, slik at det ein kan lett finne filmer i samme sjanger uten å måtte søke //DONE
+              - Ordne layout på "show_movie" //DONE
 
     Malin:    - Implentere search til vindkast filen //Done
               - Replassere "Rutiner" på liten skjerm til meny //DONE (tenker vi bare lager en ekstra side som vi linker til i menyen, det ser ryddigst ut)
@@ -42,6 +40,9 @@ Utførte Oppgaver:
               - søkeresultat siden skal genereres med javascript
               - Implentere advanced_search.html til vindkast filen //DONE
               - søk etter land //DONE
+              - ha en seksjon over søkeresultatene der det står:
+                          "Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende.
+                          Generere Avansert søk inn i search results? //DONE
 
 
 Fikse bugs: 
