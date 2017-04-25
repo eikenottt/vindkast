@@ -3,12 +3,16 @@ Rune:
     - //TODO Lage en navigasjons funksjon til fremsiden som laster inn de neste filmene i rekken.
 
 Malin:
-    - endre til "mine lån" istedenfor "mine filmer"
     - legge til en footer
     - fikse bug i meny (se fikse bugs)
+    - CSS på navigeringsknapper på søkeresultatsiden. 
 
 Aasmund:
     - finne alternativ font om første valg ikkje blir lastet
+
+
+Må gjøres: 
+Fikse at vurderinger vises om det finnes, og det skal alltid være mulig å gi en vurdering. 
 
 
 Om me har tid:
@@ -34,6 +38,7 @@ Utførte Oppgaver:
               - legge til ikoner i meny //DONE
               - Generere Menyen ved hjelp av javascript //DONE
               - endre piltast fra before til after //DONE
+              - endre til "mine lån" istedenfor "mine filmer" DONE 
 
 
     Aasmund:  - Legge inn rating fra "review" filen til filmene //DONE

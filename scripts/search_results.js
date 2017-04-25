@@ -1,3 +1,4 @@
+
 let search_result = []; // Global Array for the Search Result
 
 window.onload = function () {

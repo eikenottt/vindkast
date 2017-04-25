@@ -23,7 +23,7 @@ document.write(`
                     <!-- Åpne og lukke meny (accordion) -->
                     <li class="accordion menuItem">
                         <input type="checkbox" id="check-1"/>
-                        <label class="hoverColor" for="check-1"><img class="navimg" src="img/ikon/hjul.svg" alt="menyikon">Mine Filmer</label>
+                        <label class="hoverColor" for="check-1"><img class="navimg" src="img/ikon/hjul.svg" alt="menyikon">Mine Lån</label>
                         <div id="loan" class="accordion-menu">
                             
                         </div>
