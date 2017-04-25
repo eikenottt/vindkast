@@ -4,11 +4,11 @@ window.onload = function () {
     query_params = get_query_string_parameters(); // Retrieving parameters from the user
     let title_search, actor_search, director_search, genre_search, country_search, moviesArray, movie; // Creating an empty variable for each possible user input
 
-    title_search = (query_params.film_title != null) ? String(query_params.film_title).toLowerCase() : false; // TITLE - Validating that the parameter is not 'null' and updating it to reflect the users query
-    actor_search = (query_params.actor != null) ? String(query_params.actor).toLowerCase().split(", ") : false; // ACTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
-    director_search = (query_params.director != null) ? String(query_params.director).toLowerCase().split(", ") : false; // DIRECTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
-    genre_search = (query_params.genre != null) ? String(query_params.genre).toLowerCase().split(", ") : false; // GENRE - Validating that the parameter is not 'null' and updating it to reflect the users query
-    country_search = (query_params.country != null) ? String(query_params.country).toLowerCase().split(", ") : false; // COUNTRY - Validating that the parameter is not 'null' and updating it to reflect the users query
+    title_search = (query_params.film_title != null) ? String(query_params.film_title).toLowerCase() : ""; // TITLE - Validating that the parameter is not 'null' and updating it to reflect the users query
+    actor_search = (query_params.actor != null) ? String(query_params.actor).toLowerCase().split(", ") : ""; // ACTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
+    director_search = (query_params.director != null) ? String(query_params.director).toLowerCase().split(", ") : ""; // DIRECTOR - Validating that the parameter is not 'null' and updating it to reflect the users query
+    genre_search = (query_params.genre != null) ? String(query_params.genre).toLowerCase().split(", ") : ""; // GENRE - Validating that the parameter is not 'null' and updating it to reflect the users query
+    country_search = (query_params.country != null) ? String(query_params.country).toLowerCase().split(", ") : ""; // COUNTRY - Validating that the parameter is not 'null' and updating it to reflect the users query
 
     moviesArray = sortAfterRating();
 
@@ -38,12 +38,29 @@ window.onload = function () {
 };
 
 function isValid(x, y) { // Function called to check if a search parameter 'y' is inValid
-    return y != "" && !(x.includes(y)); // If not it is valid
+    return y !== "" && !(x.includes(y)); // If not it is valid
 
 }
 
 function display(array) {
     let count, ul, number, colums, length;
+    const title = document.querySelector("#film_title-adv"),
+        actor = document.querySelector("#actor"),
+        dir = document.querySelector("#director"),
+        genre = document.querySelector("#genre"),
+        country = document.querySelector("#country");
+
+    // Assign the search value to the input fields
+    title.value = query_params.film_title || "";
+    actor.value = query_params.actor || "";
+    dir.value = query_params.director || "";
+    genre.value = query_params.genre || "";
+    country.value = query_params.country || "";
+
+    if(actor.value !== "" || dir.value !== "" || genre.value !== "" || country.value !== "") {
+        showAdvancedSearch();
+    }
+
     count = document.querySelector("#count");
     count.style.marginBottom = "10";
     count.innerHTML = `Antall: ${array.length}`;
@@ -51,14 +68,7 @@ function display(array) {
     number = array.length;
     const movieCoverWidth = 133;
     const width = Math.floor((ul.offsetWidth - parseInt(window.getComputedStyle(ul).paddingLeft.replace("px", ""))) / movieCoverWidth);
-    /*if(array.length % width != 0 && array.length > width) {
-     colums = Math.round(array.length/width);
-     number = //(colums > 4) ? splitToPages:
-     array.length;
-     }*/
-    length = ((array.length > number) ? number : array.length);
-    writeMovieHTML(array, ul, array.length);
-
+    pagination(25, array, ul);
 }
 
 /**

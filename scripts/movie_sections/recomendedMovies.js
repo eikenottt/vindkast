@@ -1,12 +1,10 @@
-document.write(`
+document.querySelector("#recommended").innerHTML = `
   <section>
         <h2>Anbefalte Filmer</h2>
         <ul class="movies" id="recomended">
         </ul>
   </section>
-
-
-`);
+`;
 
 const
     recomended = document.querySelector("#recomended");

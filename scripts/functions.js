@@ -11,7 +11,7 @@ function showInformationFromMovie(movieObjList, type) {
     let tempArray = movieObjList;
 
     if (!Array.isArray(movieObjList))
-        tempArray = (movieObjList != null) ? movieObjList.trim().split(regexp) : [];
+        tempArray = (movieObjList !== null) ? movieObjList.trim().split(regexp) : [];
 
     let html = '';
     tempArray.forEach(elem => {
@@ -114,7 +114,9 @@ function displayRecomendedMovies(htmltag, movie_id) {
 
     recomendedMovies = shuffle(recomendedMovies);
 
-    writeMovieHTML(recomendedMovies, htmltag, recomendedMovies.length);
+    pagination(8, recomendedMovies, htmltag);
+
+    //writeMovieHTML(recomendedMovies, htmltag, recomendedMovies.length, 0);
 
 }
 
@@ -279,7 +281,8 @@ function displayLoanedMovies(htmlTag) {
             loaned.push(pickedMovie);
     }
 
-    writeMovieHTML(loaned, htmlTag, 10);
+    pagination(8, loaned, htmlTag);
+    //writeMovieHTML(loaned, htmlTag, 10, 0);
 }
 
 /**
@@ -288,14 +291,14 @@ function displayLoanedMovies(htmlTag) {
  * @param place
  * @param amount
  */
-function writeMovieHTML(array, place, amount) {
+function writeMovieHTML(array, place, amount, start) {
     let html = document.createDocumentFragment();
 
     function getImage(objid) {
         return `https://nelson.uib.no/o/${(String(objid).length === 4) ? String(objid).substring(0, 1) : 0}/${objid}.jpg`;
     }
 
-    for (let i = 0; i < amount; i++) {
+    for (let i = start; i < amount; i++) {
         let desc = array[i].description;
         desc = (desc != (null && "" && undefined)) ? desc.trim().substring(0, 160) + "..." : 'Ingen informasjon om filmen';
         let movie = array[i];
@@ -349,3 +352,148 @@ function fromWishToMovie(array) {
 
     return movieArray;
 }
+
+/**
+ * Paginate a site
+ * @param itemsPerPage
+ */
+function pagination(itemsPerPage, moviesArray, listing_table) {
+    let current_page = 1,
+        records_per_page = itemsPerPage,
+        objJson = makeArray(moviesArray);
+
+    const btn_next = document.querySelector("#btn_next") || document.createElement("button"),
+        btn_prev = document.querySelector("#btn_prev") || document.createElement("button"),
+        page_span = document.querySelector("#page") || document.createElement("span"),
+        btn_first = document.querySelector("#btn_first") || document.createElement("button"),
+        btn_last = document.querySelector("#btn_last") || document.createElement("button");
+
+    if(listing_table == null) {
+        listing_table = document.createElement("ul");
+    }
+
+    function makeArray(obj) {
+        "use strict";
+        let i, array = [];
+        for (i in obj) {
+            array.push(obj[i]);
+        }
+        return array;
+    }
+
+    function prevPage() {
+        if (current_page > 1) {
+            current_page--;
+            changePage(current_page);
+        }
+    }
+
+    function nextPage() {
+        if (current_page < numPages()) {
+            current_page++;
+            changePage(current_page);
+        }
+    }
+
+    function toFirstPage() {
+        current_page = 1;
+        changePage(current_page);
+    }
+
+    function toLastPage() {
+        current_page = numPages();
+        changePage(current_page);
+
+    }
+
+    btn_next.addEventListener('click', nextPage);
+    btn_prev.addEventListener('click', prevPage);
+    btn_first.addEventListener('click', toFirstPage);
+    btn_last.addEventListener('click', toLastPage);
+
+
+    function changePage(page) {
+        let i;
+
+        // Validate page
+        if (page < 1) page = 1;
+        if (page > numPages()) page = numPages();
+
+        listing_table.innerHTML = "";
+
+        writeMovieHTML(objJson, listing_table, (((page * records_per_page) < objJson.length) ? page * records_per_page : objJson.length), (current_page - 1) * records_per_page);
+
+        page_span.innerHTML = page + " av " + numPages();
+
+        if (page === 1) {
+            btn_prev.style.display = "none";
+            btn_first.style.display = "none";
+        } else {
+            btn_prev.style.display = "block";
+            btn_first.style.display = "block";
+        }
+
+        if (page === numPages()) {
+            btn_next.style.display = "none";
+            btn_last.style.display = "none";
+
+        } else {
+            btn_next.style.display = "block";
+            btn_last.style.display = "block";
+
+        }
+    }
+
+    function numPages() {
+        return Math.ceil(objJson.length / records_per_page);
+    }
+
+    changePage(1);
+}
+
+function itemsInWidth(){
+    const width = document.querySelectorAll("section");
+    width.every(d => d);
+    return
+}
+
+function getRecommendedMovies(sectionOne, sectionTwo) {
+    document.querySelector(sectionOne).innerHTML = `
+        <h2>Anbefalte Filmer</h2>
+        <span id="btn_prev"></span>
+        <ul class="movies" id="recomended">
+        </ul>
+        <span id="btn_next"></span>
+`;
+    document.querySelector(sectionTwo).innerHTML = `
+        <h2>Nylig Lånte Filmer</h2>
+        <span id="btn_prev"></span>
+        <ul id="newlyLoanedMovies" class="movies">
+        </ul>
+        <span id="btn_next"></span>
+    `;
+
+    displayRecomendedMovies(document.querySelector("#recomended"), get_query_string_parameters().id);
+    displayLoanedMovies(document.querySelector("#newlyLoanedMovies"));
+}
+
+function loadRecOnIndex(){
+
+    const newMovies = document.querySelector("#newMovies");
+
+    let years = sortByYear();
+
+    pagination(8, years, newMovies);
+    getRecommendedMovies("#recommened", "#loaned");
+
+};
+
+function sortByYear() {
+    let years = [];
+    for (let movie in movies_object) {
+        years.push(movies_object[movie]);
+    }
+    years.sort((a, b) => b.year - a.year);
+    return years;
+}
+

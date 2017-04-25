@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="no">
-    <head>
-        <title>Vindkast - Filmregister</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="scripts/functions.js" type="text/javascript"></script>
-        <script src="scripts/objects/my_lists.js" type="text/javascript"></script>
-        <script src="scripts/objects/object.js" type="text/javascript"></script>
-        <script src="scripts/objects/reviews.js" type="text/javascript"></script>
-        <script src="scripts/objects/genres.js" type="text/javascript"></script>
-        <script src="scripts/query_params.js" type="text/javascript"></script>
-        <script src="scripts/newest_movies.js" type="text/javascript"></script>
-       
-        <link rel="icon" type="image/png" href="img/wind.png">
-    </head>
-    <body>
-        <header>
-            <!-- Initializing the Header.js script, which writes the Header-html -->
-            <script src="scripts/movie_sections/header.js"></script>
-        </header>
-                <main>
-                <input type="checkbox" id="sidebox">
-                <label for="sidebox" class="whitebox-l">
-                    <span class="whitebox"></span>
-                </label>
-                <!-- Initializing the Routine.js script, which writes the html for the routines for loan section -->
-                <script src="scripts/movie_sections/routine.js"></script>
-                <section class="flex-left">
-                    <h2>Nyeste Filmer</h2>
-                    <ul id="newMovies" class="movies">
-                    </ul>
-                </section>
-                <section class="flex-right">
-                    <script src="scripts/movie_sections/recomendedMovies.js"></script>
-                    <script src="scripts/movie_sections/newlyLoaned.js"></script>
-                </section>
-                </main>
-            </body>
-        </html>
+<head>
+    <title>Vindkast - Filmregister</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="scripts/functions.js" type="text/javascript"></script>
+    <script src="scripts/objects/my_lists.js" type="text/javascript"></script>
+    <script src="scripts/objects/object.js" type="text/javascript"></script>
+    <script src="scripts/objects/reviews.js" type="text/javascript"></script>
+    <script src="scripts/objects/genres.js" type="text/javascript"></script>
+    <script src="scripts/query_params.js" type="text/javascript"></script>
+    <script src="scripts/newest_movies.js" type="text/javascript"></script>
+
+    <link rel="icon" type="image/png" href="img/wind.png">
+</head>
+<body>
+<header>
+    <!-- Initializing the Header.js script, which writes the Header-html -->
+    <script src="scripts/movie_sections/header.js"></script>
+</header>
+<main>
+    <input type="checkbox" id="sidebox">
+    <label for="sidebox" class="whitebox-l">
+        <span class="whitebox"></span>
+    </label>
+    <!-- Initializing the Routine.js script, which writes the html for the routines for loan section -->
+    <script src="scripts/movie_sections/routine.js"></script>
+    <section class="flex-left">
+        <h2>Nyeste Filmer</h2>
+        <ul id="newMovies" class="movies">
+        </ul>
+    </section>
+    <section class="flex-right">
+        <section id="recommended"></section>
+        <section id="loaned"></section>
+    </section>
+</main>
+</body>
+</html>

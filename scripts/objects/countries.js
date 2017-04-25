@@ -189,6 +189,7 @@ country_object = {
     "REU": "Réunion",
     "ROU": "Romania",
     "RUS": "Russland",
+    "RSA": "Sør Afrika",
     "RWA": "Rwanda",
     "SAU": "Saudi-Arabia",
     "SDN": "Sudan",

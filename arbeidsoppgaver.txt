@@ -1,6 +1,6 @@
 Rune:
-    - Få "Lånte filmer" og "Ønskeliste" til å fungere
-    - Lage en navigasjons funksjon til fremsiden som laster inn de neste filmene i rekken.
+    - //TODO Få "Lånte filmer" og "Ønskeliste" til å fungere
+    - //TODO Lage en navigasjons funksjon til fremsiden som laster inn de neste filmene i rekken.
 
 Malin:
     - endre til "mine lån" istedenfor "mine filmer"
@@ -16,8 +16,8 @@ Om me har tid:
 
 
 Utførte Oppgaver:
-    Rune:     - Fikse scss til css //DONEs
-              - Hente bilder til filmene //Done
+    Rune:     - Fikse scss til css //DONE
+              - Hente bilder til filmene //DONE
               - Sortere søkeresultat etter rating. //DONE
               - show movie siden skal genereres med javascript //DONE
               - seksjonene på fremsiden "nyeste filmer" osv genereres med js //DONE
@@ -46,4 +46,4 @@ Utførte Oppgaver:
 
 
 Fikse bugs: 
-    - pila i Mine Filmer og Ønskeliste flytter seg feil i mobilvisning
+    - //FIXME pila i Mine Filmer og Ønskeliste flytter seg feil i mobilvisning
