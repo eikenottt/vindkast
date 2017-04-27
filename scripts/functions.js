@@ -15,8 +15,10 @@ function showInformationFromMovie(movieObjList, type) {
 
     let html = '';
     tempArray.forEach(elem => {
-        elem = elem.replace(",", "");
-        html += `<li><a href="search_results.html?${type}=${elem}">${elem}</a></li>, `;
+        if(elem !== undefined) {
+            elem = elem.replace(",", "");
+            html += `<li><a href="search_results.html?${type}=${elem}">${elem}</a></li>, `;
+        }
     });
     return html;
 }
@@ -457,15 +459,15 @@ function itemsInWidth(){
     return
 }
 
-function getRecommendedMovies(sectionOne, sectionTwo) {
-    document.querySelector(sectionOne).innerHTML = `
+function getRecommendedMovies() {
+    document.querySelector("#recommended").innerHTML = `
         <h2>Anbefalte Filmer</h2>
         <span id="btn_prev"></span>
         <ul class="movies" id="recomended">
         </ul>
         <span id="btn_next"></span>
 `;
-    document.querySelector(sectionTwo).innerHTML = `
+    document.querySelector("#loaned").innerHTML = `
         <h2>Nylig Lånte Filmer</h2>
         <span id="btn_prev"></span>
         <ul id="newlyLoanedMovies" class="movies">
@@ -484,7 +486,7 @@ function loadRecOnIndex(){
     let years = sortByYear();
 
     pagination(8, years, newMovies);
-    getRecommendedMovies("#recommened", "#loaned");
+    getRecommendedMovies();
 
 };
 
