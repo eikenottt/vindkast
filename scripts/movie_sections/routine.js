@@ -21,7 +21,12 @@ if (document.location.href.includes("rutiner.html")) {
                 </div>`);
 }
 else {
-    document.write(`<label for="sidebox" class="sidebox-label">Rutiner</label>
+    document.write(`
+<input type="checkbox" id="sidebox">
+    <label for="sidebox" class="whitebox-l">
+        <span class="whitebox"></span>
+    </label>
+<label for="sidebox" class="sidebox-label">Rutiner</label>
             <section id="routine">
                 <label for="sidebox" class="sidebox-x">X</label>
                 <div>
