@@ -7,6 +7,10 @@ document.write(`
                 </label>
                 <!-- Søkeskjema gir mulighet for å søke etter film tittel. -->
                 <form id="search-form" action="search_results.html" method="get">
+                    <div style="position: absolute;width: 290px;top: -10px;">
+                        <span>Søk etter tittel eller gjør et </span>
+                        <a href="search_results.html" style="color: darkturquoise;position: relative;">Avansert søk</a>
+                    </div>
                     <input id="film_title" name="film_title" type="text" placeholder="e.g. King Kong" class="search">
                     <input type="submit" id="submit_search" value="Søk">
                 </form>
