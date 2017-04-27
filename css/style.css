@@ -279,8 +279,8 @@ header nav #menu .accordion input:checked ~ label::after {
     -ms-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
-    width: calc(100% - 300px);
-    background: rgba(255, 255, 255, .8);
+    /* width: calc(100% - 300px); 
+    background: rgba(255, 255, 255, .8); */
     margin-top: 0;
 }
 

@@ -4,7 +4,6 @@ Rune:
 
 Malin:
     - legge til en footer
-    - fikse bug i meny (se fikse bugs)
     - CSS på navigeringsknapper på søkeresultatsiden. 
 
 Aasmund:
@@ -39,6 +38,7 @@ Utførte Oppgaver:
               - Generere Menyen ved hjelp av javascript //DONE
               - endre piltast fra before til after //DONE
               - endre til "mine lån" istedenfor "mine filmer" DONE 
+              - fikset bug i meny
 
 
     Aasmund:  - Legge inn rating fra "review" filen til filmene //DONE
@@ -49,6 +49,3 @@ Utførte Oppgaver:
                           "Fant du ikke det du letet etter? Prøv et avansert søk" eller lignende.
                           Generere Avansert søk inn i search results? //DONE
 
-
-Fikse bugs: 
-    - //FIXME pila i Mine Filmer og Ønskeliste flytter seg feil i mobilvisning
