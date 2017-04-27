@@ -613,6 +613,22 @@ main .flex-right {
     color: var(--hover-color);
 }
 
+#btn_first, #btn_prev {
+    float: left;
+}
+
+#btn_last, #btn_next{
+    float: right;
+}
+
+#btn_first, #btn_prev, #btn_last, #btn_next{
+    
+}
+
+.piler {
+    height: 25px;
+}
+
 .close {
     transition: 0.2s;
     height: 0;
