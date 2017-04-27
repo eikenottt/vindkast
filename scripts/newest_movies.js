@@ -1,3 +1,5 @@
-loadRecOnIndex();
+window.onload = function () {
+    loadRecOnIndex();
+}
 
 

@@ -60,6 +60,6 @@ window.onload = function () {
         video_trailer.innerHTML = `<iframe class="trailer" src="https://www.youtube-nocookie.com/embed/${movie_object["youtube trailer id"]}?rel=0&amp;showinfo=0" allowfullscreen></iframe>`;
     }
 
-    getRecommendedMovies("#recommended", "#loaned");
+    getRecommendedMovies();
 
 };
