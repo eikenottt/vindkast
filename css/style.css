@@ -279,9 +279,6 @@ header nav #menu .accordion input:checked ~ label::after {
     -ms-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
-    /* width: calc(100% - 300px); 
-    background: rgba(255, 255, 255, .8); */
-    margin-top: 0;
 }
 
 header nav #menu .accordion input:checked ~ .accordion-menu {
@@ -808,7 +805,7 @@ main .flex-right {
         position: relative !important;
         flex-flow: column !important;
         padding: 10px !important;
-        min-width: 100vw;
+        min-width: 280px;
         max-width: 130px;
         top: 0;
         left: 0;
