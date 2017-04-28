@@ -644,6 +644,9 @@ main .flex-right {
 .arrowIcon {
     height: 25px;
 }
+.arrowText {
+    font-variant: all-small-caps;
+}
 #currentPage {
     padding-top: 10px;
     width: 10%;
@@ -654,6 +657,7 @@ main .flex-right {
     width: 50px;
     font-size: 20px;
     text-align: center;
+    font-variant: all-small-caps;
 }
 
 #currentPage input:focus {
