@@ -5,6 +5,7 @@ Rune:
 Malin:
     - legge til en footer
     - CSS på navigeringsknapper på søkeresultatsiden. 
+    - CSS på vurderinger 
 
 Aasmund:
     - finne alternativ font om første valg ikkje blir lastet
