@@ -615,11 +615,13 @@ main .flex-right {
     color: var(--hover-color);
 }
 
-#pilboks {
+#arrowbox {
     display: flex;
     flex-direction: row; 
     width: 100%;
     justify-content: space-around; 
+    margin-top: 10px;
+    border-top: 1px solid black;
 }
 
 .arrows {
@@ -629,8 +631,20 @@ main .flex-right {
     justify-content: space-around;
     text-align: center;
 }
-
+.arrowEvents {
+    width: 50%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    transition: 0.2s ease-in-out;
+}
+.arrowEvents:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px gray;
+    background-color: lightgray;
+    transition: 0.2s ease-in-out;
+}
 #currentPage {
+    padding-top: 10px;
     width: 10%; 
 }
 
@@ -641,10 +655,6 @@ main .flex-right {
 
 #currentPage input:focus {
     outline: none;
-}
-
-#btn_first, #btn_prev, #btn_last, #btn_next{
-
 }
 
 .piler {
