@@ -420,6 +420,9 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
             if(page_num.value > numPages()){
                 page_num.value = numPages()
             }
+            if(page_num.value < 1) {
+                page_num.value = 1;
+            }
             current_page = page_num.value;
             changePage(page_num.value);
         }
