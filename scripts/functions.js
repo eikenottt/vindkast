@@ -368,7 +368,10 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
         btn_prev = document.querySelector("#btn_prev") || document.createElement("button"),
         page_span = document.querySelector("#page") || document.createElement("span"),
         btn_first = document.querySelector("#btn_first") || document.createElement("button"),
-        btn_last = document.querySelector("#btn_last") || document.createElement("button");
+        btn_last = document.querySelector("#btn_last") || document.createElement("button"),
+        page_num = document.querySelector("input[name=pageNumber]") || document.createElement("span");
+
+    page_num.value = current_page;
 
     if(listing_table == null) {
         listing_table = document.createElement("ul");
@@ -412,10 +415,18 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
     btn_prev.addEventListener('click', prevPage);
     btn_first.addEventListener('click', toFirstPage);
     btn_last.addEventListener('click', toLastPage);
+    page_num.addEventListener('keyup', function (event) {
+        if(event.keyCode == 13) {
+            if(page_num.value > numPages()){
+                page_num.value = numPages()
+            }
+            current_page = page_num.value;
+            changePage(page_num.value);
+        }
+    });
 
 
     function changePage(page) {
-        let i;
 
         // Validate page
         if (page < 1) page = 1;
