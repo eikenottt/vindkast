@@ -1,73 +1,75 @@
 <!DOCTYPE html>
-
 <html>
-  <meta charset="utf-8"/>
-  <head>
-	  <link rel="stylesheet" type="text/css" href="css/movie.css">
-	  <link rel="stylesheet" type="text/css" href="css/style.css">
-	  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-	  <script src="scripts/functions.js" type="text/javascript"></script>
-	  <script src="scripts/query_params.js" type="text/javascript"></script>
-	<script src="scripts/search_results.js" type="text/javascript"></script>
-	<script src="scripts/objects/object.js" type="text/javascript"></script>
-	<script src="scripts/objects/my_lists.js" type="text/javascript"></script>
-	<script src="scripts/objects/countries.js" type="text/javascript"></script>
-	  <script type="text/javascript" src="scripts/objects/reviews.js"></script>
-	<script src="scripts/objects/genres.js" type="text/javascript"></script>
-
-  </head>
-  <body>
-  <header>
-	  <script src="scripts/movie_sections/header.js"></script>
-  </header>
-	<!-- Returnere resultatene som en (ordered <ol>) liste -->
-  <main>
-	  <script src="scripts/movie_sections/routine.js"></script>
-	  <section>
-		  <h1>Resultat:</h1>
-		  <div>Fant du ikke det du lette etter? <button id="advanced_search" onclick="showAdvancedSearch()">Prøv et avansert søk</button></div>
-		  <div id="adv_box" class="close">
-			  <form id="search" action="" method="get">
-				  <fieldset>
-					  <legend>Søk</legend>
-					  <div>
-						  <label for="film_title-adv">Film tittel</label>
-						  <input id="film_title-adv" name="film_title" type="text" placeholder="e.g. King Kong" >
-					  </div>
-					  <div>
-						  <label for="actor">Skuespiller</label>
-						  <input id="actor" name="actor" type="text" placeholder="e.g. Tom Hanks" >
-					  </div>
-					  <div>
-						  <label for="director">Regissør</label>
-						  <input id="director" name="director" type="text" placeholder="e.g. Tom Hanks" >
-					  </div>
-					  <div>
-						  <label for="genre">Sjanger</label>
-						  <input id="genre" name="genre" type="text" placeholder="Drama">
-					  </div>
-					  <div>
-						  <label for="country">Land</label>
-						  <input id="country" name="country" type="text" placeholder="Frankrike">
-					  </div>
-				  </fieldset>
-				  <input type="submit" id="submit_search" value="Søk">
-			  </form>
-		  </div>
-		  <span id="count"></span>
-		  <div id="pagination">
-			  <div>Side: <span id="page"></span></div>
-		  </div>
-
-			<ul id="res_list" class="movies"></ul>
-
-			<div id="pilboks">
-			  <div id="btn_first"><img class="piler" src="img/ikon/first.svg" alt="første side"> Første side</div>
-			  <div id="btn_prev"><img class="piler" src="img/ikon/tilbake.svg" alt="tilbake">Forrige</div>
-			  <div id="btn_next"><img class="piler" src="img/ikon/frem.svg" alt="frem">Neste</div>
-			  <div id="btn_last"><img class="piler" src="img/ikon/last.svg" alt="siste side">Siste side</div>
+	<meta charset="utf-8"/>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/movie.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<script src="scripts/functions.js" type="text/javascript"></script>
+		<script src="scripts/query_params.js" type="text/javascript"></script>
+		<script src="scripts/search_results.js" type="text/javascript"></script>
+		<script src="scripts/objects/object.js" type="text/javascript"></script>
+		<script src="scripts/objects/my_lists.js" type="text/javascript"></script>
+		<script src="scripts/objects/countries.js" type="text/javascript"></script>
+		<script type="text/javascript" src="scripts/objects/reviews.js"></script>
+		<script src="scripts/objects/genres.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<header>
+			<script src="scripts/movie_sections/header.js"></script>
+		</header>
+		<!-- Returnere resultatene som en (ordered <ol>) liste -->
+		<main>
+		<script src="scripts/movie_sections/routine.js"></script>
+		<section>
+			<h1>Resultat:</h1>
+			<div>Fant du ikke det du lette etter? <button id="advanced_search" onclick="showAdvancedSearch()">Prøv et avansert søk</button></div>
+			<div id="adv_box" class="close">
+				<form id="search" action="" method="get">
+					<fieldset>
+						<legend>Søk</legend>
+						<div>
+							<label for="film_title-adv">Film tittel</label>
+							<input id="film_title-adv" name="film_title" type="text" placeholder="e.g. King Kong" >
+						</div>
+						<div>
+							<label for="actor">Skuespiller</label>
+							<input id="actor" name="actor" type="text" placeholder="e.g. Tom Hanks" >
+						</div>
+						<div>
+							<label for="director">Regissør</label>
+							<input id="director" name="director" type="text" placeholder="e.g. Tom Hanks" >
+						</div>
+						<div>
+							<label for="genre">Sjanger</label>
+							<input id="genre" name="genre" type="text" placeholder="Drama">
+						</div>
+						<div>
+							<label for="country">Land</label>
+							<input id="country" name="country" type="text" placeholder="Frankrike">
+						</div>
+					</fieldset>
+					<input type="submit" id="submit_search" value="Søk">
+				</form>
 			</div>
-	  </section>
-  </main>
-  </body>
+			<span id="count"></span>
+			<div id="pagination">
+				<div>Side: <span id="page"></span></div>
+			</div>
+		<ul id="res_list" class="movies"></ul>
+		<div id="pilboks">
+			<div id="first">
+				<div id="btn_first"><img class="piler" src="img/ikon/first.svg" alt="første side"> Første side</div>
+				<div id="btn_prev"><img class="piler" src="img/ikon/tilbake.svg" alt="tilbake">Forrige</div>
+			</div>
+			<div id="currentPage">
+				<input type="number" name="pageNumber" min="1">
+			</div>
+			<div id="last">
+				<div id="btn_next"><img class="piler" src="img/ikon/frem.svg" alt="frem">Neste</div>
+				<div id="btn_last"><img class="piler" src="img/ikon/last.svg" alt="siste side">Siste side</div>
+			</div>
+		</section>
+		</main>
+	</body>
 </html>
