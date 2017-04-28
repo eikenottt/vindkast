@@ -364,11 +364,11 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
         records_per_page = itemsPerPage,
         objJson = makeArray(moviesArray);
 
-    const btn_next = document.querySelector("#btn_next") || document.createElement("button"),
-        btn_prev = document.querySelector("#btn_prev") || document.createElement("button"),
+    const btn_next = document.querySelector("div[title~='Neste']") || document.createElement("button"),
+        btn_prev = document.querySelector("div[title~='Forrige']") || document.createElement("button"),
         page_span = document.querySelector("#page") || document.createElement("span"),
-        btn_first = document.querySelector("#btn_first") || document.createElement("button"),
-        btn_last = document.querySelector("#btn_last") || document.createElement("button"),
+        btn_first = document.querySelector("div[title~='Første']") || document.createElement("button"),
+        btn_last = document.querySelector("div[title~='Siste']") || document.createElement("button"),
         page_num = document.querySelector("input[name=pageNumber]") || document.createElement("span");
 
     page_num.value = current_page;
@@ -430,7 +430,7 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
 
 
     function changePage(page) {
-
+        page_num.value = page;
         // Validate page
         if (page < 1) page = 1;
         if (page > numPages()) page = numPages();
