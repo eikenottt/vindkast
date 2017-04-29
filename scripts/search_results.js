@@ -59,7 +59,7 @@ function display(array) {
     country.value = query_params.country || "";
 
     if(actor.value !== "" || dir.value !== "" || genre.value !== "" || country.value !== "") {
-        showAdvancedSearch();
+        showAdvancedSearch(2);
     }
 
     count = document.querySelector("#count");
@@ -67,12 +67,4 @@ function display(array) {
     count.innerHTML = `Antall: ${array.length}`;
     ul = document.querySelector("#res_list");
     pagination(25, array, ul);
-}
-
-/**
- * Toggles a class on the advanced search to show and hide it.
- */
-function showAdvancedSearch() {
-    const adv = document.querySelector("#adv_box");
-    adv.classList.toggle("close");
 }

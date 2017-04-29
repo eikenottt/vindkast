@@ -694,6 +694,12 @@ main .flex-right {
         bottom: var(--img-size-width);
     }
 
+    #search-div {
+        width: 300px;
+        position: absolute;
+        right: 130px;
+    }
+
     header nav .search-space {
         margin-top: 30px;
     }
