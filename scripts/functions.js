@@ -369,8 +369,10 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
         page_span = document.querySelector("#page") || document.createElement("span"),
         btn_first = document.querySelector("div[title~='Første']") || document.createElement("button"),
         btn_last = document.querySelector("div[title~='Siste']") || document.createElement("button"),
-        page_num = document.querySelector("input[name=pageNumber]") || document.createElement("span");
-
+        page_num = document.querySelector("input[name=pageNumber]") || document.createElement("span"),
+        dropdown_amount = document.querySelector("#amountOfResults") || document.createElement("span");
+        
+    
     page_num.value = current_page;
 
     if(listing_table == null) {
@@ -426,6 +428,13 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
             current_page = page_num.value;
             changePage(page_num.value);
         }
+    });
+    dropdown_amount.addEventListener('change', function () {
+        records_per_page = dropdown_amount.value;
+        if(current_page > numPages()){
+            current_page = numPages();
+        }
+        changePage(current_page);
     });
 
 

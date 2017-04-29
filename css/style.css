@@ -31,6 +31,10 @@
 
 }
 
+::-webkit-scrollbar, ::-webkit-scrollbar-button {
+    display: none;
+}
+
 /* -------- Main configuration --------- */
 * {
     margin: 0;
@@ -49,6 +53,7 @@ body {
     width: var(--full-page-width);
     min-width: 320px;
     height: var(--full-page-width);
+    -ms-overflow-style: none;
 }
 
 h1 {
@@ -432,6 +437,7 @@ main #routine {
     border: 1px solid #433a3a;
     border-bottom: 2px solid #433a3a;
     background: var(--primary-color);
+    overflow: hidden;
     -webkit-transition-duration: var(--animationLong);
     -moz-transition-duration: var(--animationLong);
     -ms-transition-duration: var(--animationLong);
@@ -510,8 +516,9 @@ main section ul {
     flex-wrap: nowrap;
     position: relative;
     z-index: 1;
-    overflow: scroll;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
+    justify-content: space-evenly;
 }
 
 main #res_list {
@@ -606,7 +613,8 @@ main .movies span {
 
 main .flex-right {
     background: transparent;
-    padding-top: 0;
+    margin: 0;
+    padding: 0;
 }
 
 #advanced_search {
@@ -886,7 +894,6 @@ main .flex-right {
         position: fixed;
         right: 0;
         top: 90px;
-        width: 40px;
         text-align: center;
         background: #fff;
         color: var(--link-color);
@@ -911,7 +918,7 @@ main .flex-right {
 
     main #routine div {
         height: inherit;
-        overflow: scroll;
+        overflow: auto;
         -webkit-overflow-scrolling: touch;
     }
 }
