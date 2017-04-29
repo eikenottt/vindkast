@@ -512,13 +512,12 @@ main section {
 main section ul {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     flex-wrap: nowrap;
     position: relative;
     z-index: 1;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 main #res_list {

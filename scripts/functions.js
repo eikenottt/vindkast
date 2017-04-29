@@ -66,7 +66,8 @@ function displayRecomendedMovies(htmltag, movie_id) {
         pickMovie, i, recMovie_id,
         movie_object = movies_object[movie_id],
         recomendedMovies = [],
-        ratings = sortAfterRating();
+        ratings = sortAfterRating(),
+        amount = 8;
 
     for (i = 0; i < ratings.length; i++) {
         pickMovie = ratings[i].movieId;
@@ -116,7 +117,7 @@ function displayRecomendedMovies(htmltag, movie_id) {
 
     recomendedMovies = shuffle(recomendedMovies);
 
-    pagination(8, recomendedMovies, htmltag);
+    pagination(calculateSpace(), recomendedMovies, htmltag);
 
     //writeMovieHTML(recomendedMovies, htmltag, recomendedMovies.length, 0);
 
@@ -283,7 +284,7 @@ function displayLoanedMovies(htmlTag) {
             loaned.push(pickedMovie);
     }
 
-    pagination(8, loaned, htmlTag);
+    pagination(calculateSpace(), loaned, htmlTag);
     //writeMovieHTML(loaned, htmlTag, 10, 0);
 }
 
@@ -366,7 +367,7 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
 
     const btn_next = document.querySelector("div[title~='Neste']") || document.createElement("button"),
         btn_prev = document.querySelector("div[title~='Forrige']") || document.createElement("button"),
-        page_span = document.querySelector("#page") || document.createElement("span"),
+        page_span = document.querySelector("[data-pageNumber]") || document.createElement("span"),
         btn_first = document.querySelector("div[title~='Første']") || document.createElement("button"),
         btn_last = document.querySelector("div[title~='Siste']") || document.createElement("button"),
         page_num = document.querySelector("input[name=pageNumber]") || document.createElement("span"),
@@ -448,7 +449,7 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
 
         writeMovieHTML(objJson, listing_table, (((page * records_per_page) < objJson.length) ? page * records_per_page : objJson.length), (current_page - 1) * records_per_page);
 
-        page_span.innerHTML = page + " av " + numPages();
+        page_span.innerHTML = "av\n" + numPages();
 
         if (page === 1) {
             btn_prev.style.display = "none";
@@ -508,7 +509,7 @@ function loadRecOnIndex(){
 
     let years = sortByYear();
 
-    pagination(8, years, newMovies);
+    pagination(calculateSpace(), years, newMovies);
     getRecommendedMovies();
 
 };
@@ -520,5 +521,17 @@ function sortByYear() {
     }
     years.sort((a, b) => b.year - a.year);
     return years;
+}
+
+function calculateSpace() {
+    let amount = 0;
+    const movieCoverWidth = 133,
+        movieContainer = document.querySelectorAll(".movies");
+    movieContainer.forEach(ul => {
+        const width = Math.floor((ul.offsetWidth - parseInt(window.getComputedStyle(ul).paddingLeft.replace("px", ""))) / movieCoverWidth);
+        console.log(width);
+        amount = width;
+    });
+    return amount;
 }
 

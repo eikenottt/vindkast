@@ -66,9 +66,6 @@ function display(array) {
     count.style.marginBottom = "10";
     count.innerHTML = `Antall: ${array.length}`;
     ul = document.querySelector("#res_list");
-    number = array.length;
-    const movieCoverWidth = 133;
-    const width = Math.floor((ul.offsetWidth - parseInt(window.getComputedStyle(ul).paddingLeft.replace("px", ""))) / movieCoverWidth);
     pagination(25, array, ul);
 }
 
