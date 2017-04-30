@@ -225,9 +225,9 @@ header nav #menu {
      z-index: 250;
 }
 
-/*header nav #menu #username {
+header nav #menu #username {
     color: #fff;
-}*/
+}
 
 header nav #menu .menuItem {
     background-color: #2c7686;
