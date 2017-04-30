@@ -6,7 +6,7 @@ const regexp = /[\s+,/;.]{2,}/;
  * @param {(string|string[])} movieObjList - string or array with type
  * @param {string} type - the type to search for
  */
-function showInformationFromMovie(movieObjList, type) {
+function showInformationAboutMovie(movieObjList, type) {
     let html = '';
     if(movieObjList !== undefined && movieObjList !== null && movieObjList !== "") {
         let tempArray = movieObjList;
@@ -39,17 +39,35 @@ function getImages(id) {
     const alphabet = ["b", "c"];
     for (i = 0; i < alphabet.length; i++) {
         link = `https://nelson.uib.no/o/${(String(id).length === 4) ? String(id).substring(0, 1) : 0}/${id + alphabet[i]}.jpg`;
-
         pictureArr.push(link);
-
     }
+    /*if(!checkLink(pictureArr[0]) && !checkLink(pictureArr[1]))
+        document.querySelector("#frame").remove();*/
     pictureArr.forEach((pic, i) => {
         html += `<div class="image" id="limage${i}" style="background-image: url(${pic});" ></div>`;
     });
     return html;
-
-
 }
+
+function checkLink(link) {
+    const imgTag = document.createElement('img');
+    imgTag.setAttribute('src', link);
+    let timer = setInterval(function () {
+        imgTag.error = function() {
+            console.log(link);
+            imgTag.remove();
+            clearInterval(timer);
+            return true;
+        };
+    }, 1000);
+    if(timer > 10) {
+        clearInterval(timer);
+        console.log("Done");
+        return false;
+    }
+    checkLink(link);
+}
+
 
 /**
  * Shows recommended movies based on the movie id
@@ -70,8 +88,7 @@ function displayRecomendedMovies(htmltag, movie_id) {
         pickMovie, i, recMovie_id,
         movie_object = movies_object[movie_id],
         recomendedMovies = [],
-        ratings = sortAfterRating(),
-        amount = 8;
+        ratings = sortAfterRating();
 
     for (i = 0; i < ratings.length; i++) {
         pickMovie = ratings[i].movieId;
@@ -469,7 +486,7 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
             }
             current_page = page_num.value;
             // runs the printing function
-            changePage(page_num.value);
+            changePage(current_page);
         }
     });
     // show amount of movie objects on page from the dropdown menu
