@@ -23,8 +23,8 @@
 		<script src="scripts/movie_sections/routine.js"></script>
 		<section>
 			<h1>Resultat:</h1>
-			<div>Fant du ikke det du lette etter? <button id="advanced_search" onclick="showAdvancedSearch()">Prøv et avansert søk</button></div>
-			<div id="adv_box" class="close">
+			<div>Fant du ikke det du lette etter? <button id="advanced_search" onclick="showAdvancedSearch(2)">Prøv et avansert søk</button></div>
+			<div data-advanced-search="2" class="close">
 				<form id="search" action="" method="get">
 					<fieldset>
 						<legend>Søk</legend>
@@ -54,20 +54,25 @@
 			</div>
 			<span id="count"></span>
 			<div id="pagination">
-				<div>Side: <span id="page"></span></div>
+				<select name="amountOfResults" id="amountOfResults">
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+				</select>
 			</div>
 		<ul id="res_list" class="movies"></ul>
-		<div id="pilboks">
-			<div id="first">
-				<div id="btn_first"><img class="piler" src="img/ikon/first.svg" alt="første side"> Første side</div>
-				<div id="btn_prev"><img class="piler" src="img/ikon/tilbake.svg" alt="tilbake">Forrige</div>
+		<div id="arrowbox">
+			<div class="arrows">
+				<div title="Gå til Første Side" class="arrowEvents"><img class="arrowIcon" src="img/ikon/first.svg" alt="første side"><p class="arrowText">Første side</p></div>
+				<div title="Gå til Forrige Side" class="arrowEvents"><img class="arrowIcon" src="img/ikon/tilbake.svg" alt="tilbake"><p class="arrowText">Forrige</p></div>
 			</div>
 			<div id="currentPage">
-				<input type="number" name="pageNumber" min="1">
+				<input title="Nåværende side - Skriv inn sidetall og trykk Enter for å endre side" type="number" name="pageNumber">
+				<div data-pageNumber></div>
 			</div>
-			<div id="last">
-				<div id="btn_next"><img class="piler" src="img/ikon/frem.svg" alt="frem">Neste</div>
-				<div id="btn_last"><img class="piler" src="img/ikon/last.svg" alt="siste side">Siste side</div>
+			<div class="arrows">
+				<div title="Gå til Neste Side" class="arrowEvents"><img class="arrowIcon" src="img/ikon/frem.svg" alt="frem"><p class="arrowText">Neste</p></div>
+				<div title="Gå til Siste Side" class="arrowEvents"><img class="arrowIcon" src="img/ikon/last.svg" alt="siste side"><p class="arrowText">Siste side</p></div>
 			</div>
 		</section>
 		</main>

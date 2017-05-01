@@ -8,7 +8,7 @@ window.onload = function () {
         language = document.querySelector("#lang"),
         cover_image = document.querySelector("#cover_image"),
         duration = document.querySelector("#duration"),
-        genre = document.querySelector("#genre"),
+        genre = document.querySelector("p#genre"),
         director = document.querySelector("#dir"),
         about_movie = document.querySelector("#about_movie"),
         video_trailer = document.querySelector(".video-container"),
@@ -30,18 +30,18 @@ window.onload = function () {
     // Make buttons
     makeButtons();
     // Country of origin and year of the movie
-    language.innerHTML = `<div><span>Land: </span>${showInformationFromMovie(showCountryName(movie_object.country), "country")}</div> <div><span>Utgivelsesår: </span>${movie_object.year}</div>`;
+    language.innerHTML = `<div><span>Land: </span>${showInformationAboutMovie(showCountryName(movie_object.country), "country")}</div> <div><span>Utgivelsesår: </span>${movie_object.year}</div>`;
     // Duration of the movie in minutes
     duration.innerHTML = `(${(movie_object.length !== (null && 0)) ? `${movie_object.length} minutter)` : "Ingen informasjon om lengden på filmen)"}`;
     // Rating
     rating.innerHTML = getAvgRating(review);
     // genre
-    genre.innerHTML = `<span>Sjanger: </span>` + showInformationFromMovie(genres_object[movie_id], "genre");
+    genre.innerHTML = `<span>Sjanger: </span> ${showInformationAboutMovie(genres_object[movie_id], "genre")}`;
     //genre.innerHTML = `Sjanger: ${genres_object[movie_id]}`;
     // Director of the movie
-    director.innerHTML = showInformationFromMovie(movie_object.dir, "director");
+    director.innerHTML = showInformationAboutMovie(movie_object.dir, "director");
     // Folk in the movie
-    folk.innerHTML = showInformationFromMovie(movie_object.folk, "actor");
+    folk.innerHTML = showInformationAboutMovie(movie_object.folk, "actor");
     // About the movie
     about_movie.innerHTML = `${(movie_object.description !== (null && "" )) ? movie_object.description : "Ingen omhandling tilgjengelig"}`;
     // Norwegian title of the movie
