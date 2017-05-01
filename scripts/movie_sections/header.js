@@ -12,7 +12,7 @@ document.write(`
                         <input id="film_title" name="film_title" type="text" placeholder="e.g. King Kong" class="search">
                         <input type="submit" id="submit_search" value="Søk">
                     </form>
-                    <div>
+                    <div id="advanced-search-header">
                             <span>Søk etter tittel eller gjør et </span>
                             <button onclick="showAdvancedSearch(1)" data-popout">Avansert søk</button>
                         </div>

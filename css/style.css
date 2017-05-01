@@ -1,946 +1,4 @@
-:root {
 
-    /* --- colors --- */
-    --primary-color: #F0EFE9;
-    --third-color: #fff4f3;
-    --link-color: #3999AE;
-    --section-color: #fff;
-    --button-color: #ddd;
-    --hover-color: #D1481B;
-    --button-color-hover: calc(var(--button-color) * 2);
-
-    /* --- fonts --- */
-    --font-stack: Avenir, Helvetica, sans-serif;
-    --font-weight: lighter;
-
-    /* --- width & height --- */
-    --full-page-width: 100%;
-    --nearly-full-width: 80%;
-    --img-size-width: 100px;
-    --img-size-height: 133px;
-    --routine-width: 400px;
-    --picture-width: 125.5%;
-
-    /* --- Hamburger Menu --- */
-    --lineWidth: 5px;
-    --lineLength: 25px;
-    --baseMargin: 8px;
-    --animationLong: 0.3s;
-    --animationShort: 0.1s;
-    --animationNone: 0s;
-
-}
-
-/* -------- Main configuration --------- */
-* {
-    margin: 0;
-    font-family: var(--font-stack);
-    font-weight: var(--font-weight);
-}
-
-html {
-    height: var(--full-page-width);
-}
-
-body {
-    background: var(--primary-color);
-    width: var(--full-page-width);
-    min-width: 320px;
-    height: var(--full-page-width);
-}
-
-h1 {
-    font-weight: bold;
-    font-size: 2em;
-}
-
-a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-a:hover {
-    color: #D1481B;
-}
-
-ul li {
-    list-style: none;
-}
-
-a:visited {
-    color: var(--link-color);
-}
-
-p {
-    margin-bottom: 20px;
-}
-
-input:checked ~ .whitebox-l {
-    display: block;
-}
-
-.whitebox-l {
-    display: none;
-    top: 0;
-    left: 0;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    z-index: 50;
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* ----------- Heading ------------- */
-
-
-header {
-    position: relative;
-    background: url("../img/header.jpg") no-repeat top center;
-    background-size: cover;
-    color: #fff;
-    min-height: 360px;
-    box-shadow: inset 0 -42px 0 var(--link-color);
-}
-
-header h1 {
-    font-size: 4.7rem;
-    width: 290px;
-    left: 36%;
-    margin-left: -145px;
-    position: absolute;
-    bottom: 0;
-}
-
-header h1 a {
-    color: #fff !important;
-    text-shadow: 0 0 7px #000;
-}
-
-header h1::before {
-    content: "";
-    background: url("../img/wind.png");
-    background-size: contain;
-    width: 58px;
-    height: 58px;
-    position: absolute;
-    transform: scale(-1, 1);
-
-    /* -- Endrer farge på logo fra sort til hvit + skygge -- */
-
-    filter: invert(var(--full-page-width)) drop-shadow(0 0 1px #000);
-    left: -60px;
-    bottom: 22px;
-}
-
-header nav {
-    left: 0;
-    bottom: 60px;
-    width: var(--full-page-width);
-    position: absolute;
-
-    /* ------- Hamburger Menu ------- */
-}
-
-header nav #search-form {
-    position: relative;
-    bottom: -11px;
-    z-index: 300;
-}
-
-header nav #search-form .search {
-    position: absolute;
-    width: 180px;
-    height: 25px;
-    padding: 3px 20px 3px 10px;
-    right: 70px;
-    font-size: 1.1em;
-    border: none;
-    top: 15px;
-    color: #000;
-    border-radius: 0;
-}
-
-header nav #search-form #submit_search {
-    position: absolute;
-    right: 10px;
-    top: 15px;
-    height: 31px;
-    padding: 3px 10px;
-    border-radius: 0;
-    border: none;
-    cursor: pointer;
-}
-
-header nav #hamburger {
-    display: none;
-}
-
-header nav #hamburger:checked ~ #menu {
-    height: auto;
-}
-
-header nav #hamburger:checked ~ .menuicon span {
-    background-color: transparent;
-}
-
-header nav #hamburger:checked ~ .menuicon span::before, header nav #hamburger:checked ~ .menuicon span::after {
-    margin-top: 0;
-    -webkit-transition-delay: 0, var(--animationShort);
-    -moz-transition-delay: 0, var(--animationShort);
-    -ms-transition-delay: 0, var(--animationShort);
-    -o-transition-delay: 0, var(--animationShort);
-    transition-delay: 0, var(--animationShort);
-}
-
-header nav #hamburger:checked ~ .menuicon span::before {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-header nav #hamburger:checked ~ .menuicon span::after {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
-header nav #menu {
-    padding-left: 0;
-    /*width: var(--full-page-width);*/
-    width: 300px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
-    background-color: var(--link-color);
-    height: 0;
-    position: absolute;
-    flex-flow: column nowrap;
-    top: 58px;
-     z-index: 250;
-}
-
-header nav #menu #username {
-    color: #fff;
-}
-
-header nav #menu .menuItem {
-    background-color: #2c7686;
-    color: #FFF;
-}
-
-header nav #menu .menuItem:hover {
-    background: var(--primary-color);
-}
-
-header nav #menu #innhold:hover{
-    background-color: #2c7686;
-    color: #FFF;
-}
-
-#innhold {
-    padding: 10px;
-}
-
-header nav #menu #innhold, header nav #menu #minside {
-    font-size: 1.2em;
-    text-align: center;
-    border-bottom: 2px solid var(--primary-color);
-}
-
-header nav #menu #minside{
-     padding-top: 5px;
-}
-
-
-header nav #menu .menuItem a {
-    display: block;
-    color: inherit;
-    padding: 10px;
-}
-
-
-header nav #menu .menuItem a:hover, .hoverColor:hover {
-    color: #D1481B;
-}
-
-header nav #menu .accordion input {
-    display: none;
-}
-
-header nav #menu .accordion input:checked ~ label::after {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-
-header nav #menu .accordion input:checked ~ .accordion-menu {
-    background: #1d4d57;
-    height: auto;
-    margin-bottom: .125em;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-header nav #menu .accordion input:checked ~ .accordion-menu a:hover {
-    background: var(--primary-color);
-    color: #D1481B;
-}
-
-header nav #menu .accordion input:checked ~ label {
-    background: var(--primary-color);
-    color: #D1481B;
-}
-
-header nav #menu .accordion label {
-    cursor: pointer;
-    display: block;
-    z-index: 20;
-    padding: 10px;
-}
-
-header nav #menu .accordion label::after {
-    content: "\25B7";
-    position: absolute;
-    display: inline-block;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-header nav #menu .accordion .accordion-menu {
-    background: #fff;
-    display: none;
-    overflow: hidden;
-    z-index: 10;
-    flex-flow: column;
-    padding: 10px;
-}
-
-header nav #menu .accordion .accordion-menu a {
-    padding: 10px;
-}
-
-/* Endrer ikoner i meny */
-header nav #menu .navimg {
-      height: 1.5em; 
-      padding: 3px; 
-      margin-right: 3px;
-      vertical-align: text-bottom;
-    }
-
-header nav .menuicon {
-    position: absolute;
-    top: 27px;
-    left: 10px;
-    display: block;
-    cursor: pointer;
-    height: 21px;
-    width: 25px;
-    z-index: 100;
-}
-
-header nav .menuicon span {
-    display: block;
-    top: 8px;
-    width: 25px;
-    height: 5px;
-    background-color: #fff;
-    position: relative;
-    -webkit-transition-duration: var(--animationShort);
-    -moz-transition-duration: var(--animationShort);
-    -ms-transition-duration: var(--animationShort);
-    -o-transition-duration: var(--animationShort);
-    transition-duration: var(--animationShort);
-    -webkit-transition-delay: var(--animationNone);
-    -moz-transition-delay: var(--animationNone);
-    -ms-transition-delay: var(--animationNone);
-    -o-transition-delay: var(--animationNone);
-    transition-delay: var(--animationNone);
-}
-
-header nav .menuicon span::before, header nav .menuicon span::after {
-    display: block;
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 5px;
-    background-color: #fff;
-    -webkit-transition-property: margin, -webkit-transform;
-    -webkit-transition-duration: var(--animationShort);
-    -moz-transition-duration: var(--animationShort);
-    -ms-transition-duration: var(--animationShort);
-    -o-transition-duration: var(--animationShort);
-    transition-duration: var(--animationShort);
-    -webkit-transition-delay: var(--animationShort), 0;
-    -moz-transition-delay: var(--animationShort), 0;
-    -ms-transition-delay: var(--animationShort), 0;
-    -o-transition-delay: var(--animationShort), 0;
-    transition-delay: var(--animationShort), 0;
-}
-
-header nav .menuicon span::before {
-    margin-top: -8px;
-}
-
-header nav .menuicon span::after {
-    margin-top: 8px;
-}
-
-
-/* ----------- Main Content ------------- */
-main {
-    position: relative;
-    width: var(--nearly-full-width);
-    margin: auto;
-}
-
-
-/* ------ Routine ------ */
-main #sidebox {
-    display: none;
-}
-
-main #sidebox:checked ~ #routine {
-    right: 0;
-    opacity: 1;
-}
-
-main #sidebox:checked ~ #routine > .sidebox-label {
-    color: #D1481B;
-    background: #fff;
-}
-
-main #sidebox:checked ~ #routine > .sidebox-label:hover {
-    background: var(--third-color);
-    color: #D1481B;
-    cursor: pointer;
-}
-
-main #routine {
-    position: fixed;
-    width: var(--routine-width);
-    right: -440px;
-    top: 10px;
-    z-index: 60;
-    border: 1px solid #433a3a;
-    border-bottom: 2px solid #433a3a;
-    background: var(--primary-color);
-    -webkit-transition-duration: var(--animationLong);
-    -moz-transition-duration: var(--animationLong);
-    -ms-transition-duration: var(--animationLong);
-    -o-transition-duration: var(--animationLong);
-    transition-duration: var(--animationLong);
-    -webkit-transition-delay: var(--animationShort);
-    -moz-transition-delay: var(--animationShort);
-    -ms-transition-delay: var(--animationShort);
-    -o-transition-delay: var(--animationShort);
-    transition-delay: var(--animationShort);
-}
-
-main #routine .sidebox-label {
-    position: relative;
-    right: 112px;
-    width: 40px;
-    text-align: center;
-    background: #fff;
-    color: var(--link-color);
-    padding: 20px;
-    border: 1px solid #433a3a;
-    border-bottom: 2px solid #433a3a;
-    box-shadow: 2px 5px 4px #ccc;
-    -webkit-transition-duration: var(--animationShort);
-    -moz-transition-duration: var(--animationShort);
-    -ms-transition-duration: var(--animationShort);
-    -o-transition-duration: var(--animationShort);
-    transition-duration: var(--animationShort);
-}
-
-main #routine .sidebox-label:hover {
-    background: var(--third-color);
-    color: #D1481B;
-    cursor: pointer;
-}
-
-main #routine .sidebox-x {
-    right: 5px;
-    position: absolute;
-    top: 0;
-    background: transparent;
-    color: var(--link-color);
-    z-index: 4;
-    cursor: pointer;
-    padding: 8px;
-}
-
-main #routine .sidebox-x:hover {
-    color: #D1481B;
-}
-
-/* ------ Movie sections ------ */
-
-main section {
-    background: #fff;
-    width: var(--full-page-width);
-    margin-bottom: 30px;
-    padding: 20px;
-    margin-left: -20px;
-    z-index: 50;
-}
-
-main section ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    position: relative;
-    z-index: 1;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-}
-
-main #res_list {
-    flex-wrap: wrap;
-    overflow: auto;
-}
-
-main section ul a {
-    margin-right: 33.33333px;
-}
-
-main section ul .liste {
-    display: none;
-    position: absolute;
-    top: 0;
-}
-
-main section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-main .movies .movie-info {
-    width: var(--img-size-width);
-    height: 186.2px;
-    display: inline-block;
-    position: relative;
-}
-
-main .movies .movie-info:nth-child(2n+2) {
-    margin: 0;
-}
-
-main .movies .movie-info-a::after {
-    content: "";
-    background: rgba(255, 255, 255, 0.35);
-    width: var(--img-size-width);
-    height: var(--img-size-height);
-    position: absolute;
-    top: 0;
-    opacity: 1;
-    -webkit-transition-duration: var(--animationShort);
-    -moz-transition-duration: var(--animationShort);
-    -ms-transition-duration: var(--animationShort);
-    -o-transition-duration: var(--animationShort);
-    transition-duration: var(--animationShort);
-    -webkit-transition-delay: var(--animationNone);
-    -moz-transition-delay: var(--animationNone);
-    -ms-transition-delay: var(--animationNone);
-    -o-transition-delay: var(--animationNone);
-    transition-delay: var(--animationNone);
-}
-
-main .movies .movie-info-a:hover:after {
-    opacity: 0;
-}
-
-main .movies .movie-info-a:hover ~ details {
-    opacity: 1;
-}
-
-main .movies .movie-info-a:hover ~ .liste {
-    display: block;
-    z-index: 100;
-}
-
-main .movies .movie-info .info {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 35%;
-    left: 50%;
-    margin-left: -10px;
-    text-align: center;
-    border: 2px solid #D1481B;
-    border-radius: 50%;
-}
-
-main .movies p {
-    color: #433A3A !important;
-}
-
-main .movies img {
-    width: var(--img-size-width);
-    height: var(--img-size-height);
-}
-
-main .movies span {
-    display: block;
-    color: #000;
-}
-
-main .flex-right {
-    background: transparent;
-    padding-top: 0;
-}
-
-#advanced_search {
-    border: none;
-    background: none;
-    color: var(--link-color);
-    font-size: 1em;
-    cursor: pointer;
-}
-#advanced_search:hover {
-    color: var(--hover-color);
-}
-
-#pilboks {
-    display: flex;
-    flex-direction: row; 
-    width: 100%;
-    justify-content: space-around; 
-}
-
-#pilboks div {
-    width: 45%; 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
-}
-
-#currentPage {
-    width: 10%; 
-}
-
-#currentPage input {
-    width: 50px;
-    font-size: 1.2em; 
-}
-
-#currentPage input:focus {
-    outline: none;
-}
-.piler {
-    height: 25px;
-}
-
-.close {
-    transition: 0.2s;
-    height: 0;
-    overflow: hidden;
-}
-
-/* Vurderingsboks */
-#anmeldelse {
-    width: 100%; 
-    height: 100px;
-    outline: none; 
-    font-size: 1em; 
-    padding: 10px; 
-}
-
-#review {
-    border-bottom: solid 1px gray;
-}
-
-#brukernavn {
-    font-weight: bold; 
-}
-
-#dato {
-    font-variant: small-caps;
-    font-size: 0.7em; 
-}
-
-#commentRating {
-    margin: 0; 
-}
-
-
-/* -------- Liten mobilskjerm  ----------*/
-@media screen and (max-width: 650px) {
-    header h1 {
-        left: 0;
-        margin: 0;
-        bottom: var(--img-size-width);
-    }
-
-    header nav .search-space {
-        margin-top: 30px;
-    }
-
-    header nav #search-form {
-        display: none;
-    }
-
-    header nav #search-form .search {
-        position: absolute;
-        width: var(--full-page-width);
-        text-align: center;
-        display: inline-block;
-    }
-
-    header nav #search-form .search, header nav #search-form #submit_search {
-        right: 0;
-        top: 0;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    header nav #search-form #submit_search {
-        position: relative;
-        display: inline-block;
-        width: 10%;
-        padding: 0;
-        height: 31px;
-    }
-
-    header nav #hamburger:checked ~ #search-form {
-        width: var(--full-page-width);
-        position: absolute;
-        top: var(--img-size-width);
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-    }
-
-    header nav #menu {
-      width: var(--full-page-width);
-    }
-
-
-    #innhold {
-        margin-bottom: 45px; 
-    }
-
-    #information .text-wrap img {
-        display: none;
-    }
-
-    #information .text-wrap .buttons {
-        position: relative;
-        top: -10px;
-    }
-
-}
-
-
-/* For store skjermer */
-@media screen and (min-width: 1160px) {
-    header {
-        background: url("../img/header.jpg") no-repeat center 57px;
-        background-size: cover;
-        box-shadow: inset 0 79px 0 var(--link-color);
-        height: 600px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        align-items: flex-end;
-    }
-
-    header h1 {
-        left: 56px;
-        margin: 0;
-        font-size: 4rem;
-        width: auto;
-        position: absolute;
-        top: 1px;
-        z-index: 5;
-        height: 0;
-    }
-
-    header h1::before {
-        right: -52px;
-        left: auto;
-        transform: inherit;
-        bottom: 25px;
-        top: 35px;
-        width: 40px;
-        height: 40px;
-    }
-
-    header nav {
-        /*width: var(--nearly-full-width);*/
-        /*float: right;*/
-        top: 0;
-        position: absolute;
-    }
-
-    header nav #search-form {
-        clear: both;
-        position: absolute;
-        right: 369px;
-        top: 27px;
-    }
-
-    header nav #search-form #submit_search {
-        right: -335px;
-    }
-
-    header nav #search-form .search {
-        width: 269px;
-        right: auto;
-    }
-
-    header nav #username-holder {
-        order: 5;
-    }
-
-    header nav .menuicon {
-        /*display: none !important;*/
-        top: 47px;
-    }
-
-    header nav #menu {
-        /*height: auto !important;
-        position: relative !important;
-        overflow: visible !important;
-        width: 610px !important;
-        flex-flow: row nowrap !important;
-        margin: auto;*/
-        top: 79px;
-    }
-
-    /* Skjuler rutineknappen på stor skjerm */
-    header nav #menu #rutine-side {
-        display: none;
-    }
-
-    header nav #menu .flex1 {
-        order: 5;
-    }
-
-    header nav #menu .menuItem {
-
-        display: inline-block;
-    }
-
-    header nav #menu .accordion {
-        padding: 0 !important;
-        position: relative !important;
-        margin: 0 !important;
-        min-width: 150px !important;
-    }
-
-    header nav #menu .accordion input:checked ~ .accordion-menu {
-        position: absolute;
-    }
-
-    header nav #menu .accordion label {
-        padding: 10px;
-    }
-
-    header nav #menu .accordion .accordion-menu {
-        height: 0;
-        display: none;
-        position: relative !important;
-        flex-flow: column !important;
-        padding: 10px !important;
-        min-width: 280px;
-        max-width: 130px;
-        top: 0;
-        left: 0;
-    }
-
-    main {
-        width: 90%;
-        top: -40px;
-        position: relative;
-    }
-
-    main #pictures {
-        width: 88.6%;
-        left: 5.9%;
-        position: relative;
-    }
-
-    main .sidebox-label {
-        position: fixed;
-        right: 0;
-        top: 90px;
-        width: 40px;
-        text-align: center;
-        background: #fff;
-        color: var(--link-color);
-        padding: 20px;
-        border: 1px solid #433a3a;
-        border-bottom: 2px solid #433a3a;
-        box-shadow: 2px 5px 4px #ccc;
-        -webkit-transition-duration: var(--animationShort);
-        -moz-transition-duration: var(--animationShort);
-        -ms-transition-duration: var(--animationShort);
-        -o-transition-duration: var(--animationShort);
-        transition-duration: var(--animationShort);
-        z-index: 59;
-        cursor: pointer;
-    }
-
-    main #routine {
-        top: 90px;
-        height: 68vh;
-        opacity: 0;
-    }
-
-    main #routine div {
-        height: inherit;
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
-    }
-}
-
-/* For Nettbrett og mobiler */
-
-@media screen and (max-width: 1160px) {
-    #information {
-        display: block;
-    }
-
-    .video-container {
-        margin-top: 30px;
-        max-width: none;
-        height: var(--routine-width) !important;
-    }
-
-    .video-container .trailer {
-        position: relative;
-    }
-    /* Skjuler rutinecheckboks på liten skjerm*/
-    #routine, .sidebox-label {
-        display: none;
-    }
-    /* Viser rutiner i meny på liten skjerm*/
-    header nav #menu #rutine-side {
-        display: inline-block;
-    }
-}
-
-=======
 :root {
 
     /* --- colors --- */
@@ -1087,34 +145,74 @@ header nav {
     /* ------- Hamburger Menu ------- */
 }
 
+header nav #search-div {
+    position: absolute;
+    width: 546px;
+    right: 0;
+    top: 23px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+header nav #search-div .popout {
+    position: absolute;
+    background: white;
+    z-index: 205;
+    color: black;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 30px;
+    top: 50px;
+    right: 240px;
+    width: 280px;
+}
+
+header nav #search-div .popout::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #fff;
+    position: absolute;
+    right: 40px;
+    top: -15px;
+    filter: drop-shadow(0px -1px 0px black);
+}
+
+header nav #advanced-search-header {
+    position: relative;
+    top: 11px;
+    order: 1;
+}
+
 header nav #search-form {
     position: relative;
-    bottom: -11px;
-    z-index: 300;
+    order: 2;
 }
 
 header nav #search-form .search {
-    position: absolute;
+    position: relative;
     width: 180px;
-    height: 25px;
+    height: 31px;
     padding: 3px 20px 3px 10px;
-    right: 70px;
+    right: 0;
     font-size: 1.1em;
     border: none;
-    top: 15px;
     color: #000;
     border-radius: 0;
 }
 
 header nav #search-form #submit_search {
-    position: absolute;
+    position: relative;
     right: 10px;
-    top: 15px;
     height: 31px;
     padding: 3px 10px;
     border-radius: 0;
     border: none;
     cursor: pointer;
+    font-size: 1.1em;
 }
 
 header nav #hamburger {
@@ -1168,7 +266,7 @@ header nav #menu {
     position: absolute;
     flex-flow: column nowrap;
     top: 58px;
-     z-index: 250;
+    z-index: 250;
 }
 
 /*header nav #menu #username {
@@ -1200,7 +298,7 @@ header nav #menu #innhold, header nav #menu #minside {
 }
 
 header nav #menu #minside{
-     padding-top: 5px;
+    padding-top: 5px;
 }
 
 
@@ -1277,11 +375,11 @@ header nav #menu .accordion .accordion-menu a {
 
 /* Endrer ikoner i meny */
 header nav #menu .navimg {
-      height: 1.5em; 
-      padding: 3px; 
-      margin-right: 3px;
-      vertical-align: text-bottom;
-    }
+    height: 1.5em;
+    padding: 3px;
+    margin-right: 3px;
+    vertical-align: text-bottom;
+}
 
 header nav .menuicon {
     position: absolute;
@@ -1572,15 +670,15 @@ main .flex-right {
 
 #arrowbox {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     width: 100%;
-    justify-content: space-around; 
+    justify-content: space-around;
     padding-top: 10px;
     border-top: 1px solid black;
 }
 
 .arrows {
-    width: 45%; 
+    width: 45%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -1626,6 +724,7 @@ main .flex-right {
     transition: 0.2s;
     height: 0;
     overflow: hidden;
+    display: none;
 }
 
 
@@ -1647,7 +746,24 @@ main .flex-right {
         margin-top: 30px;
     }
 
-    header nav #search-form {
+    header nav #search-div {
+        right:0;
+        left: 0;
+        top: 107px;
+        z-index: 251;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header nav #search-div .popout {
+        right: 152px;
+    }
+
+    header nav #search-div #advanced-search-header {
+        text-align: center;
+    }
+
+    header nav #search-div {
         display: none;
     }
 
@@ -1673,7 +789,7 @@ main .flex-right {
         height: 31px;
     }
 
-    header nav #hamburger:checked ~ #search-form {
+    header nav #hamburger:checked ~ #search-div {
         width: var(--full-page-width);
         position: absolute;
         top: var(--img-size-width);
@@ -1688,12 +804,12 @@ main .flex-right {
     }
 
     header nav #menu {
-      width: var(--full-page-width);
+        width: var(--full-page-width);
     }
 
 
     #innhold {
-        margin-bottom: 45px; 
+        margin-bottom: 65px;
     }
 
     #information .text-wrap img {
@@ -1750,20 +866,31 @@ main .flex-right {
         position: absolute;
     }
 
+    header nav #search-div {
+        flex-direction: column;
+        width: 300px;
+        right: 30px;
+        top:0;
+    }
+
     header nav #search-form {
         clear: both;
-        position: absolute;
-        right: 369px;
-        top: 27px;
+        position: relative;
+        right: 0;
+        display: flex;
+        top: 15px;
     }
 
     header nav #search-form #submit_search {
-        right: -335px;
+        right: auto;
     }
 
     header nav #search-form .search {
-        width: 269px;
+        width: 270px;
         right: auto;
+    }
+    header nav #search-div .popout {
+        right: 20px;
     }
 
     header nav #username-holder {
@@ -1896,5 +1023,3 @@ main .flex-right {
         display: inline-block;
     }
 }
-
->>>>>>> 88f98f6890bd0f783119fcfd1f83792f1b1624c8
