@@ -650,6 +650,32 @@ main .flex-right {
     overflow: hidden;
 }
 
+/* Vurderingsboks */
+#anmeldelse {
+    width: 100%; 
+    height: 100px;
+    outline: none; 
+    font-size: 1em; 
+    padding: 10px; 
+}
+
+#review {
+    border-bottom: solid 1px gray;
+}
+
+#brukernavn {
+    font-weight: bold; 
+}
+
+#dato {
+    font-variant: small-caps;
+    font-size: 0.7em; 
+}
+
+#commentRating {
+    margin: 0; 
+}
+
 
 /* -------- Liten mobilskjerm  ----------*/
 @media screen and (max-width: 650px) {
