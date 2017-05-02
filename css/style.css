@@ -1025,6 +1025,12 @@ main .flex-right {
         overflow: auto;
         -webkit-overflow-scrolling: touch;
     }
+    main #routine ol {
+
+    }
+    main #routine li {
+        
+    }
 }
 
 /* For Nettbrett og mobiler */
