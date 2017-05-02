@@ -1,13 +1,13 @@
-Rune:
+Rune - kandidatnr 114:
     - //TODO Få "Lånte filmer" og "Ønskeliste" til å fungere
     - //TODO Lage en navigasjons funksjon til fremsiden som laster inn de neste filmene i rekken.
 
-Malin:
+Malin - kandidatnr 309:
     - legge til en footer
     - CSS på navigeringsknapper på søkeresultatsiden. 
     - CSS på vurderinger 
 
-Aasmund:
+Aasmund - kandidatnr 184:
     - finne alternativ font om første valg ikkje blir lastet
 
 
