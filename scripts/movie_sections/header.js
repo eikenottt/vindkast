@@ -19,7 +19,7 @@ document.write(`
                     <div data-advanced-search="1" class="close popout">
                         <form id="search" action="search_results.html" method="get">
                             <fieldset>
-                                <legend>Søk</legend>
+                                <legend>Avansert Søk</legend>
                                 <div>
                                     <label for="film_title-adv">Film tittel</label>
                                     <input id="film_title-adv" name="film_title" type="text" placeholder="e.g. King Kong" >

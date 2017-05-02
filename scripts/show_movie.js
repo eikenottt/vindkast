@@ -27,8 +27,6 @@ window.onload = function () {
     title.innerHTML = movie_object.otitle;
     // Imdb link
     imdb.innerHTML = (movie_object.imdb_id !== null && movie_object.imdb_id !== "" && movie_object.imdb_id.substring(0, 1) === "t") ? `<a href="http://www.imdb.com/title/${movie_object.imdb_id}" target="_blank">Se mer på Imdb.com</a>` : "";
-    // Make buttons
-    makeButtons();
     // Country of origin and year of the movie
     language.innerHTML = `<div><span>Land: </span>${showInformationAboutMovie(showCountryName(movie_object.country), "country")}</div> <div><span>Utgivelsesår: </span>${movie_object.year}</div>`;
     // Duration of the movie in minutes

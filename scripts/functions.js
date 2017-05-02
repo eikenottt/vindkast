@@ -254,24 +254,6 @@ function showCountryName(cCode) {
 
 /**
  *
- */
-function makeButtons() {
-    let wishButton, loanButton;
-   
-    wishButton = document.querySelector("#wish");
-    loanButton = document.querySelector("#loan");
-
-    loanButton.addEventListener("click", () => {
-        loan_object[movie_id] = movie_object;
-    });
-
-    wishButton.addEventListener("click", () => {
-        wish_object[movie_id] = movie_object;
-    });
-}
-
-/**
- *
  * @param array
  * @returns {*}
  */
@@ -469,15 +451,17 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
     // if the enter key is pressed in the input field, go to given page
     page_num.addEventListener('keyup', function (event) {
         if(event.keyCode === 13) {
-            if(page_num.value > numPages()){
+            if(page_num.value >= numPages()){
                 page_num.value = numPages()
             }
-            if(page_num.value < 1) {
+            if(page_num.value <= 1) {
                 page_num.value = 1;
             }
             current_page = page_num.value;
+
             // runs the printing function
             changePage(current_page);
+
         }
     });
     // show amount of movie objects on page from the dropdown menu
@@ -503,7 +487,7 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
 
         page_span.innerHTML = "av\n" + numPages();
 
-        if (page === 1) {
+        if (page <= 1) {
             btn_prev.style.display = "none";
             btn_first.style.display = "none";
         } else {
@@ -511,7 +495,7 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
             btn_first.style.display = "block";
         }
 
-        if (page === numPages()) {
+        if (page >= numPages()) {
             btn_next.style.display = "none";
             btn_last.style.display = "none";
 

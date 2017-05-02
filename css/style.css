@@ -561,6 +561,23 @@ main section ul {
     justify-content: space-between;
 }
 
+form fieldset legend {
+    font-size: 1.5em;
+    color: var(--hover-color);
+}
+
+form fieldset div {
+    font-size: 0.9em;
+    display: flex;
+    margin-bottom: 4px;
+    justify-content: space-between;
+    width: 250px;
+}
+form fieldset div input {
+    max-width: 250px;
+}
+
+
 main #res_list {
     flex-wrap: wrap;
     overflow: auto;
@@ -762,7 +779,8 @@ main .flex-right {
     }
 
     header nav #search-div .popout {
-        right: 152px;
+        right: 50%;
+        margin-right: -150px;
     }
 
     header nav #search-div #advanced-search-header {

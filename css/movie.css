@@ -93,6 +93,12 @@
     top: 10px;
 }
 
+#information .buttons .add {
+    position: relative;
+    width: 33px;
+    right: 5px;
+}
+
 #information .buttons button {
     border: none;
     cursor: pointer;
