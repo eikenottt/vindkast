@@ -1061,7 +1061,7 @@ main .flex-right {
     }
 
     main #routine div {
-        height: inherit;
+        height: 100%;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
     }
