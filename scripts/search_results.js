@@ -44,7 +44,7 @@ function isValid(x, y) { // Function called to check if a search parameter 'y' i
 }
 
 function display(array) {
-    let count, ul, number, colums, length;
+    let count, ul, length;
     const title = document.querySelector("#film_title-adv"),
         actor = document.querySelector("#actor"),
         dir = document.querySelector("#director"),
