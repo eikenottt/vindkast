@@ -185,13 +185,13 @@
 }
 
 #review {
-    flex: 1;
     display: flex;
     flex-direction: row;
+    }
+
+#vurderinger h2 {
+    border-bottom: 2px dotted black;
 }
-
-
-
 
 
 @media screen and (min-width: 1160px) {
