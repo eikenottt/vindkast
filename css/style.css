@@ -539,7 +539,7 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/* ------ Movie sections ------ */
+/* ------ movielists sections ------ */
 
 main section {
     background: #fff;
@@ -656,6 +656,11 @@ main .flex-right {
     margin: 0;
     padding: 0;
 }
+
+
+
+
+/* ------- avansert søk tekst --------- */
 
 #advanced_search {
     border: none;

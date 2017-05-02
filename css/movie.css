@@ -97,7 +97,8 @@
     border: none;
     cursor: pointer;
     padding: 5px 20px;
-    background-color: #ddd;
+    background-color: transparent;
+    width: 62px; 
 }
 
 #information .buttons button:hover {
@@ -159,6 +160,7 @@
     list-style: none;
     display: inline-block;
 }
+
 
 @media screen and (min-width: 1160px) {
     /* Makes the cover img bigger. */
