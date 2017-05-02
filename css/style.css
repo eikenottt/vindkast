@@ -474,6 +474,11 @@ main #sidebox:checked ~ #routine {
     opacity: 1;
 }
 
+main label.sidebox-label {
+    font-variant: all-small-caps;
+    font-weight: bold;
+}
+
 main #sidebox:checked ~ #routine > .sidebox-label {
     color: #D1481B;
     background: #fff;
