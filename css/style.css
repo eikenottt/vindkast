@@ -187,6 +187,22 @@ header nav #advanced-search-header {
     order: 1;
 }
 
+header nav #advanced-search-header button {
+    border: none;
+    background: #0000001a;
+    color: var(--section-color);
+    font-size: 1em;
+    font-variant: all-small-caps;
+    padding: 0 6px;
+    border-radius: 3px;
+    border: 1px outset;
+}
+
+header nav #advanced-search-header button:hover {
+    cursor: pointer;
+    background: #0006;
+}
+
 header nav #search-form {
     position: relative;
     order: 2;
@@ -584,7 +600,7 @@ main #res_list {
 }
 
 main section ul a {
-    margin-right: 33.33333px;
+    margin: 0 16px;
 }
 
 main section ul .liste {
