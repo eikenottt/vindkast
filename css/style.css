@@ -189,7 +189,7 @@ header nav #advanced-search-header {
 
 header nav #advanced-search-header button {
     border: none;
-    background: #0000001a;
+    background: rgba(0,0,0,0.2);
     color: var(--section-color);
     font-size: 1em;
     font-variant: all-small-caps;
@@ -200,7 +200,7 @@ header nav #advanced-search-header button {
 
 header nav #advanced-search-header button:hover {
     cursor: pointer;
-    background: #0006;
+    background: rgba(0,0,0,0.4);
 }
 
 header nav #search-form {
