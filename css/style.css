@@ -668,6 +668,8 @@ main .flex-right {
     color: var(--hover-color);
 }
 
+/*------ frem og tilbake piler på søkeresultater -----*/
+
 #arrowbox {
     display: flex;
     flex-direction: row;
@@ -725,6 +727,10 @@ main .flex-right {
     height: 0;
     overflow: hidden;
     display: none;
+}
+
+#button .add {
+    height: 10px;
 }
 
 
