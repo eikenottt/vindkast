@@ -21,6 +21,7 @@ window.onload = function () {
         imdb = document.querySelector("#imdb"),
         review_text = document.querySelector("#review");
 
+
     document.title = `Vindkast - ${movie_object.otitle}`;
 
     // Title of the movie
@@ -48,6 +49,11 @@ window.onload = function () {
     cover_image.innerHTML = `<img id="img${movie_id}" src="https://nelson.uib.no/o/${(String(movie_id).length === 4) ? String(movie_id).substring(0, 1) : 0}/${movie_id}.jpg" 
                                          alt="${movie_object.otitle}" onerror="this.onerror=null;this.src='https://res.cloudinary.com/cinebee/image/upload/v1452103746/edg9gkd0sawkc34siol1.jpg'">`;
 
+    // user comment
+    review_text.innerHTML = getReviews();
+
+
+
 
     pictures.innerHTML = getImages(movie_id);
 
@@ -60,4 +66,15 @@ window.onload = function () {
 
     getRecommendedMovies();
 
+    function getReviews() {
+        html = "";
+        for (userid in review) {
+            html +=`<h4 id="brukernavn"> ${review[userid].username} </h4> <p id="dato"> Dato: ${review[userid].mod_date}</p> 
+            <p id="commentRating"> Rating: ${review[userid].rating} </p>
+            <p id="kommentar"> Kommentar: ${review[userid].comment} </p>`
+        }
+        return html; 
+    } 
+
 };
+

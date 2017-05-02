@@ -45,6 +45,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
 }
 
 #information span {
@@ -100,21 +101,22 @@
     right: 5px;
 }
 
+
 #information .buttons button {
     border: none;
     cursor: pointer;
     padding: 5px 20px;
     background-color: transparent;
     width: 62px; 
+    transition: 0.2s;
 }
 
 #button .add {
     height: 10px;
 }
 
-#information .buttons button:hover {
-    background-color: white;
-    box-shadow: inset 0 0 0 2px #ddd;
+.buttons .liste:hover {
+    transform: scale(1.2);
 }
 
 #pictures {
@@ -172,9 +174,22 @@
     display: inline-block;
 }
 
+#vuderinger {
+    display: flex;
+    flex-direction: column;
+}
+
 #anmeldelse {
+    flex: 1;
     position: relative;
 }
+
+#review {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
 
 
 
