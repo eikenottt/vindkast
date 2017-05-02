@@ -1016,6 +1016,12 @@ main .flex-right {
         left: 0;
     }
 
+    header span {
+        font-style: italic;
+        opacity: 0.8;
+        text-shadow: 1px 1px black;
+    }
+
     main {
         width: 90%;
         top: -40px;
