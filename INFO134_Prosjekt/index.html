@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <meta charset="utf-8"/>
+  <head>
+    <script type="text/javascript" src="script/profile.js"></script>
+  </head>
+  <body onload="setup_frontpage();">
+    <h2 id="filmtittel">Filmbiblioteket</h2>
+	<!-- Skjemaet gir mulighet for å søke etter film tittel. Dere må inkludere muligheten for et mer avansert søk -->
+	<form id="search" action="search_results.html" method="get">
+		<div>
+			<h1>Quick search</h1>
+		</div>
+		<fieldset>
+			<legend>Søk</legend>
+			<div>
+				<label for="film_title">Film tittel</label>
+				<input id="film_title" name="film_title" type="text" placeholder="e.g. King Kong" >
+			</div>
+		</fieldset>
+		<input type="submit" id="submit_search" value="Søk">
+	</form>
+	<hr>
+	<h2>Bruker</h2>
+	Username: <span id="username">Username</span><br>
+	Mine lån:<br>
+	<ul id="mine_lån">
+	</ul>
+	Min liste:<br>
+	<ul id="min_liste">
+	</ul>
+
+	<hr>
+	<h2>Filer:</h2>
+	<ul>
+	  <li>Html-filer: index.html(denne), show_movie.html (viser informasjon om en film), search_results.html (viser søkeresultater), advanced_search.html (viser skjema for utfyllende søk)</li>
+	  <li>JS-filer: profile.js (henter bruker informasjon), query_params.js (som før), show_movie.js (presenterer informasjon om en film), search_results.js (søker igjennom filmer og presenterer resultatene), object.js/reviews.js/genres.js (samme som før. må bare brukes til søk)
+	</ul>
+  </body>
+</html>
