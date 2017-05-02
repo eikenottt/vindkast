@@ -799,7 +799,7 @@ main .flex-right {
     }
 
     #search-div {
-        width: 300px;
+        width: 304px;
         position: absolute;
         right: 130px;
     }
@@ -931,7 +931,7 @@ main .flex-right {
 
     header nav #search-div {
         flex-direction: column;
-        width: 300px;
+        width: 304px;
         right: 30px;
         top:0;
     }
@@ -1059,6 +1059,10 @@ main .flex-right {
         height: 68vh;
         opacity: 0;
     }
+    main #routine h2 {
+        font-variant: all-small-caps;
+        font-style: bold;
+    }
 
     main #routine div {
         height: 100%;
@@ -1066,10 +1070,15 @@ main .flex-right {
         -webkit-overflow-scrolling: touch;
     }
     main #routine ol {
-
+        list-style-position: inside;
+        list-style-type: upper-roman;
     }
-    main #routine li {
-        
+    main #routine p {
+        padding-bottom: 15px;
+        border-top: 1px solid black;
+        padding-top: 10px;
+        font-style: normal;
+        color: black;
     }
 }
 
