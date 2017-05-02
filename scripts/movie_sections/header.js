@@ -17,7 +17,7 @@ document.write(`
                             <button onclick="showAdvancedSearch(1)" data-popout">Avansert søk</button>
                         </div>
                     <div data-advanced-search="1" class="close popout">
-                        <form id="search" action="" method="get">
+                        <form id="search" action="search_results.html" method="get">
                             <fieldset>
                                 <legend>Søk</legend>
                                 <div>
@@ -25,20 +25,20 @@ document.write(`
                                     <input id="film_title-adv" name="film_title" type="text" placeholder="e.g. King Kong" >
                                 </div>
                                 <div>
-                                    <label for="actor">Skuespiller</label>
-                                    <input id="actor" name="actor" type="text" placeholder="e.g. Tom Hanks" >
+                                    <label for="actor-header">Skuespiller</label>
+                                    <input id="actor-header" name="actor" type="text" placeholder="e.g. Tom Hanks" >
                                 </div>
                                 <div>
-                                    <label for="director">Regissør</label>
-                                    <input id="director" name="director" type="text" placeholder="e.g. Tom Hanks" >
+                                    <label for="director-header">Regissør</label>
+                                    <input id="director-header" name="director" type="text" placeholder="e.g. Tom Hanks" >
                                 </div>
                                 <div>
-                                    <label for="genre">Sjanger</label>
-                                    <input id="genre" name="genre" type="text" placeholder="Drama">
+                                    <label for="genre-header">Sjanger</label>
+                                    <input id="genre-header" name="genre" type="text" placeholder="Drama">
                                 </div>
                                 <div>
-                                    <label for="country">Land</label>
-                                    <input id="country" name="country" type="text" placeholder="Frankrike">
+                                    <label for="country-header">Land</label>
+                                    <input id="country-header" name="country" type="text" placeholder="Frankrike">
                                 </div>
                             </fieldset>
                             <input type="submit" id="submit_search" value="Søk">
