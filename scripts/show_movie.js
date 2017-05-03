@@ -42,7 +42,7 @@ window.onload = function () {
     // Folk in the movie
     folk.innerHTML = showInformationAboutMovie(movie_object.folk, "actor");
     // About the movie
-    about_movie.innerHTML = `${(movie_object.description !== (null && "" )) ? movie_object.description : "Ingen omhandling tilgjengelig"}`;
+    about_movie.innerHTML = `${(movie_object.description !== (null && "" )) ? "<pre>"+movie_object.description+"</pre>" : "Ingen omhandling tilgjengelig"}`;
     // Norwegian title of the movie
     nor_title.innerHTML = `Norsk tittel: ${movie_object.ntitle}`;
     // cover of the movie

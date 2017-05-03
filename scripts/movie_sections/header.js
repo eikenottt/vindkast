@@ -21,8 +21,8 @@ document.write(`
                             <fieldset>
                                 <legend>Avansert Søk</legend>
                                 <div>
-                                    <label for="film_title-adv">Film tittel</label>
-                                    <input id="film_title-adv" name="film_title" type="text" placeholder="e.g. King Kong" >
+                                    <label for="film_title-header">Film tittel</label>
+                                    <input id="film_title-header" name="film_title" type="text" placeholder="e.g. King Kong" >
                                 </div>
                                 <div>
                                     <label for="actor-header">Skuespiller</label>

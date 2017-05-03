@@ -144,6 +144,10 @@
     background-repeat: repeat-x;
 }
 
+pre {
+    white-space: pre-wrap;
+}
+
 .extra {
     display: block;
 }
@@ -174,23 +178,30 @@
     display: inline-block;
 }
 
-#vuderinger {
+#vurderinger {
+    display: flex;
+    flex-wrap: wrap;
+}
+#vurderinger h2 {
+    border-bottom: 2px dotted black;
+    width: 100%;
+}
+#vurderinger div {
+    width: 50%;
+    padding: 6px 40px 10px 0;
     display: flex;
     flex-direction: column;
 }
 
 #anmeldelse {
-    flex: 1;
     position: relative;
+    resize: none;
+    max-width: 100%;
 }
 
 #review {
     display: flex;
     flex-direction: row;
-    }
-
-#vurderinger h2 {
-    border-bottom: 2px dotted black;
 }
 
 
