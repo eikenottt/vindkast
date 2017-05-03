@@ -69,9 +69,10 @@ window.onload = function () {
     function getReviews() {
         html = "";
         for (userid in review) {
-            html +=`<div><h4 id="brukernavn"> ${review[userid].username} </h4> <p id="dato"> Dato: ${review[userid].mod_date}</p> 
-            <p id="commentRating"> Rating: ${review[userid].rating} </p>
-            <p id="kommentar"> Kommentar: ${review[userid].comment} </p></div>`
+            html +=`<div><h4 id="brukernavn"> ${review[userid].username} </h4>
+            <p id="commentRating"> rating: ${review[userid].rating}</p>
+            <p id="dato"> dato: ${review[userid].mod_date}</p> 
+            <p id="kommentar"> ${review[userid].comment} </p></div>`
         }
         return html; 
     } 

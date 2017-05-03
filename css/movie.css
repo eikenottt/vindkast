@@ -181,13 +181,15 @@ pre {
 #vurderinger {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
+
 #vurderinger h2 {
     border-bottom: 2px dotted black;
     width: 100%;
 }
 #vurderinger div {
-    width: 50%;
+    width: 42%;
     padding: 6px 40px 10px 0;
     display: flex;
     flex-direction: column;
@@ -197,11 +199,50 @@ pre {
     position: relative;
     resize: none;
     max-width: 100%;
+    margin: 0;
 }
 
-#review {
-    display: flex;
-    flex-direction: row;
+#vurderinger div {
+ padding: 10px;
+ border-bottom: 1px solid gray;
+ margin: 0px 4px 4px 0px;
+}
+
+#send {
+    border: none;
+    background: var(--link-color);
+    color: var(--section-color);
+    font-size: 1em;
+    font-variant: all-small-caps;
+    padding: 0 6px;
+    border-radius: 3px;
+    border: 1px outset;
+}
+
+#send:hover {
+    cursor: pointer;
+    background: rgba(0,0,0,0.2);
+}
+
+
+#brukernavn {
+    font-weight: bold;
+}
+
+#commentRating {
+    font-variant: small-caps;
+}
+
+
+#dato {
+    font-variant: small-caps; 
+    font-size: 0.8em; 
+    padding-bottom: 10px;
+
+}
+
+#kommentar {
+    font-style: italic;
 }
 
 
@@ -228,5 +269,10 @@ pre {
     #pictures #frame .image {
         background-size: cover;
         background-repeat: no-repeat;
+    }
+
+    #vurderinger div {
+        width: 100%;
+        padding: 6px 10px 10px 0;
     }
 }
