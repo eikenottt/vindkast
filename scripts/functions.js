@@ -94,7 +94,7 @@ function displayRecomendedMovies(htmltag, movie_id) {
     }
 
     let countryArray,
-        c,
+        c, // used in for each loop as country
         beforeCount,
         otherCount = 0,
         pickMovie, i, recMovie_id,
@@ -106,6 +106,8 @@ function displayRecomendedMovies(htmltag, movie_id) {
         pickMovie = ratings[i].movieId;
         countryArray = movie_object.country.split(regex);
         beforeCount = otherCount;
+
+        //TODO Lag recommendation basert på tittel
 
         if (otherCount > 2 && otherCount < 6) {
             for (c in countryArray) {
@@ -150,7 +152,7 @@ function displayRecomendedMovies(htmltag, movie_id) {
 
     recomendedMovies = shuffle(recomendedMovies);
 
-    pagination(calculateSpace(), recomendedMovies, htmltag);
+    pagination(calculateSpace(htmltag), recomendedMovies, htmltag);
 
     //writeMovieHTML(recomendedMovies, htmltag, recomendedMovies.length, 0);
 
@@ -290,7 +292,7 @@ function displayLoanedMovies(htmlTag) {
             loaned.push(pickedMovie);
     }
 
-    pagination(calculateSpace(), loaned, htmlTag);
+    pagination(calculateSpace(htmlTag), loaned, htmlTag);
     //writeMovieHTML(loaned, htmlTag, 10, 0);
 }
 
@@ -560,7 +562,7 @@ function loadRecOnIndex(){
     let years = sortByYear();
 
     // prints the movies to the index page
-    pagination(calculateSpace(), years, newMovies);
+    pagination(calculateSpace(newMovies), years, newMovies);
     // loads the recommended movies to the index page
     getRecommendedMovies();
 };
@@ -587,16 +589,11 @@ function sortByYear() {
  *
  * @returns number of movies to show on page
  */
-function calculateSpace() {
+function calculateSpace(ul) {
     // the width of the movie_objects
-    const movieCoverWidth = 133,
-        // the container the movies gets printed in
-        movieContainer = document.querySelectorAll(".movies");
-    // calculate for each section in case there is a difference
-    let ul = movieContainer[0];
+    const movieCoverWidth = 133;
     // the calculation takes place based on container width
-    amount = Math.floor((ul.offsetWidth - parseInt(window.getComputedStyle(ul).paddingLeft.replace("px", ""))) / movieCoverWidth);
-    return amount;
+    return Math.floor((ul.offsetWidth - parseInt(window.getComputedStyle(ul).paddingLeft.replace("px", ""))) / movieCoverWidth);
 }
 
 /**

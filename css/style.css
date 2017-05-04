@@ -188,7 +188,6 @@ header nav #advanced-search-header {
 }
 
 header nav #advanced-search-header button {
-    border: none;
     background: rgba(0,0,0,0.2);
     color: var(--section-color);
     font-size: 1em;
@@ -475,7 +474,6 @@ main #sidebox:checked ~ #routine {
 }
 
 main label.sidebox-label {
-    font-variant: all-small-caps;
     font-weight: bold;
 }
 
@@ -1066,7 +1064,7 @@ main .flex-right {
     }
     main #routine h2 {
         font-variant: all-small-caps;
-        font-style: bold;
+        font-weight: bold;
     }
 
     main #routine div {
