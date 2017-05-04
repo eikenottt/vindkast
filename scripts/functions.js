@@ -1,28 +1,35 @@
-const regexp = /[\s+,/;.]{2,}/;
+const regex = /[\s+,/;.]{2,}/; // contains the symbols used to split strings into arraylists
 
 /**
  * Show information about the movie in html
  *
- * @param {(string|string[])} movieObjList - string or array with type
- * @param {string} type - the type to search for
+ * @param {(string|string[])} movieObjList - string or array containing the information
+ * @param {string} type - determens what sort of information to display
+ *
+ * @returns string with a listelement containing a link to the searchpage
  */
 function showInformationAboutMovie(movieObjList, type) {
-    let html = '';
+    let html = '', // holds the HTML that will be returned
+        tempArray = movieObjList; // holds the array
+
+    // A check for a valid string or array
     if(movieObjList !== undefined && movieObjList !== null && movieObjList !== "") {
-        let tempArray = movieObjList;
 
+        // if the input is a string
         if (!Array.isArray(movieObjList))
-            tempArray = (movieObjList !== null) ? movieObjList.trim().split(regexp) : [];
+            tempArray = (movieObjList !== null) ? movieObjList.trim().split(regex) : []; // changes the string to an array using regex
 
+        // Adds the element in the array to the html variable
         tempArray.forEach(elem => {
+            // jumps over undefined elements
             if (elem !== undefined) {
-                elem = elem.replace(",", "");
+                elem = elem.replace(",", ""); // replaces comma with nothing
                 html += `<li><a href="search_results.html?${type}=${elem}">${elem}</a></li>, `;
             }
         });
     }
     else {
-        html = "Ingen " + type + " registrert";
+        html = "Ingen " + type + " registrert"; // Displays this if there is nothing in the string/array
     }
     return html;
 }
@@ -32,7 +39,7 @@ function showInformationAboutMovie(movieObjList, type) {
  * where the image file has the movie id + a letter
  *
  * @param id - id of movie
- * @returns {string} - string with html to write to webpage
+ * @returns string - string with html to write to webpage
  */
 function getImages(id) {
     let i, link, pictureArr = [], html = '';
@@ -48,7 +55,12 @@ function getImages(id) {
     });
     return html;
 }
-
+/**
+ * A non-functional image link-checker.
+ *
+ * @param link - the image link to be checked
+ * @returns {boolean} - true if the image exists, otherwise false
+ */
 function checkLink(link) {
     const imgTag = document.createElement('img');
     imgTag.setAttribute('src', link);
@@ -77,8 +89,8 @@ function checkLink(link) {
  */
 function displayRecomendedMovies(htmltag, movie_id) {
 
-    if (movie_id == undefined) { // if the movie id is undefined / if on the index.html
-        movie_id = pickRandomMovie(wish_list);  // pick a random movie id from wish_list
+    if (movie_id === undefined) { // if the movie id is undefined / if on the index.html
+        movie_id = pickRandomElement(wish_list);  // pick a random movie id from wish_list
     }
 
     let countryArray,
@@ -92,7 +104,7 @@ function displayRecomendedMovies(htmltag, movie_id) {
 
     for (i = 0; i < ratings.length; i++) {
         pickMovie = ratings[i].movieId;
-        countryArray = movie_object.country.split(regexp);
+        countryArray = movie_object.country.split(regex);
         beforeCount = otherCount;
 
         if (otherCount > 2 && otherCount < 6) {
@@ -253,11 +265,11 @@ function showCountryName(cCode) {
 }
 
 /**
- *
- * @param array
+ * Picks a random element from array or object
+ * @param {array|object} array -
  * @returns {*}
  */
-function pickRandomMovie(array) {
+function pickRandomElement(array) {
     let result;
     let count = 0;
     for (let id in array) {
@@ -273,7 +285,7 @@ function pickRandomMovie(array) {
 function displayLoanedMovies(htmlTag) {
     let loaned = [], i;
     for (i = 0; i < 10; i++) {
-        const pickedMovie = pickRandomMovie(movies_object);
+        const pickedMovie = pickRandomElement(movies_object);
         if (!loaned.includes(pickedMovie))
             loaned.push(pickedMovie);
     }
