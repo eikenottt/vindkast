@@ -2,9 +2,14 @@
 <html>
 	<meta charset="utf-8"/>
 	<head>
-		<link rel="stylesheet" type="text/css" href="css/movie.css">
+		<!-- CSS and icon -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="icon" type="image/png" href="img/wind.png">
+
+		<!-- Meta tags -->
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<!-- Scripts -->
 		<script src="scripts/functions.js" type="text/javascript"></script>
 		<script src="scripts/query_params.js" type="text/javascript"></script>
 		<script src="scripts/search_results.js" type="text/javascript"></script>
@@ -16,11 +21,11 @@
 	</head>
 	<body>
 		<header>
-			<script src="scripts/movie_sections/header.js"></script>
+			<script src="scripts/sections/header.js"></script>
 		</header>
 		<!-- Returnere resultatene som en (ordered <ol>) liste -->
 		<main>
-		<script src="scripts/movie_sections/routine.js"></script>
+		<script src="scripts/sections/routine.js"></script>
 		<section>
 			<h1>Resultat:</h1>
 			<div>Fant du ikke det du lette etter? <button id="advanced_search" onclick="showAdvancedSearch(2)">Prøv et avansert søk</button></div>
@@ -74,6 +79,7 @@
 				<div title="Gå til Neste Side" class="arrowEvents"><img class="arrowIcon" src="img/ikon/frem.svg" alt="frem"><p class="arrowText">Neste</p></div>
 				<div title="Gå til Siste Side" class="arrowEvents"><img class="arrowIcon" src="img/ikon/last.svg" alt="siste side"><p class="arrowText">Siste side</p></div>
 			</div>
+		</div>
 		</section>
 		</main>
 	</body>

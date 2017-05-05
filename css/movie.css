@@ -209,11 +209,9 @@ pre {
 }
 
 #send {
-    border: none;
     background: var(--link-color);
     color: var(--section-color);
     font-size: 1em;
-    font-variant: all-small-caps;
     padding: 0 6px;
     border-radius: 3px;
     border: 1px outset;
@@ -221,7 +219,7 @@ pre {
 
 #send:hover {
     cursor: pointer;
-    background: rgba(0,0,0,0.2);
+    background: rgb(46, 123, 139);
 }
 
 

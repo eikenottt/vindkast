@@ -48,36 +48,11 @@ function getImages(id) {
         link = `https://nelson.uib.no/o/${(String(id).length === 4) ? String(id).substring(0, 1) : 0}/${id + alphabet[i]}.jpg`;
         pictureArr.push(link);
     }
-    /*if(!checkLink(pictureArr[0]) && !checkLink(pictureArr[1]))
-        document.querySelector("#frame").remove();*/
+
     pictureArr.forEach((pic, i) => {
         html += `<div class="image" id="limage${i}" style="background-image: url(${pic});" ></div>`;
     });
     return html;
-}
-/**
- * A non-functional image link-checker.
- *
- * @param link - the image link to be checked
- * @returns {boolean} - true if the image exists, otherwise false
- */
-function checkLink(link) {
-    const imgTag = document.createElement('img');
-    imgTag.setAttribute('src', link);
-    let timer = setInterval(function () {
-        imgTag.error = function() {
-            console.log(link);
-            imgTag.remove();
-            clearInterval(timer);
-            return true;
-        };
-    }, 1000);
-    if(timer > 10) {
-        clearInterval(timer);
-        console.log("Done");
-        return false;
-    }
-    checkLink(link);
 }
 
 
@@ -154,8 +129,6 @@ function displayRecomendedMovies(htmltag, movie_id) {
 
     pagination(calculateSpace(htmltag), recomendedMovies, htmltag);
 
-    //writeMovieHTML(recomendedMovies, htmltag, recomendedMovies.length, 0);
-
 }
 
 /**
@@ -167,7 +140,7 @@ function displayRecomendedMovies(htmltag, movie_id) {
  */
 function getAvgRating(reviewObj) {
     let ratingavg = 0, ratingCount = 0, usr, avgRating;
-    if (reviewObj == null) {
+    if (reviewObj === null || reviewObj === undefined) {
         return `Bli den første til å vurdere filmen`;
     } else {
         for (usr in reviewObj) {
@@ -177,6 +150,19 @@ function getAvgRating(reviewObj) {
         avgRating = ratingavg / ratingCount;
         setRatingStars(avgRating);
         return `${(avgRating).toFixed(2)}`;
+    }
+}
+
+/**
+ *
+ * @param rating
+ */
+function setRatingStars(rating) {
+    let input;
+    if (rating !== null) {
+        rating = Math.floor(rating);
+        input = document.querySelector(`#rating-input-1-${rating}`);
+        input.setAttribute("checked", "");
     }
 }
 
@@ -216,7 +202,7 @@ function sortAfterRating() {
             i++;
             ravg += rev[s].rating;
         }
-        if (ravg != null) {
+        if (ravg !== null) {
             ravg = (ravg / i).toFixed(2);
             ratings.movieId = movies_object[mid];
             ratings.ratingAvg = ravg;
@@ -235,26 +221,12 @@ function sortAfterRating() {
 
 /**
  *
- * @param rating
- */
-function setRatingStars(rating) {
-    let input;
-    if (rating != (null || 0)) {
-        rating = Math.floor(rating);
-        input = document.querySelector(`#rating-input-1-${rating}`);
-        input.setAttribute("checked", "");
-    }
-
-}
-
-/**
- *
  * @param cCode
  * @returns {*}
  */
 function showCountryName(cCode) {
     cCode = cCode.toUpperCase();
-    if (country_object[cCode] != undefined) return country_object[cCode];
+    if (country_object[cCode] !== undefined) return country_object[cCode];
     else {
         const countries = [];
         let i;
@@ -488,7 +460,10 @@ function pagination(itemsPerPage, moviesArray, listing_table) {
         changePage(current_page);
     });
 
-
+    /**
+     * Changes the
+     * @param page
+     */
     function changePage(page) {
         page_num.value = page;
         // Validate page
@@ -565,7 +540,7 @@ function loadRecOnIndex(){
     pagination(calculateSpace(newMovies), years, newMovies);
     // loads the recommended movies to the index page
     getRecommendedMovies();
-};
+}
 
 /**
  * Sorts the movie objects after the year the movie was released
@@ -604,4 +579,3 @@ function showAdvancedSearch(id) {
     const adv = document.querySelector("[data-advanced-search='"+id+"']");
     adv.classList.toggle("close");
 }
-

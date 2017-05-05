@@ -41,3 +41,17 @@ function setup_frontpage() {
 		};
     xhr.send();
 }
+
+class Connection {
+	xhr = new XMLHttpRequest();
+
+	constructor() {
+		xhr.open();
+	}
+
+	get movies_object() {
+		return movies_object;
+	}
+
+
+}

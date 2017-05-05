@@ -39,11 +39,11 @@ Utførte Oppgaver:
               - Generere Menyen ved hjelp av javascript //DONE
               - endre piltast fra before til after //DONE
               - endre til "mine lån" istedenfor "mine filmer" DONE 
-              - fikset bug i meny
+              - fikset bug i meny //DONE
 
 
     Aasmund:  - Legge inn rating fra "review" filen til filmene //DONE
-              - søkeresultat siden skal genereres med javascript
+              - søkeresultat siden skal genereres med javascript //DONE
               - Implentere advanced_search.html til vindkast filen //DONE
               - søk etter land //DONE
               - ha en seksjon over søkeresultatene der det står:
